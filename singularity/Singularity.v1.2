@@ -1,0 +1,51 @@
+Bootstrap: localimage
+From: GOMAP-base.simg
+
+%labels
+MAINTAINER Kokulapalan Wimalanathan
+Version 1.2
+HPC non-mpich
+
+%files
+    irods_environment.json
+
+%environment
+    #export LC_ALL=C
+    export DEBIAN_FRONTEND=noninteractive
+    export MYSQL_USER=pannzer
+    export MYSQL_DATABASE=pannzer
+    export MYSQL_ROOT_PASSWORD=mysql
+
+%post
+	echo "Running post"
+    
+    export IRODS_HOST=data.iplantcollaborative.org
+    export IRODS_PORT=1247
+    export IRODS_USER_NAME=anonymous
+    export IRODS_ZONE_NAME=iplant
+    
+    mkdir -p /.irods
+    
+	mkdir -p /opt/GOMAP/
+	git clone --branch=v1.2-dev https://github.com/Dill-PICL/GOMAP-code.git /opt/GOMAP/
+    mkdir -p /opt/GOMAP/data/
+    cd /opt/GOMAP/data && \
+    icd /iplant/home/shared/dillpicl/gomap/GOMAP-data.v1.2/ && \
+    iget -P data.tar.gz && tar -xvf data.tar.gz &&  rm data.tar.gz && \
+    iget -P software.tar.gz && tar -xvf software.tar.gz && rm software.tar.gz
+    
+	chmod -R 777 /opt/GOMAP/
+	mkdir -p /workdir
+	mkdir -p /tmpdir
+	#mkdir -p /var/log/mysql
+    chmod 777 /var/lib/mysql
+	
+	echo "Completed Post" 
+
+%startscript
+	chmod 777 /tmp
+	nohup mysqld > /workdir/tmp/mysql.log 2> /workdir/tmp/mysql.err < /dev/null &
+
+%runscript
+	cd /opt/GOMAP/ 
+	./gomap.py "$@"
