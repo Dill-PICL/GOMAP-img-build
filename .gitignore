@@ -1,2 +1,4 @@
 .ipynb_checkpoints
 *.simg
+GOMAP
+*.out
