@@ -8,7 +8,6 @@ then
     sudo rm -r "$instance_name.simg"
 fi
 
-sudo singularity -v build --tmpdir $SINGULARITY_TMPDIR $instance_name.simg singularity/Singularity.v1.2
-
-#time sudo singularity -v build $instance_name.simg $instance_name-dir.simg && \
-#sudo chown gokul:gokul $instance_name.simg
+time singularity -v build -s $instance_name singularity/Singularity.v1.2
+time singularity -v build $instance_name.simg $instance_name && \
+chown gokul:gokul $instance_name.simg
