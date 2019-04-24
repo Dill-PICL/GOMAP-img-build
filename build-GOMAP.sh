@@ -8,6 +8,10 @@ then
     sudo rm -r "$instance_name.simg"
 fi
 
-time singularity -v build -s $instance_name singularity/Singularity.v1.2
+if [ ! -d $instance_name ]
+then
+time singularity -v build -s $instance_name singularity/Singularity.v1.2.mpich-3.2.1
+fi
+
 time singularity -v build $instance_name.simg $instance_name && \
 chown gokul:gokul $instance_name.simg
