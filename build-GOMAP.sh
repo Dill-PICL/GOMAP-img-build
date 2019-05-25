@@ -3,11 +3,9 @@ export SINGULARITY_TMPDIR="/home/gokul/lab_data/dill-picl/GOMAP/GOMAP-singularit
 #export SINGULARITY_LOCALCACHEDIR="/home/gokul/lab_data/dill-picl/GOMAP/GOMAP-singularity"
 
 instance_name="GOMAP"
-if [ -f "$instance_name.simg" ]
-then
-    rm -rf "$instance_name"
-    rm -r "$instance_name.simg"
-fi
+
+rm -rf "$instance_name"
+rm -r "$instance_name.simg"
 
 if [ ! -d $instance_name ]
 then
