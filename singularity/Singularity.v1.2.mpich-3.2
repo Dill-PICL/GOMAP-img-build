@@ -29,9 +29,10 @@ HPC ISU-condo
 
     #Installing mpich and python package to use it
     wget http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz  && \
-    tar -xf  mpich-3.2.1.tar.gz && \
-    cd mpich-3.2.1 &&  \
-    ./configure && make -j4 && make install && \
+    tar -xf  mpich-3.2.tar.gz && \
+    cd mpich-3.2 &&  \
+    ./configure && make -j16 && make install && \
+    
     cd ..
 	pip install mpi4py==3.0.0
 
