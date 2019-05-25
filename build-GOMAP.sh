@@ -11,7 +11,7 @@ fi
 
 if [ ! -d $instance_name ]
 then
-    time singularity -v build -s $instance_name singularity/Singularity.v1.2.mpich-3.2 && \
+    time singularity -v build -s $instance_name singularity/Singularity.v1.2.mpich-3.2.1 && \
     time singularity -v build $instance_name.simg $instance_name && \
     chown gokul:gokul $instance_name.simg
 fi

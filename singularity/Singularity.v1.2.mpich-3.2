@@ -52,14 +52,12 @@ HPC ISU-condo
 	mkdir -p /workdir
 	mkdir -p /tmpdir
 	mkdir -p /work
-	mkdir -p /scratch 
-	mkdir -p /var/log/mysql 
+	mkdir -p /scratch
 	
 	echo "Completed Post"
 
 %startscript
 	chmod 777 /tmp
-	nohup mysqld > /workdir/tmp/mysql.log 2> /workdir/tmp/mysql.err < /dev/null &
 
 %runscript
 	cd /opt/GOMAP/ 

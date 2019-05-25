@@ -9,9 +9,6 @@ HPC ISU-condo
 %environment
     export LC_ALL=C
     export DEBIAN_FRONTEND=noninteractive
-    export MYSQL_USER=pannzer
-    export MYSQL_DATABASE=pannzer
-    export MYSQL_ROOT_PASSWORD=mysql
     export IRODS_HOST=data.iplantcollaborative.org
     export IRODS_PORT=1247
     export IRODS_USER_NAME=anonymous
@@ -51,14 +48,12 @@ HPC ISU-condo
 	mkdir -p /workdir
 	mkdir -p /tmpdir
 	mkdir -p /work
-	mkdir -p /scratch 
-	mkdir -p /var/log/mysql 
+	mkdir -p /scratch
 	
 	echo "Completed Post"
 
 %startscript
 	chmod 777 /tmp
-	nohup mysqld > /workdir/tmp/mysql.log 2> /workdir/tmp/mysql.err < /dev/null &
 
 %runscript
 	cd /opt/GOMAP/ 
