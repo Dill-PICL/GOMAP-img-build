@@ -9,9 +9,6 @@ HPC ISU-condo
 %environment
     export LC_ALL=C
     export DEBIAN_FRONTEND=noninteractive
-    export MYSQL_USER=pannzer
-    export MYSQL_DATABASE=pannzer
-    export MYSQL_ROOT_PASSWORD=mysql
     export IRODS_HOST=data.iplantcollaborative.org
     export IRODS_PORT=1247
     export IRODS_USER_NAME=anonymous
@@ -28,17 +25,16 @@ HPC ISU-condo
     mkdir -p /root/.irods
 
     #Installing mpich and python package to use it
-    wget http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz  && \
-    tar -xf  mpich-3.2.tar.gz && \
-    cd mpich-3.2 &&  \
-    ./configure && make -j16 && make install && \
-    
+    wget http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz  && \
+    tar -xf  mpich-3.2.1.tar.gz && \
+    cd mpich-3.2.1 &&  \
+    ./configure && make -j4 && make install && \
     cd ..
 	pip install mpi4py==3.0.0
 
     # Downloading GOMAP code
 	mkdir /opt/GOMAP/
-	git clone --branch=v1.2-dev https://github.com/Dill-PICL/GOMAP.git /opt/GOMAP/
+	git clone --branch=v1.3-dev https://github.com/Dill-PICL/GOMAP.git /opt/GOMAP/
 	chmod -R 777 /opt/GOMAP/
     
     #Downloading backed in GOMAP code
