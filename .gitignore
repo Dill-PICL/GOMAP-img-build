@@ -2,3 +2,4 @@
 *.simg
 GOMAP
 *.out
+zendo_upload.py
