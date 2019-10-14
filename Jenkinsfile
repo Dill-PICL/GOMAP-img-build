@@ -11,7 +11,7 @@ pipeline {
                 sh '''
                     singularity --version
                     ls -lah
-                    ./build.sh
+                    bash build.sh
                 '''
             }
         }
