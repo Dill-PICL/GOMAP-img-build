@@ -28,6 +28,10 @@ pipeline {
         stage('Post') {
             steps {
                 echo 'Image Successfully Built'
+                sh '''
+                    export AZCOPY_JOB_PLAN_LOCATION=/mnt
+                    export AZCOPY_BUFFER_GB=2
+                '''
                 azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${IMAGE}/${VERSION}/", storageType:"blob",containerName:'gomap')
             }
         }
