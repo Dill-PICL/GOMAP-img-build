@@ -11,8 +11,9 @@ pipeline {
                 sh '''
                     singularity --version
                     ls -lah
-                    chmod 755 build.sh
-                    ./build.sh
+                    azcopy cp https://gomap.blob.core.windows.net/gomap/gomap/GOMAP-base/1.3.1/GOMAP-base.sif > GOMAP-base.sif
+                    mkdir tmp
+                    sudo singularity build --tmpdir tmp $instance_name.sif singularity/Singularity.v1.3.1.mpich-3.2.1
                 '''
             }
         }
@@ -20,14 +21,14 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh '''
-                    singularity exec GOMAP-base.sif ls
+                    singularity exec ${IMAGE}.sif ls
                 '''
             }
         }
         stage('Post') {
             steps {
                 echo 'Image Successfully Built'
-                azureUpload (storageCredentialId:'gomap', filesPath:"GOMAP-base.sif",allowAnonymousAccess:true, virtualPath:"${CONTAINER}/${IMAGE}/${VERSION}/", storageType:"blob",containerName:'gomap')
+                azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${CONTAINER}/${IMAGE}/${VERSION}/", storageType:"blob",containerName:'gomap')
             }
         }
     }
