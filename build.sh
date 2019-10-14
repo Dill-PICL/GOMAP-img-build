@@ -1,5 +1,8 @@
 instance_name="GOMAP"
-rm -r "$instance_name.sif"
+if [ -f "$instance_name.sif" ]
+then
+    rm -r "$instance_name.sif"
+fi
 
 azcopy cp https://gomap.blob.core.windows.net/gomap/gomap/GOMAP-base/1.3.1/GOMAP-base.sif > GOMAP-base.sif
 
