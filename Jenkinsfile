@@ -13,7 +13,7 @@ pipeline {
                     ls -lah && \
                     azcopy cp https://gomap.blob.core.windows.net/gomap/gomap/GOMAP-base/1.3.1/GOMAP-base.sif > GOMAP-base.sif && \
                     mkdir tmp && \
-                    sudo singularity build --tmpdir tmp $instance_name.sif singularity/Singularity.v1.3.1.mpich-3.2.1
+                    sudo singularity build --tmpdir tmp ${IMAGE}.sif singularity/Singularity.v1.3.1.mpich-3.2.1
                 '''
             }
         }
