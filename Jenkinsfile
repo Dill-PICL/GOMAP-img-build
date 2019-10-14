@@ -11,6 +11,7 @@ pipeline {
                 sh '''
                     singularity --version
                     ls -lah
+                    chmod 755 build.sh
                     ./build.sh
                 '''
             }
