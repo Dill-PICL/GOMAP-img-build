@@ -28,7 +28,7 @@ pipeline {
         stage('Post') {
             steps {
                 echo 'Image Successfully Built'
-                azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${CONTAINER}/${IMAGE}/${VERSION}/", storageType:"blob",containerName:'gomap')
+                azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${IMAGE}/${VERSION}/", storageType:"blob",containerName:'gomap')
             }
         }
     }
