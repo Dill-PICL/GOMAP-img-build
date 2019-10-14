@@ -1,9 +1,9 @@
-Bootstrap: shub
-From: Dill-PICL/GOMAP-base:bionic
+Bootstrap: localimage
+From: GOMAP-base.sif
 
 %labels
 MAINTAINER Kokulapalan Wimalanathan
-Version 1.2
+Version 1.3.1
 HPC ISU-condo
 
 %environment
@@ -28,11 +28,10 @@ HPC ISU-condo
     
     #Downloading backed in GOMAP code
 		cd /opt/GOMAP/data && \
-		aws s3 sync s3://gomap-data/GOMAP-1.3/pipelineData/data data --acl public-read --no-sign-request && \
-		aws s3 sync s3://gomap-data/GOMAP-1.3/pipelineData/software software --acl public-read --no-sign-request && \
+		azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ --recursive && \
+		azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ --recursive && \
 		chmod -R 755 software && chmod -R 755 data
 	
-    
     #Making necessary directories
 	  mkdir -p /workdir
 	  mkdir -p /tmpdir
