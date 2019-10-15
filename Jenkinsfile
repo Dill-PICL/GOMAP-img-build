@@ -1,10 +1,12 @@
 pipeline {
-    agent any
+    agent { label 'ubuntu'}
     environment {
         CONTAINER = 'gomap'
         IMAGE = 'GOMAP'
         VERSION = '1.3.1'
+        ZENODO_KEY = credentials('zenodo')
     }
+    when { changeset "singularity/*"}
     stages {
         stage('Build') {
             steps {
@@ -28,11 +30,10 @@ pipeline {
         stage('Post') {
             steps {
                 echo 'Image Successfully Built'
-                sh '''
-                    export AZCOPY_JOB_PLAN_LOCATION=/mnt
-                    export AZCOPY_BUFFER_GB=2
-                '''
                 azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${IMAGE}/${VERSION}/", storageType:"blob",containerName:'gomap')
+                sh '''
+                    python3 zenodo_upload.py ${ZENODO_KEY}
+                '''
             }
         }
     }
