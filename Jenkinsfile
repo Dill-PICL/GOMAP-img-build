@@ -6,9 +6,10 @@ pipeline {
         VERSION = '1.3.1'
         ZENODO_KEY = credentials('zenodo')
     }
-    when { changeset "singularity/*"}
+    
     stages {
         stage('Build') {
+            when { changeset "singularity/*"}
             steps {
                 sh '''
                     singularity --version && \
@@ -20,6 +21,7 @@ pipeline {
             }
         }
         stage('Test') {
+            when { changeset "singularity/*"}
             steps {
                 echo 'Testing..'
                 sh '''
@@ -28,6 +30,7 @@ pipeline {
             }
         }
         stage('Post') {
+            when { changeset "singularity/*"}
             steps {
                 echo 'Image Successfully Built'
                 azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${IMAGE}/${VERSION}/", storageType:"blob",containerName:'gomap')
