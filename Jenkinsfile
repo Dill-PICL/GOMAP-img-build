@@ -31,7 +31,10 @@ pipeline {
     post{
                 success{
                     echo 'Image Successfully tested'
-                    azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${IMAGE}/${VERSION}/", storageType:"file",containerName:'gomap')
+                    sh '''
+                        mkdir -p /mnt/${CONTAINER}/${IMAGE}/${VERSION}/ && \
+                        rsync -rluvP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif
+                    '''
                     echo 'Image Successfully uploaded'
                 }
             }
