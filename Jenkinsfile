@@ -12,9 +12,6 @@ pipeline {
             when { changeset "singularity/*"}
             steps {
                 sh '''
-                    sudo chown gokool:gokool /mnt
-                    echo "$AZCOPY_JOB_PLAN_LOCATION"
-                    echo "$AZCOPY_BUFFER_GB"
                     singularity --version && \
                     ls -lah && \
                     mkdir tmp && \
