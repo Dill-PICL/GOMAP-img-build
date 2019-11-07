@@ -19,23 +19,24 @@ pipeline {
             }
         }
         stage('Test') {
+            when { changeset "singularity/*"}
             steps {
                 echo 'Testing..'
                 sh '''
                     ls -lh && \
-                    singularity exec ${IMAGE}.sif ls
+                    ./test.sh
                 '''
             }
         }
     }
     post{
-                success{
-                    echo 'Image Successfully tested'
-                    sh '''
-                        mkdir -p /mnt/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                        rsync -rluvP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif
-                    '''
-                    echo 'Image Successfully uploaded'
-                }
+        success{
+                echo 'Image Successfully tested'
+                sh '''
+                    mkdir -p /mnt/${CONTAINER}/${IMAGE}/${VERSION}/ && \
+                    rsync -rluvP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif
+                '''
+                echo 'Image Successfully uploaded'
             }
+        }
 }
