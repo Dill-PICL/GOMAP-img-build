@@ -30,7 +30,8 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh '''
-                    singularity exec ${IMAGE}.sif ls /opt/
+                    ls -lh
+                    singularity exec ${IMAGE}.sif ls
                 '''
             }
             post{
