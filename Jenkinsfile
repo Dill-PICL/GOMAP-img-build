@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh '''
-                    ls -lh
+                    ls -lh && \
                     singularity exec ${IMAGE}.sif ls
                 '''
             }
