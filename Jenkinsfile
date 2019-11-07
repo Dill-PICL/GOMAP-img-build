@@ -41,16 +41,9 @@ pipeline {
             post{
                 success{
                     echo 'Image Successfully tested'
-                    azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${IMAGE}/${VERSION}/", storageType:"blob",containerName:'gomap')
+                    azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${IMAGE}/${VERSION}/", storageType:"file",containerName:'gomap')
                     echo 'Image Successfully uploaded'
                 }
-            }
-        }
-        stage('Zenodo') {
-            agent { label 'master'}
-            when { changeset "singularity/*"}
-            steps {                
-                azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${IMAGE}/${VERSION}/", storageType:"file",containerName:'gomap')
             }
         }
     }
