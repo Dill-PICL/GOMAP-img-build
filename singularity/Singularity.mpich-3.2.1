@@ -3,7 +3,7 @@ From: GOMAP-base.sif
 
 %labels
 MAINTAINER Kokulapalan Wimalanathan
-Version 1.3.1
+Version 1.3.2
 HPC ISU-condo
 
 %environment
@@ -23,7 +23,7 @@ HPC ISU-condo
 
     # Downloading GOMAP code
 		mkdir /opt/GOMAP/ && \
-		git clone --branch=v1.3-dev https://github.com/Dill-PICL/GOMAP.git /opt/GOMAP/ && \
+		git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git /opt/GOMAP/ && \
 		chmod -R 777 /opt/GOMAP/
     
     #Downloading backed in GOMAP code

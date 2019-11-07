@@ -1,14 +1,14 @@
 pipeline {
-    agent { label 'ubuntu'}
+    agent none
     environment {
         CONTAINER = 'gomap'
         IMAGE = 'GOMAP'
-        VERSION = '1.3.1'
-        ZENODO_KEY = credentials('zenodo')
+        VERSION = '1.3.2'
     }
     
     stages {
         stage('Build') {
+            agent { label 'ubuntu'}
             when { changeset "singularity/*"}
             steps {
                 sh '''
@@ -20,24 +20,37 @@ pipeline {
                     azcopy env && \
                     azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-base/1.3.1/GOMAP-base.sif > GOMAP-base.sif && \
                     mkdir tmp && \
-                    sudo singularity build --tmpdir tmp ${IMAGE}.sif singularity/Singularity.v1.3.1.mpich-3.2.1
+                    sudo singularity build --tmpdir tmp ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
                 '''
+            }
+            post{
+                success{
+                    echo 'Image Successfully Built'
+                }
             }
         }
         stage('Test') {
+            agent { label 'ubuntu'}
             when { changeset "singularity/*"}
             steps {
                 echo 'Testing..'
                 sh '''
-                    singularity exec ${IMAGE}.sif ls
+                    singularity exec ${IMAGE}.sif ls /opt/
                 '''
             }
+            post{
+                success{
+                    echo 'Image Successfully tested'
+                    azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${IMAGE}/${VERSION}/", storageType:"blob",containerName:'gomap')
+                    echo 'Image Successfully uploaded'
+                }
+            }
         }
-        stage('Post') {
+        stage('Zenodo') {
+            agent { label 'master'}
             when { changeset "singularity/*"}
-            steps {
-                echo 'Image Successfully Built'
-                azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${IMAGE}/${VERSION}/", storageType:"blob",containerName:'gomap')
+            steps {                
+                azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${IMAGE}/${VERSION}/", storageType:"file",containerName:'gomap')
             }
         }
     }
