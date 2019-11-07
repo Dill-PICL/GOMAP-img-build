@@ -13,6 +13,11 @@ HPC ISU-condo
  
 %post
 	echo "Running post"
+
+    # Downloading GOMAP code
+		mkdir /opt/GOMAP/ && \
+		git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git /opt/GOMAP/ && \
+		chmod -R 777 /opt/GOMAP/
 	
     #Downloading backed in GOMAP code 
 		cd /opt/GOMAP/data && \
@@ -27,12 +32,6 @@ HPC ISU-condo
 		./configure && make -j16 && make install &&  \
 		cd .. && \
 		pip install mpi4py==3.0.0 
-
-    # Downloading GOMAP code
-		mkdir /opt/GOMAP/ && \
-		git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git /opt/GOMAP/ && \
-		chmod -R 777 /opt/GOMAP/
-    
 	
     #Making necessary directories
 	  mkdir -p /workdir
