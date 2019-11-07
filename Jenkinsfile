@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent { label 'ubuntu'}
     environment {
         CONTAINER = 'gomap'
         IMAGE = 'GOMAP'
@@ -8,7 +8,6 @@ pipeline {
     
     stages {
         stage('Build') {
-            agent { label 'ubuntu'}
             when { changeset "singularity/*"}
             steps {
                 sh '''
@@ -18,15 +17,8 @@ pipeline {
                     sudo singularity build --tmpdir tmp ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
                 '''
             }
-            post{
-                success{
-                    echo 'Image Successfully Built'
-                }
-            }
         }
         stage('Test') {
-            agent { label 'ubuntu'}
-            when { changeset "singularity/*"}
             steps {
                 echo 'Testing..'
                 sh '''
@@ -34,13 +26,13 @@ pipeline {
                     singularity exec ${IMAGE}.sif ls
                 '''
             }
-            post{
+        }
+    }
+    post{
                 success{
                     echo 'Image Successfully tested'
                     azureUpload (storageCredentialId:'gomap', filesPath:"${IMAGE}.sif",allowAnonymousAccess:true, virtualPath:"${IMAGE}/${VERSION}/", storageType:"file",containerName:'gomap')
                     echo 'Image Successfully uploaded'
                 }
             }
-        }
-    }
 }
