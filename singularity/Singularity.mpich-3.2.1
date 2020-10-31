@@ -29,7 +29,7 @@ HPC ISU-condo
 		wget http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz  && \
 		tar -xf  mpich-3.2.1.tar.gz && \
 		cd mpich-3.2.1 &&  \
-		./configure && make -j16 && make install &&  \
+		./configure && make -j8 && make install &&  \
 		cd .. && \
 		pip install mpi4py==3.0.0  
 	
