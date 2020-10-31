@@ -3,3 +3,8 @@
 GOMAP
 *.out
 zendo_upload.py
+tmp
+*log
+*.sif
+*err
+*tar.gz

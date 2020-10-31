@@ -33,8 +33,11 @@ pipeline {
         success{
                 echo 'Image Successfully tested'
                 sh '''
-                    mkdir -p /mnt/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    rsync -rluvP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif
+                    imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
+                    ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
+                    icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
+                    irsync -sVN1 ${IMAGE}.sif i:${IMAGE}.sif && \
+                    ichmod read anonymous ${IMAGE}.sif
                 '''
                 echo 'Image Successfully uploaded'
             }
