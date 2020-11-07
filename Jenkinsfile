@@ -28,7 +28,7 @@ pipeline {
                 echo 'Testing..'
                 sh '''
                     ls -lh && \
-                    ./test.sh 
+                    ./test.sh  
                 '''
             }
         }
