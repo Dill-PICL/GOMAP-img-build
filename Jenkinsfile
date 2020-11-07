@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh '''
                     singularity --version && \
-                    ls -lah && \
+                    ls -lah
                     if [ -d tmp ]
                     then
                         sudo rm -r tmp
