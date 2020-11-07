@@ -4,6 +4,7 @@ pipeline {
         CONTAINER = 'gomap'
         IMAGE = 'GOMAP'
         VERSION = '1.3.2'
+        IPLANT_CREDS = credentials('iplant-credentials')
     }
     
     stages {
@@ -37,6 +38,13 @@ pipeline {
         success{
                 echo 'Image Successfully tested'
                 sh '''
+                    export IRODS_HOST="data.cyverse.org"
+                    export IRODS_PORT="1247"
+                    export IRODS_USER_NAME="anonymous"
+                    export IRODS_ZONE_NAME="iplant"
+
+                    #mkdir ~/.irods/ && cp irods_environment.json ~/.irods/ && \
+                    echo ${IPLANT_CREDS} | iinit && \
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
