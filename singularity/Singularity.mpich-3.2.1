@@ -27,12 +27,12 @@ HPC ISU-condo
 	# iget -P /iplant/home/shared/dillpicl/gomap/GOMAP-data.v1.3/data.tar.gz && ls && tar -xvf data.tar.gz && rm data.tar.gz && \
 	# iget -P /iplant/home/shared/dillpicl/gomap/GOMAP-data.v1.3/software.tar.gz && tar -xvf software.tar.gz && rm software.tar.gz && \
 	cd /opt/GOMAP/data && \
-	azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ data/  --recursive=true &&  \
-	azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ software/  --recursive=true &&  \
+	azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ data/  --recursive=true &&  \
+	azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ software/  --recursive=true &&  \
 	chmod -R 755 software && chmod -R 755 data
 
     #Installing mpich and python package to use it
-	wget http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz  && \
+	wget -q http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz  && \
 	tar -xf  mpich-3.2.1.tar.gz && \
 	cd mpich-3.2.1 &&  \
 	./configure && make -j8 && make install &&  \
