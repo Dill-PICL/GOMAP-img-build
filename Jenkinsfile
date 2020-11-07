@@ -34,6 +34,7 @@ pipeline {
         }
     }
     post{
+        when { changeset "singularity/*"}
         success{
                 echo 'Image Successfully tested'
                 sh '''
