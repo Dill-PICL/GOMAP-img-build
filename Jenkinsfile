@@ -13,6 +13,10 @@ pipeline {
                 sh '''
                     singularity --version && \
                     ls -lah && \
+                    if [ -d tmp ]
+                    then
+                        sudo rm -r tmp
+                    fi
                     mkdir tmp && \
                     sudo singularity build --tmpdir tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
                 '''
