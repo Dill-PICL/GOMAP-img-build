@@ -25,6 +25,7 @@ pipeline {
                     fi
                     mkdir tmp && \
                     sudo singularity build --tmpdir tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
+                    sudo rm -r tmp
                 '''
             }
         }
@@ -39,7 +40,7 @@ pipeline {
                 echo 'Testing..'
                 sh '''
                     ls -lh && \
-                    ./test.sh  
+                    ./test.sh
                 '''
             }
         }
