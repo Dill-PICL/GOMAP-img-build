@@ -53,6 +53,7 @@ pipeline {
                     export IRODS_USER_NAME="kokulapalan"
                     export IRODS_ZONE_NAME="iplant"
                     echo "${IPLANT_CREDS_PSW}" 
+                    
                     echo "${IPLANT_CREDS_PSW}" | iinit && \
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
