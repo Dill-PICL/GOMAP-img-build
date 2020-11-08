@@ -24,6 +24,7 @@ pipeline {
                         sudo rm -r tmp
                     fi
                     mkdir tmp && \
+                    echo $PWD && \
                     sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
                     sudo rm -r tmp
                 '''
