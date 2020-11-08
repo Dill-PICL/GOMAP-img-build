@@ -24,7 +24,7 @@ pipeline {
                         sudo rm -r tmp
                     fi
                     mkdir tmp && \
-                    sudo singularity build --tmpdir tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
+                    sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
                     sudo rm -r tmp
                 '''
             }
@@ -57,10 +57,9 @@ pipeline {
                     
                     echo "${IPLANT_CREDS_PSW}" | iinit && \
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     irsync -sVN1 ${IMAGE}.sif i:${IMAGE}.sif && \
-                    ichmod read anonymous ${IMAGE}.sif
+                    ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER}
                 '''
                 echo 'Image Successfully uploaded'
             }
