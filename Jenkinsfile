@@ -9,7 +9,12 @@ pipeline {
     
     stages {
         stage('Build') {
-            when { changeset "singularity/*"}
+            when { 
+                anyOf {
+                changeset "singularity/*"
+                changeset "Jenkinsfile"
+                }
+            }
             steps {
                 sh '''
                     singularity --version && \
@@ -24,7 +29,12 @@ pipeline {
             }
         }
         stage('Test') {
-            when { changeset "singularity/*"}
+            when { 
+                anyOf {
+                changeset "singularity/*"
+                changeset "Jenkinsfile"
+                }
+            }
             steps {
                 echo 'Testing..'
                 sh '''
@@ -42,8 +52,8 @@ pipeline {
                     export IRODS_PORT="1247"
                     export IRODS_USER_NAME="kokulapalan"
                     export IRODS_ZONE_NAME="iplant"
-                    echo "${IPLANT_CREDS_PW}"
-                    echo "${IPLANT_CREDS_PW}" | iinit && \
+                    echo "${IPLANT_CREDS_PSW}"
+                    echo "${IPLANT_CREDS_PSW}" | iinit && \
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
