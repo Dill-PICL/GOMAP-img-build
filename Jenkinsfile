@@ -54,43 +54,37 @@ pipeline {
                     ls -lh && \
                     ./test.sh seqsim
                 '''
-            }
-            steps {
+            
                 echo 'Testing domain..'
                 sh '''
                     ls -lh && \
                     ./test.sh domain
                 '''
-            }
-            steps {
+            
                 echo 'Testing fanngo..'
                 sh '''
                     ls -lh && \
                     ./test.sh fanngo
                 '''
-            }
-            steps {
+            
                 echo 'Testing mixmeth-blast..'
                 sh '''
                     ls -lh && \
                     ./test.sh mixmeth-blast
                 '''
-            }
-            steps {
+            
                 echo 'Testing mixmeth-preproc..'
                 sh '''
                     ls -lh && \
                     ./test.sh mixmeth-preproc
                 '''
-            }
-            steps {
+            
                 echo 'Testing mixmeth..'
                 sh '''
                     ls -lh && \
                     ./test.sh mixmeth
                 '''
-            }
-            steps {
+            
                 echo 'Testing aggregate..'
                 sh '''
                     ls -lh && \
@@ -127,9 +121,4 @@ pipeline {
             }
         }
     }
-    post{
-        success{
-                echo 'The image has been build successfully and has been synced to Cyverse'
-            }
-        }
 }
