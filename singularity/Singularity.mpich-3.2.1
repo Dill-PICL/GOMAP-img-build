@@ -3,7 +3,7 @@ From: Dill-PICL/GOMAP-base:latest
 
 %labels
 MAINTAINER Kokulapalan Wimalanathan
-Version v1.3.3 
+Version v1.3.3
 HPC ISU-condo
 
 %files
@@ -17,10 +17,6 @@ HPC ISU-condo
  
 %post
 	export DEBIAN_FRONTEND="noninteractive"
-	export IRODS_HOST="data.cyverse.org"
-	export IRODS_PORT="1247"
-	export IRODS_USER_NAME="anonymous"
-	export IRODS_ZONE_NAME="iplant"
 	echo "Running post      "
 
     # Downloading GOMAP code
