@@ -14,7 +14,7 @@ pipeline {
                     changeset "singularity/*"
                     changeset "Jenkinsfile"
                 }
-                anyof{
+                anyOf {
                     branch 'master'
                     branch 'dev'
                 }
@@ -43,7 +43,7 @@ pipeline {
                     changeset "singularity/*"
                     changeset "Jenkinsfile"
                 }
-                anyof{
+                anyOf {
                     branch 'master'
                     branch 'dev'
                 }
@@ -98,7 +98,7 @@ pipeline {
                     changeset "singularity/*"
                     changeset "Jenkinsfile"
                 }
-                anyof{
+                anyOf {
                     branch 'master'
                     branch 'dev'
                 }
