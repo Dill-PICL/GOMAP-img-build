@@ -9,4 +9,4 @@ zendo_upload.py
 data/
 software/
 GOMAP/
-./tmp/
+/tmp/

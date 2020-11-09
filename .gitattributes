@@ -1,5 +1,0 @@
-test/GOMAP-0.3_GOMAP-input/tmp/mixed-meth/preprocess/blast/temp/0.3_GOMAP-input.2.xml filter=lfs diff=lfs merge=lfs -text
-test/GOMAP-0.3_GOMAP-input/tmp/mixed-meth/preprocess/blast/temp/0.3_GOMAP-input.3.xml filter=lfs diff=lfs merge=lfs -text
-test/GOMAP-0.3_GOMAP-input/tmp/mixed-meth/preprocess/blast/temp/0.3_GOMAP-input.4.xml filter=lfs diff=lfs merge=lfs -text
-test/GOMAP-0.3_GOMAP-input/tmp/mixed-meth/preprocess/blast/temp/0.3_GOMAP-input.5.xml filter=lfs diff=lfs merge=lfs -text
-test/GOMAP-0.3_GOMAP-input/tmp/mixed-meth/preprocess/blast/temp/0.3_GOMAP-input.6.xml filter=lfs diff=lfs merge=lfs -text
