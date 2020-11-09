@@ -3,15 +3,20 @@ From: Dill-PICL/GOMAP-base:latest
 
 %labels
 MAINTAINER Kokulapalan Wimalanathan
-Version 1.3.2 
+Version v1.3.3 
 HPC ISU-condo
 
+%files
+	GOMAP /opt/
+	data /opt/GOMAP/data/
+	software /opt/GOMAP/data/
 
 %environment
     export LC_ALL=C 
     export DEBIAN_FRONTEND=noninteractive
  
 %post
+	export DEBIAN_FRONTEND="noninteractive"
 	export IRODS_HOST="data.cyverse.org"
 	export IRODS_PORT="1247"
 	export IRODS_USER_NAME="anonymous"
@@ -19,16 +24,11 @@ HPC ISU-condo
 	echo "Running post      "
 
     # Downloading GOMAP code
-	mkdir /opt/GOMAP/ && \
-	git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git /opt/GOMAP/ && \
+	ls -la /opt
 	chmod -R 777 /opt/GOMAP/
 	
     #Downloading backed in GOMAP code 
-	# iget -P /iplant/home/shared/dillpicl/gomap/GOMAP-data.v1.3/data.tar.gz && ls && tar -xvf data.tar.gz && rm data.tar.gz && \
-	# iget -P /iplant/home/shared/dillpicl/gomap/GOMAP-data.v1.3/software.tar.gz && tar -xvf software.tar.gz && rm software.tar.gz && \
 	cd /opt/GOMAP/data && \
-	azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ .  --recursive=true &&  \
-	azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ .  --recursive=true &&  \
 	chmod -R 755 software && chmod -R 755 data
 
     #Installing mpich and python package to use it
