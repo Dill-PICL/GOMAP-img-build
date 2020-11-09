@@ -114,7 +114,7 @@ pipeline {
                     echo "${IPLANT_CREDS_PSW}" | iinit && \
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    irsync -sVN1 ${IMAGE}.sif i:${IMAGE}.sif && \
+                    irsync -sV ${IMAGE}.sif i:${IMAGE}.sif && \
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER}
                 '''
                 echo 'Image Successfully uploaded  '
