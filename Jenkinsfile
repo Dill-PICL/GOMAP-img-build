@@ -11,7 +11,8 @@ pipeline {
         stage('Setup Test Env') {
             when {
                 anyOf {
-                    changeset 'singularity/*,Jenkinsfile'
+                    changeset 'singularity/*'
+                    changeset 'Jenkinsfile'
                 }
                 anyOf {
                     branch 'dev' 
@@ -29,7 +30,8 @@ pipeline {
         stage('Test') {
             when {
                 anyOf {
-                    changeset 'singularity/*,Jenkinsfile'
+                    changeset 'singularity/*'
+                    changeset 'Jenkinsfile'
                 }
                 anyOf {
                     branch 'dev'
@@ -110,7 +112,8 @@ pipeline {
         stage('Copy Tmp Image') {
             when {
                 anyOf {
-                    changeset 'singularity/*,Jenkinsfile'
+                    changeset 'singularity/*'
+                    changeset 'Jenkinsfile'
                 }
                 anyOf {
                     branch 'dev'
@@ -128,7 +131,8 @@ pipeline {
         stage('Push Artifacts') {
             when {
                 anyOf {
-                    changeset 'singularity/*,Jenkinsfile'
+                    changeset 'singularity/*'
+                    changeset 'Jenkinsfile'
                 }
                 anyOf {
                     branch 'master'
