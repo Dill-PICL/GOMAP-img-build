@@ -19,12 +19,12 @@ pipeline {
                 }
             }
             steps {
-                echo 'Setting up test env'
+                echo 'Setting up test env' 
                 sh '''
                     singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
                 '''
                 sh '''
-                    if [ -d "GOMAP" ]
+                    if [[ -d "GOMAP" ]]
                     then
                         cd GOMAP &&
                         git checkout dev && git pull
