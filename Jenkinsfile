@@ -136,7 +136,7 @@ pipeline {
                     mkdir -p /mnt/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     rsync -auP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/
                 '''
-                echo 'Image Successfully uploaded  '
+                echo 'Image Successfully uploaded'
             }
         }
         stage('Push Artifacts') {
