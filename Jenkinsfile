@@ -24,7 +24,14 @@ pipeline {
                     singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
                 '''
                 sh '''
-                    git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
+                    if [ -d "GOMAP" ]
+                    then
+                        cd GOMAP &&
+                        git checkout dev && git pull
+                        cd ..
+                    else
+                        git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
+                    fi
                     mkdir -p GOMAP/data/data/ && 
                     azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/  --recursive=true
                     mkdir -p GOMAP/data/software/ && 
