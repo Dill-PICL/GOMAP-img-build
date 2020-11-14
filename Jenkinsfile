@@ -133,7 +133,7 @@ pipeline {
             steps {
                 echo 'Image Successfully tested'
                 sh '''
-                    imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
+                    mkdir -p /mnt/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     rsync -auP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/
                 '''
                 echo 'Image Successfully uploaded  '

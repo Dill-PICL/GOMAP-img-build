@@ -1,12 +1,11 @@
 .ipynb_checkpoints
 *.simg
-*.out
-zendo_upload.py
+/*.out
 *log
 *.sif
 *err
 *tar.gz
-data/
-software/
+/data
+/software
 GOMAP/
 /tmp/
