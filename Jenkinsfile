@@ -80,7 +80,7 @@ pipeline {
                 '''
             }
         }
-                stage('Build') {
+        stage('Build') {
             when { 
                 anyOf {
                     changeset "singularity/*"
