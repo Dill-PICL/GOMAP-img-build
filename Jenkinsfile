@@ -8,7 +8,8 @@ pipeline {
     }
     
     stages {
-        stage('Test') {
+        
+        stage('Setup Test Env') {
             when { 
                 anyOf {
                     changeset "singularity/*"
@@ -24,8 +25,20 @@ pipeline {
                     git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
                     azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/  --recursive=true
                     azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/ --recursive=true
-
+                    
                 '''
+            }
+        }
+        stage('Test') {
+            when { 
+                anyOf {
+                    changeset "singularity/*"
+                    changeset "Jenkinsfile"
+                }
+                anyOf {
+                    branch 'dev'
+                }
+            }
                 echo 'Testing seqsim..'
                 sh '''
                     ls -lh && \
