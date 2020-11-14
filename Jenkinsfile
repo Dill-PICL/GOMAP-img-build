@@ -15,7 +15,7 @@ pipeline {
                     changeset 'Jenkinsfile'
                 }
                 anyOf {
-                    branch 'dev' 
+                    branch 'dev'   
                 }
             }
             steps {
