@@ -44,7 +44,7 @@ pipeline {
             when {
                 anyOf {
                     changeset 'singularity/*'
-                    changeset 'Jenkinsfile'
+                    changeset 'Jenkinsfile'  
                 }
                 anyOf {
                     branch 'dev'
