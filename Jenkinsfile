@@ -8,34 +8,6 @@ pipeline {
     }
     
     stages {
-        stage('Build') {
-            when { 
-                anyOf {
-                    changeset "singularity/*"
-                    changeset "Jenkinsfile"
-                }
-                anyOf {
-                    branch 'dev'
-                }
-            }
-            steps {
-                sh '''
-                    singularity --version && \
-                    ls -lah
-                    if [ -d tmp ]
-                    then
-                        sudo rm -r tmp
-                    fi
-
-                    azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ .  --recursive=true
-                    azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ .  --recursive=true
-                    mkdir tmp && \
-                    git clone --branch="dev" https://github.com/Dill-PICL/GOMAP.git GOMAP
-                    sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
-                    sudo rm -r $PWD/tmp
-                '''
-            }
-        }
         stage('Test') {
             when { 
                 anyOf {
@@ -47,6 +19,13 @@ pipeline {
                 }
             }
             steps {
+                echo 'Setting up test env'
+                sh '''
+                    git clone --branch=GOMAP git@github.com:Dill-PICL/GOMAP.git
+                    azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/  --recursive=true
+                    azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/ --recursive=true
+                    
+                '''
                 echo 'Testing seqsim..'
                 sh '''
                     ls -lh && \
@@ -87,6 +66,34 @@ pipeline {
                 sh '''
                     ls -lh && \
                     ./test.sh aggregate
+                '''
+            }
+        }
+                stage('Build') {
+            when { 
+                anyOf {
+                    changeset "singularity/*"
+                    changeset "Jenkinsfile"
+                }
+                anyOf {
+                    branch 'dev'
+                }
+            }
+            steps {
+                sh '''
+                    singularity --version && \
+                    ls -lah
+                    if [ -d tmp ]
+                    then
+                        sudo rm -r tmp
+                    fi
+
+                    azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ .  --recursive=true
+                    azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ .  --recursive=true
+                    mkdir tmp && \
+                    git clone --branch="dev" https://github.com/Dill-PICL/GOMAP.git GOMAP
+                    sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
+                    sudo rm -r $PWD/tmp
                 '''
             }
         }
