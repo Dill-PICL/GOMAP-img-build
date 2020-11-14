@@ -21,10 +21,10 @@ pipeline {
             steps {
                 echo 'Setting up test env'
                 sh '''
-                    singularity pull shub://Dill-PICL/GOMAP-base > /dev/null
+                    singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
                     git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
-                    azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/  --recursive=true
-                    azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/ --recursive=true
+                    azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/  --recursive=true
+                    azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/ --recursive=true
                 '''
             }
         }
