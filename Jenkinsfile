@@ -21,10 +21,10 @@ pipeline {
             steps {
                 echo 'Setting up test env'
                 sh '''
-                    git clone --branch=GOMAP git@github.com:Dill-PICL/GOMAP.git
+                    git clone --branch=GOMAP https://github.com/Dill-PICL/GOMAP.git
                     azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/  --recursive=true
                     azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/ --recursive=true
-                    
+
                 '''
                 echo 'Testing seqsim..'
                 sh '''
