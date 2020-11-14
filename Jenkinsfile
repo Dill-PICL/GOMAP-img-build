@@ -14,7 +14,7 @@ pipeline {
                     changeset 'singularity/*,Jenkinsfile'
                 }
                 anyOf {
-                    branch 'dev'
+                    branch 'dev' 
                 }
             }
             steps {
