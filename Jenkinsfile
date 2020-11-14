@@ -1,18 +1,17 @@
 pipeline {
-    agent { label 'ubuntu'}
+    agent { label 'ubuntu' }
     environment {
         CONTAINER = 'gomap'
         IMAGE = 'GOMAP'
         VERSION = 'v1.3.3'
         IPLANT_CREDS = credentials('iplant-credentials')
     }
-    
+
     stages {
         stage('Setup Test Env') {
-            when { 
+            when {
                 anyOf {
-                    changeset "singularity/*"
-                    changeset "Jenkinsfile"
+                    changeset 'singularity/*,Jenkinsfile'
                 }
                 anyOf {
                     branch 'dev'
@@ -28,51 +27,51 @@ pipeline {
             }
         }
         stage('Test') {
-            when { 
+            when {
                 anyOf {
-                    changeset "singularity/*"
-                    changeset "Jenkinsfile"
+                    changeset 'singularity/*,Jenkinsfile'
                 }
                 anyOf {
                     branch 'dev'
                 }
             }
+            steps {
                 echo 'Testing seqsim..'
                 sh '''
                     ls -lh && \
                     ./test.sh seqsim
                 '''
-            
+
                 echo 'Testing domain..'
                 sh '''
                     ls -lh && \
                     ./test.sh domain
                 '''
-            
+
                 echo 'Testing fanngo..'
                 sh '''
                     ls -lh && \
                     ./test.sh fanngo
                 '''
-            
+
                 echo 'Testing mixmeth-blast..'
                 sh '''
                     ls -lh && \
                     ./test.sh mixmeth-blast
                 '''
-            
+
                 echo 'Testing mixmeth-preproc..'
                 sh '''
                     ls -lh && \
                     ./test.sh mixmeth-preproc
                 '''
-            
+
                 echo 'Testing mixmeth..'
                 sh '''
                     ls -lh && \
                     ./test.sh mixmeth
                 '''
-            
+
                 echo 'Testing aggregate..'
                 sh '''
                     ls -lh && \
@@ -81,10 +80,10 @@ pipeline {
             }
         }
         stage('Build') {
-            when { 
+            when {
                 anyOf {
-                    changeset "singularity/*"
-                    changeset "Jenkinsfile"
+                    changeset 'singularity/*'
+                    changeset 'Jenkinsfile'
                 }
                 anyOf {
                     branch 'dev'
@@ -109,18 +108,17 @@ pipeline {
             }
         }
         stage('Copy Tmp Image') {
-           when { 
+            when {
                 anyOf {
-                    changeset "singularity/*"
-                    changeset "Jenkinsfile"
+                    changeset 'singularity/*,Jenkinsfile'
                 }
                 anyOf {
                     branch 'dev'
                 }
             }
-            steps{
+            steps {
                 echo 'Image Successfully tested'
-                sh '''                   
+                sh '''
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     rsync -auP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/
                 '''
@@ -128,23 +126,22 @@ pipeline {
             }
         }
         stage('Push Artifacts') {
-           when { 
+            when {
                 anyOf {
-                    changeset "singularity/*"
-                    changeset "Jenkinsfile"
+                    changeset 'singularity/*,Jenkinsfile'
                 }
                 anyOf {
                     branch 'master'
                 }
             }
-            steps{
+            steps {
                 echo 'Image Successfully tested'
                 sh '''
                     export IRODS_HOST="data.cyverse.org"
                     export IRODS_PORT="1247"
                     export IRODS_USER_NAME="kokulapalan"
                     export IRODS_ZONE_NAME="iplant"
-                    
+
                     echo "${IPLANT_CREDS_PSW}" | iinit && \
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
