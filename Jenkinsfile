@@ -15,7 +15,6 @@ pipeline {
                     changeset "Jenkinsfile"
                 }
                 anyOf {
-                    branch 'master'
                     branch 'dev'
                 }
             }
@@ -31,7 +30,7 @@ pipeline {
                     azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ .  --recursive=true
                     azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ .  --recursive=true
                     mkdir tmp && \
-                    git clone --branch="${VERSION}-dev" https://github.com/Dill-PICL/GOMAP.git GOMAP
+                    git clone --branch="dev" https://github.com/Dill-PICL/GOMAP.git GOMAP
                     sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
                     sudo rm -r $PWD/tmp
                 '''
@@ -44,7 +43,6 @@ pipeline {
                     changeset "Jenkinsfile"
                 }
                 anyOf {
-                    branch 'master'
                     branch 'dev'
                 }
             }
@@ -92,6 +90,25 @@ pipeline {
                 '''
             }
         }
+        stage('Copy Tmp Image') {
+           when { 
+                anyOf {
+                    changeset "singularity/*"
+                    changeset "Jenkinsfile"
+                }
+                anyOf {
+                    branch 'dev'
+                }
+            }
+            steps{
+                echo 'Image Successfully tested'
+                sh '''                   
+                    imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
+                    rsync -auP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/
+                '''
+                echo 'Image Successfully uploaded  '
+            }
+        }
         stage('Push Artifacts') {
            when { 
                 anyOf {
@@ -100,7 +117,6 @@ pipeline {
                 }
                 anyOf {
                     branch 'master'
-                    branch 'dev'
                 }
             }
             steps{
