@@ -24,6 +24,7 @@ pipeline {
                     git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
                     azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/  --recursive=true
                     azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/ --recursive=true
+                    singularity pull shub://Dill-PICL/GOMAP-base > /dev/null
                 '''
             }
         }
@@ -100,8 +101,6 @@ pipeline {
                         sudo rm -r tmp
                     fi
 
-                    azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ .  --recursive=true
-                    azcopy cp https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ .  --recursive=true
                     mkdir tmp && \
                     git clone --branch="dev" https://github.com/Dill-PICL/GOMAP.git GOMAP
                     sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1

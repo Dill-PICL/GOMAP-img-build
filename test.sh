@@ -8,7 +8,7 @@ unset SINGULARITY_TMPDIR
 if [ ! -f "$img_loc" ]
 then
     echo "The GOMAP image is missing"
-	singularity -q pull shub://Dill-PICL/GOMAP-base
+	singularity pull shub://Dill-PICL/GOMAP-base > /dev/null
 fi
 
 if [ -z $tmpdir ]
