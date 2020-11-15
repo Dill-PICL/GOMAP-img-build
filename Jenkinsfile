@@ -20,8 +20,9 @@ pipeline {
             }
             steps {
                 echo 'Setting up test env' 
-                git lfs pull
+                
                 sh '''
+                    git lfs pull
                     singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
                 '''
                 sh '''
