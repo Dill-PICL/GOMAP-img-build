@@ -20,26 +20,19 @@ pipeline {
             }
             steps {
                 echo 'Setting up test env' 
-                
                 sh '''
                     git lfs pull
                     singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
                 '''
+
                 sh '''
                     du -chs *
-                    if [ -d "GOMAP" ]
-                    then
-                        cd GOMAP &&
-                        git checkout dev && git pull
-                        cd ..
-                    else
-                        git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
-                    fi
+                    git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
                     mkdir -p GOMAP/data/data/ && 
                     azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/  --recursive=true
-                    mkdir -p GOMAP/data/software/ && 
+                    mkdir -p GOMAP/data/software/ &&
                     azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ --recursive=true &&
-                    chmod -R a+rwx GOMAP/data/software/        
+                    chmod -R a+rwx GOMAP/data/software/  
                 ''' 
             }
         }
