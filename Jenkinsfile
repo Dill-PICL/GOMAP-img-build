@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent { label 'ubuntu' }
     environment {
         CONTAINER = 'gomap'
         IMAGE = 'GOMAP'
@@ -8,7 +8,6 @@ pipeline {
     }
     stages {
         stage('Setup Test Env') {
-            agent { label 'ubuntu' }
             when {
                 anyOf {
                     changeset 'singularity/*'
@@ -37,7 +36,6 @@ pipeline {
             }
         }
         stage('Test') {
-            agent { label 'ubuntu' }
             when {
                 anyOf {
                     changeset 'singularity/*'
@@ -85,7 +83,6 @@ pipeline {
             }
         }
         stage('Build') {
-            agent { label 'ubuntu' }
             when {
                 anyOf {
                     changeset 'singularity/*'
@@ -109,7 +106,6 @@ pipeline {
             }
         }
         stage('Copy Tmp Image') {
-            agent { label 'ubuntu' }
             when {
                 anyOf {
                     changeset 'singularity/*'
@@ -129,7 +125,6 @@ pipeline {
             }
         }
         stage('Push Artifacts') {
-            agent { label 'master' }
             when {
                 anyOf {
                     changeset 'singularity/*'
