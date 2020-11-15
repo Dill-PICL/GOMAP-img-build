@@ -26,6 +26,7 @@ pipeline {
                     singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
                 '''
                 sh '''
+                    du -chs *
                     if [ -d "GOMAP" ]
                     then
                         cd GOMAP &&
