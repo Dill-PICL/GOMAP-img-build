@@ -140,7 +140,7 @@ pipeline {
                 echo 'Image Successfully tested'
                 sh '''
                     mkdir -p /mnt/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    rsync -auP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/
+                    rsync -uP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/
                 '''
                 echo 'Image Successfully uploaded'
             }
