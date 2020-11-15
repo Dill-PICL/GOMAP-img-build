@@ -18,8 +18,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                         FILEPATH="/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif"
-                         !checkImageLoc(FILEPATH) 
+                         sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ]&&echo "true"||echo "false"') == 'false' 
                     }
                 }
             }
@@ -53,8 +52,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                         FILEPATH="/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif"
-                         !checkImageLoc(FILEPATH) 
+                         sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ]&&echo "true"||echo "false"') == 'false' 
                     }
                 }
             }
@@ -106,8 +104,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                         FILEPATH="/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif"
-                         !checkImageLoc(FILEPATH)
+                         sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ]&&echo "true"||echo "false"') == 'false' 
                     }
                 }
             }
@@ -135,8 +132,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                         FILEPATH="/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif"
-                         !checkImageLoc(FILEPATH)
+                         sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ]&&echo "true"||echo "false"') == 'false' 
                     }
                 }
             }
@@ -160,8 +156,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                        FILEPATH="/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif"
-                        checkImageLoc(FILEPATH)
+                         sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ]&&echo "true"||echo "false"') == 'true' 
                     }
                 }
             }
