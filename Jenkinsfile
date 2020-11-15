@@ -16,10 +16,17 @@ pipeline {
                 anyOf {
                     branch 'dev'     
                 }
+                anyOf {
+                     expression { 
+                         FILEPATH="/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif"
+                         !checkImageLoc(FILEPATH) 
+                    }
+                }
             }
             steps {
                 echo 'Setting up test env' 
                 sh '''
+                    echo $FILEPATH
                     git lfs pull
                     singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
                 '''
@@ -43,6 +50,12 @@ pipeline {
                 }
                 anyOf {
                     branch 'dev'
+                }
+                anyOf {
+                     expression { 
+                         FILEPATH="/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif"
+                         !checkImageLoc(FILEPATH) 
+                    }
                 }
             }
             steps {
@@ -91,6 +104,12 @@ pipeline {
                 anyOf {
                     branch 'dev'
                 }
+                anyOf {
+                     expression { 
+                         FILEPATH="/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif"
+                         !checkImageLoc(FILEPATH)
+                    }
+                }
             }
             steps {
                 sh '''
@@ -114,6 +133,12 @@ pipeline {
                 anyOf {
                     branch 'dev'
                 }
+                anyOf {
+                     expression { 
+                         FILEPATH="/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif"
+                         !checkImageLoc(FILEPATH)
+                    }
+                }
             }
             steps {
                 echo 'Image Successfully tested'
@@ -132,6 +157,12 @@ pipeline {
                 }
                 anyOf {
                     branch 'master'
+                }
+                anyOf {
+                     expression { 
+                        FILEPATH="/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif"
+                        checkImageLoc(FILEPATH)
+                    }
                 }
             }
             steps {
@@ -152,4 +183,9 @@ pipeline {
             }
         }
     }
+}
+
+def checkImageLoc(String filePath){
+    def file = new File(filePath)
+    return file.exists()
 }
