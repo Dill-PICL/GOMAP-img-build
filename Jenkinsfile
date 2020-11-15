@@ -18,7 +18,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                         sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true"||echo "false"') == 'false' 
+                         sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
                 }
             }
@@ -52,7 +52,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                         sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true"||echo "false"') == 'false' 
+                        sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
                 }
             }
@@ -104,7 +104,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                         sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true"||echo "false"') == 'false' 
+                        sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
                 }
             }
@@ -132,7 +132,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                         sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true"||echo "false"') == 'false' 
+                        sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
                 }
             }
@@ -156,7 +156,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                         sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true"||echo "false"') == 'true' 
+                        sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'true' 
                     }
                 }
             }
