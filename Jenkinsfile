@@ -1,14 +1,14 @@
 pipeline {
-    agent { label 'ubuntu' }
+    agent none
     environment {
         CONTAINER = 'gomap'
         IMAGE = 'GOMAP'
         VERSION = 'v1.3.3'
         IPLANT_CREDS = credentials('iplant-credentials')
     }
-
     stages {
         stage('Setup Test Env') {
+            agent { label 'ubuntu' }
             when {
                 anyOf {
                     changeset 'singularity/*'
@@ -39,11 +39,12 @@ pipeline {
                     azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/  --recursive=true
                     mkdir -p GOMAP/data/software/ && 
                     azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ --recursive=true &&
-                    chmod -R a+rwx GOMAP/data/software/     
+                    chmod -R a+rwx GOMAP/data/software/        
                 ''' 
             }
         }
         stage('Test') {
+            agent { label 'ubuntu' }
             when {
                 anyOf {
                     changeset 'singularity/*'
@@ -56,48 +57,42 @@ pipeline {
             steps {
                 echo 'Testing seqsim..'
                 sh '''
-                    ls -lh && \
                     ./test.sh seqsim
                 '''
 
                 echo 'Testing domain..'
                 sh '''
-                    ls -lh && \
                     ./test.sh domain
                 '''
 
                 echo 'Testing fanngo..'
                 sh '''
-                    ls -lh && \
                     ./test.sh fanngo
                 '''
 
                 echo 'Testing mixmeth-blast..'
                 sh '''
-                    ls -lh && \
                     ./test.sh mixmeth-blast
                 '''
 
                 echo 'Testing mixmeth-preproc..'
                 sh '''
-                    ls -lh && \
                     ./test.sh mixmeth-preproc
                 '''
 
                 echo 'Testing mixmeth..'
                 sh '''
-                    ls -lh && \
                     ./test.sh mixmeth
                 '''
 
                 echo 'Testing aggregate..'
                 sh '''
-                    ls -lh && \
                     ./test.sh aggregate
                 '''
             }
         }
         stage('Build') {
+            agent { label 'ubuntu' }
             when {
                 anyOf {
                     changeset 'singularity/*'
@@ -109,13 +104,10 @@ pipeline {
             }
             steps {
                 sh '''
-                    singularity --version && \
-                    ls -lah
                     if [ -d tmp ]
                     then
                         sudo rm -r tmp
                     fi
-
                     mkdir tmp && \
                     sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
                     sudo rm -r $PWD/tmp
@@ -124,6 +116,7 @@ pipeline {
             }
         }
         stage('Copy Tmp Image') {
+            agent { label 'ubuntu' }
             when {
                 anyOf {
                     changeset 'singularity/*'
@@ -143,6 +136,7 @@ pipeline {
             }
         }
         stage('Push Artifacts') {
+            agent { label 'master' }
             when {
                 anyOf {
                     changeset 'singularity/*'
