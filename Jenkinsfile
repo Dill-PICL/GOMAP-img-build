@@ -117,7 +117,7 @@ pipeline {
                     mkdir tmp && \
                     sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
                     sudo rm -r $PWD/tmp
-                    singularity run ${IMAGE}.sif
+                    singularity run ${IMAGE}.sif -h
                 '''
             }
         }
