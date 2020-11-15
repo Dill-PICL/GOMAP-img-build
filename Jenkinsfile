@@ -26,7 +26,7 @@ pipeline {
                     singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
                 '''
                 sh '''
-                    if [[ -d "GOMAP" ]]
+                    if [ -d "GOMAP" ]
                     then
                         cd GOMAP &&
                         git checkout dev && git pull
@@ -116,7 +116,6 @@ pipeline {
                     fi
 
                     mkdir tmp && \
-                    git clone --branch="dev" https://github.com/Dill-PICL/GOMAP.git GOMAP
                     sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
                     sudo rm -r $PWD/tmp
                     singularity run ${IMAGE}.sif
