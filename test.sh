@@ -7,7 +7,7 @@ unset SINGULARITY_TMPDIR
 
 if [ ! -f "$img_loc" ]
 then
-    echo "The GOMAP image is missing"
+    echo "The ${instance_name} image is missing"
 	singularity pull $img_loc shub://Dill-PICL/GOMAP-base > /dev/null
 fi
 
@@ -33,6 +33,5 @@ else
 	singularity run -c $img_loc --step=mixmeth-blast --config=test/config.yml && \
 	singularity run -c $img_loc --step=mixmeth-preproc --config=test/config.yml && \
 	singularity run -c $img_loc --step=mixmeth --config=test/config.yml && \
-	sleep 180 && \
 	singularity run -c $img_loc --step=aggregate --config=test/config.yml
 fi
