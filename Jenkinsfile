@@ -183,4 +183,4 @@ pipeline {
 def checkImageLoc(String filePath){
     def file = new File(filePath)
     return file.exists()
-}
+}  
