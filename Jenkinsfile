@@ -171,10 +171,10 @@ pipeline {
                     echo "${IPLANT_CREDS_PSW}" | iinit && \
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    irsync -V /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif i:${IMAGE}.sif && \
+                    irsync -V /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif i:${IMAGE}.sif &&  \
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER}   
                 '''
-                echo 'Image Successfully uploaded   '
+                echo 'Image Successfully uploaded    '
             }
         }
     }
