@@ -5,6 +5,7 @@ pipeline {
         IMAGE = 'GOMAP'
         VERSION = 'v1.3.4'
         IPLANT_CREDS = credentials('iplant-credentials')
+        FILESHARE_SAS = credentials('fileshareSAS')
     }
     stages {
         stage('Setup Test Env') {
@@ -163,13 +164,11 @@ pipeline {
             steps {
                 echo 'Image Successfully tested'
                 echo 'Copying from File Share to local Disk'
-                withCredentials([azureServicePrincipal('jenkinsfileshare')]) {
-                    sh '''
-                        export AZCOPY_SPA_CLIENT_SECRET=$AZURE_CLIENT_SECRET     
-                        azcopy login --service-principal --application-id $AZURE_CLIENT_ID --tenant-id $AZURE_TENANT_ID
-                        azcopy cp https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif
-                    '''
-                }
+                
+                sh '''
+                    azcopy cp https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif?${FILESHARE_SAS} ${IMAGE}.sif
+                '''
+                
 
                 echo 'Syncing to Cyverse'
                 sh '''#!/bin/bash
