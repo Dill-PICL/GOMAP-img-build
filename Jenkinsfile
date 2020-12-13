@@ -162,12 +162,14 @@ pipeline {
             }
             steps {
                 echo 'Image Successfully tested'
-                sh '''#!/bin/bash +x
+                sh '''
                     export IRODS_HOST="data.cyverse.org"
                     export IRODS_PORT="1247"
                     export IRODS_USER_NAME="kokulapalan"
                     export IRODS_ZONE_NAME="iplant"
-                    echo ${IPLANT_CREDS_PSW} | iinit && \
+                    set +x 
+                    echo ${IPLANT_CREDS_PSW} | iinit 
+                    set -x
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     irsync -v /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif  i:${IMAGE}.sif &&  \
