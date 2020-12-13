@@ -187,20 +187,3 @@ def checkImageLoc(String filePath){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
