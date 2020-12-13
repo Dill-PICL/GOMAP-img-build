@@ -174,7 +174,7 @@ pipeline {
                     irsync -v /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif  i:${IMAGE}.sif &&  \
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER}   
                 '''  
-                echo 'Image Successfully uploaded        '
+                echo 'Image Successfully uploaded           '
             }
         }
     }
