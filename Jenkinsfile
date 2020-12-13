@@ -5,7 +5,6 @@ pipeline {
         IMAGE = 'GOMAP'
         VERSION = 'v1.3.4'
         IPLANT_CREDS = credentials('iplant-credentials')
-        AZCOPY_CREDS = credentials('jenkinsfileshare')
     }
     stages {
         stage('Setup Test Env') {
