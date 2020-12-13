@@ -173,8 +173,8 @@ pipeline {
                     set -x
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    iput -VTkP -X restart.file --retries 2 /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif  ${IMAGE}.sif &&  \
-                    ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER}   
+                    irsync -V -N 0 /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif  i:${IMAGE}.sif &&  \
+                    ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER}    
                 '''  
                 echo 'Image Successfully uploaded'
             }   
