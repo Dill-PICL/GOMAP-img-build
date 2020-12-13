@@ -162,7 +162,7 @@ pipeline {
             }
             steps {
                 echo 'Image Successfully tested'
-                sh '''
+                sh '''#!/bin/sh
                     export IRODS_HOST="data.cyverse.org"
                     export IRODS_PORT="1247"
                     export IRODS_USER_NAME="kokulapalan"
