@@ -185,25 +185,9 @@ pipeline {
                     irsync -V -N 32 ${IMAGE}.sif  i:${IMAGE}.sif &&  \
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
                     ichmod -r read public /iplant/home/shared/dillpicl/${CONTAINER}
-                    #iput -vTkP -X restart.file --retries 3 -N 16 /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif  ${IMAGE}.sif || echo "Container already exisits" &&  \
                 '''  
                 echo 'Image Successfully uploaded  '
-            }   
+            }
         }
     }
 }
-
-
-
-
- 
-
-
-
-
-
- 
-
-
-
-
