@@ -166,7 +166,7 @@ pipeline {
                 echo 'Copying from File Share to local Disk'
                 
                 sh '''
-                    azcopy cp https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif?${FILESHARE_SAS} ${IMAGE}.sif
+                    azcopy cp "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif?${FILESHARE_SAS}" ${IMAGE}.sif
                 '''
                 
 
