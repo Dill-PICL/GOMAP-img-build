@@ -173,10 +173,10 @@ pipeline {
                     set -x
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    #iput -vTkP -X restart.file --retries 3 -N 16 /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif  ${IMAGE}.sif || echo "Container already exisits" &&  \
-                    irsync -v -N 32 /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif  i:${IMAGE}.sif &&  \
+                    irsync -V -N 32 /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif  i:${IMAGE}.sif &&  \
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
                     ichmod -r read public /iplant/home/shared/dillpicl/${CONTAINER}
+                    #iput -vTkP -X restart.file --retries 3 -N 16 /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif  ${IMAGE}.sif || echo "Container already exisits" &&  \
                 '''  
                 echo 'Image Successfully uploaded  '
             }   
