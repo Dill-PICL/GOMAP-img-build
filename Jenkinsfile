@@ -168,7 +168,7 @@ pipeline {
                     export IRODS_USER_NAME="kokulapalan"
                     export IRODS_ZONE_NAME="iplant"
 
-                    iinit <$(echo {IPLANT_CREDS_PSW}) && \
+                    iinit <(echo ${IPLANT_CREDS_PSW}) && \
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     irsync -v /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif  i:${IMAGE}.sif &&  \
