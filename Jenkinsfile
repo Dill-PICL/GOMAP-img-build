@@ -5,6 +5,7 @@ pipeline {
         IMAGE = 'GOMAP'
         VERSION = 'v1.3.4'
         IPLANT_CREDS = credentials('iplant-credentials')
+        AZCOPY_CREDS = credentials('jenkinsfileshare')
     }
     stages {
         stage('Setup Test Env') {
@@ -162,6 +163,16 @@ pipeline {
             }
             steps {
                 echo 'Image Successfully tested'
+                echo 'Copying from File Share to local Disk'
+                withCredentials([azureServicePrincipal('jenkinsfileshare')]) {
+                    sh '''
+                        export AZCOPY_SPA_CLIENT_SECRET=$AZURE_CLIENT_SECRET     
+                        azcopy --service-principal --application-id $AZURE_CLIENT_ID --tenant-id $AZURE_TENANT_ID
+                        azcopy cp https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif
+                    '''
+                }
+
+                echo 'Syncing to Cyverse'
                 sh '''#!/bin/bash
                     export IRODS_HOST="data.cyverse.org"
                     export IRODS_PORT="1247"
@@ -173,7 +184,6 @@ pipeline {
                     set -x
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    rsync -P /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif && \
                     irsync -V -N 32 ${IMAGE}.sif  i:${IMAGE}.sif &&  \
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
                     ichmod -r read public /iplant/home/shared/dillpicl/${CONTAINER}
