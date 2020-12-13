@@ -166,7 +166,7 @@ pipeline {
                 withCredentials([azureServicePrincipal('jenkinsfileshare')]) {
                     sh '''
                         export AZCOPY_SPA_CLIENT_SECRET=$AZURE_CLIENT_SECRET     
-                        azcopy --service-principal --application-id $AZURE_CLIENT_ID --tenant-id $AZURE_TENANT_ID
+                        azcopy login --service-principal --application-id $AZURE_CLIENT_ID --tenant-id $AZURE_TENANT_ID
                         azcopy cp https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif
                     '''
                 }
