@@ -172,7 +172,7 @@ pipeline {
 
                 echo 'Syncing to Cyverse'
                 sh '''#!/bin/bash
-                
+
                     set +x
                     echo ${IPLANT_CREDS_PSW} | ils
                     set -x
@@ -187,4 +187,8 @@ pipeline {
         }
     }
 }
+
+
+
+
 
