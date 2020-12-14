@@ -172,13 +172,8 @@ pipeline {
 
                 echo 'Syncing to Cyverse'
                 sh '''#!/bin/bash
-                    #export IRODS_HOST="data.cyverse.org"
-                    #export IRODS_PORT="1247"
-                    #export IRODS_USER_NAME="kokulapalan"
-                    #export IRODS_ZONE_NAME="iplant"
-
                     set +x
-                    echo ${IPLANT_CREDS_PSW} | ils
+                    echo ${IPLANT_CREDS_PSW} | iinit
                     set -x
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
