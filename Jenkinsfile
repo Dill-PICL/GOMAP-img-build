@@ -141,7 +141,7 @@ pipeline {
                 echo 'Image Successfully tested'
                 sh '''
                     mkdir -p /mnt/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    rsync -uP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/
+                    azcopy cp ${IMAGE}.sif "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}"
                 '''
                 echo 'Image Successfully uploaded'
             }
@@ -177,7 +177,7 @@ pipeline {
                     set -x
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    irsync -V -N 32 ${IMAGE}.sif  i:${IMAGE}.sif &&  \
+                    irsync -sV -N 32 ${IMAGE}.sif  i:${IMAGE}.sif &&  \
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
                     ichmod -r read public /iplant/home/shared/dillpicl/${CONTAINER}
                 '''  
