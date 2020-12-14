@@ -178,7 +178,7 @@ pipeline {
                     export IRODS_ZONE_NAME="iplant"
 
                     #set +x
-                    echo ${IPLANT_CREDS_PSW} | iinit
+                    echo ${IPLANT_CREDS_PSW} | ils
                     #set -x
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
