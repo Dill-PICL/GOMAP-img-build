@@ -7,7 +7,7 @@ pipeline {
         IPLANT_CREDS = credentials('iplant-credentials')
         FILESHARE_SAS = credentials('fileshareSAS')
     }
-    stages {
+    stages { 
         stage('Setup Test Env') {
             when {
                 anyOf {
