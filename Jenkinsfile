@@ -3,11 +3,11 @@ pipeline {
     environment {
         CONTAINER = 'gomap'
         IMAGE = 'GOMAP'
-        VERSION = 'v1.3.4'
+        VERSION = 'v1.3.5'
         IPLANT_CREDS = credentials('iplant-credentials')
         FILESHARE_SAS = credentials('fileshareSAS')
     }
-    stages {
+    stages { 
         stage('Setup Test Env') {
             when {
                 anyOf {
@@ -28,7 +28,8 @@ pipeline {
                 sh '''
                     echo $FILEPATH
                     git lfs pull
-                    singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
+                    # singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
+                    azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
                 '''
 
                 sh '''
@@ -111,12 +112,14 @@ pipeline {
             }
             steps {
                 sh '''
+                    azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
+                    azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" singularity/GOMAP-base.sif
                     if [ -d tmp ]
                     then
                         sudo rm -r tmp
                     fi
                     mkdir tmp && \
-                    sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
+                    sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity
                     sudo rm -r $PWD/tmp
                     singularity run ${IMAGE}.sif -h
                 '''
