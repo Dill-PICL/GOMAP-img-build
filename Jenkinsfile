@@ -111,12 +111,14 @@ pipeline {
             }
             steps {
                 sh '''
+                    azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
+                    azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" singularity/GOMAP-base.sif
                     if [ -d tmp ]
                     then
                         sudo rm -r tmp
                     fi
                     mkdir tmp && \
-                    sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity.mpich-3.2.1
+                    sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity
                     sudo rm -r $PWD/tmp
                     singularity run ${IMAGE}.sif -h
                 '''
@@ -187,8 +189,4 @@ pipeline {
         }
     }
 }
-
-
-
-
 
