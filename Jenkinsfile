@@ -28,7 +28,8 @@ pipeline {
                 sh '''
                     echo $FILEPATH
                     git lfs pull
-                    singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
+                    # singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
+                    azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
                 '''
 
                 sh '''
