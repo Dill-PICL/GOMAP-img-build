@@ -3,7 +3,7 @@ pipeline {
     environment {
         CONTAINER = 'gomap'
         IMAGE = 'GOMAP'
-        VERSION = 'v1.3.5'
+        VERSION = 'v1.3.5'   
         IPLANT_CREDS = credentials('iplant-credentials')
         FILESHARE_SAS = credentials('fileshareSAS')
     }
@@ -144,8 +144,9 @@ pipeline {
                 echo 'Image Successfully tested'
                 sh '''
                     mkdir -p /mnt/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    azcopy cp ${IMAGE}.sif "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}"
+                    azcopy sync ${IMAGE}.sif "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}"
                 '''
+                // rsync -uP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/
                 echo 'Image Successfully uploaded'
             }
         }
@@ -184,9 +185,11 @@ pipeline {
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
                     ichmod -r read public /iplant/home/shared/dillpicl/${CONTAINER}
                 '''  
-                echo 'Image Successfully uploaded  '
+                echo 'Image Successfully uploaded'
             }
         }
     }
 }
+
+
 
