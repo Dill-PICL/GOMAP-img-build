@@ -165,6 +165,7 @@ pipeline {
                     }
                 }
             }
+            
             steps {
                 echo 'Image Successfully tested'
                 echo 'Copying from File Share to local Disk'
