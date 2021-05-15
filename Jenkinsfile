@@ -185,9 +185,11 @@ pipeline {
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
                     ichmod -r read public /iplant/home/shared/dillpicl/${CONTAINER}
                 '''  
-                echo 'Image Successfully uploaded  '
+                echo 'Image Successfully uploaded'
             }
         }
     }
 }
+
+
 
