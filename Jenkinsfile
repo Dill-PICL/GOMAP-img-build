@@ -34,7 +34,7 @@ pipeline {
 
                 sh '''
                     du -chs *
-                    git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
+                    git clone --branch=dev https://github.com/bioinformapping/GOMAP.git
                     mkdir -p GOMAP/data/data/ && 
                     azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/  --recursive=true
                     mkdir -p GOMAP/data/software/ &&
@@ -165,6 +165,10 @@ pipeline {
                     }
                 }
             }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
             steps {
                 echo 'Image Successfully tested'
                 echo 'Copying from File Share to local Disk'
