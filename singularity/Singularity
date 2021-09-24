@@ -4,7 +4,7 @@ From: GOMAP-base.sif
 %labels
 GOMAP_OWNER Wimalanathan Kokulapalan
 GOMAP_MAINTAINER Wimalanathan Kokulapalan 
-GOMAP_VERSION v1.3.5
+GOMAP_VERSION v1.3.6
 
 %files
 	GOMAP /opt/
@@ -36,6 +36,8 @@ GOMAP_VERSION v1.3.5
 
 %startscript
 	chmod 777 /tmp
+
+
 
 %runscript
 	cd /opt/GOMAP/ 
