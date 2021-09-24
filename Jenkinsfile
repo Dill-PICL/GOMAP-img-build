@@ -3,9 +3,9 @@ pipeline {
     environment {
         CONTAINER = 'gomap'
         IMAGE = 'GOMAP'
-        VERSION = 'v1.3.6'
+        VERSION = 'v1.3.6'   
         IPLANT_CREDS = credentials('iplant-credentials')
-        FILESHARE_SAS = credentials('fileshareSAS')
+        FILESHARE_SAS = credentials('fileshareSAS') 
     }
     stages { 
         stage('Setup Test Env') {
