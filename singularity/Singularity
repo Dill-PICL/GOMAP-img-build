@@ -6,6 +6,7 @@ GOMAP_OWNER Wimalanathan Kokulapalan
 GOMAP_MAINTAINER Wimalanathan Kokulapalan 
 GOMAP_VERSION v1.3.6
 
+
 %files
 	GOMAP /opt/
 
