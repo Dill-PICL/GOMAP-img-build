@@ -18,20 +18,6 @@
                     <hmmer2-location score="46.1" evalue="4.8E-9" hmm-start="1" hmm-end="61" hmm-length="0" start="155" end="205"/>
                 </locations>
             </hmmer2-match>
-            <hmmer3-match evalue="8.1E-7" score="28.8">
-                <signature ac="PF00010" desc="Helix-loop-helix DNA-binding domain" name="HLH">
-                    <entry ac="IPR011598" desc="Myc-type, basic helix-loop-helix (bHLH) domain" name="bHLH_dom" type="DOMAIN">
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0046983" name="protein dimerization activity"/>
-                    </entry>
-                    <models>
-                        <model ac="PF00010" desc="Helix-loop-helix DNA-binding domain" name="HLH"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="200" env-start="151" score="27.9" evalue="1.6E-6" hmm-start="4" hmm-end="55" hmm-length="0" start="153" end="200"/>
-                </locations>
-            </hmmer3-match>
             <hmmer3-match evalue="2.1E-22" score="78.4">
                 <signature ac="G3DSA:4.10.280.10">
                     <entry ac="IPR011598" desc="Myc-type, basic helix-loop-helix (bHLH) domain" name="bHLH_dom" type="DOMAIN">
@@ -58,6 +44,20 @@
                 </signature>
                 <locations>
                     <hmmer3-location env-end="212" env-start="136" score="77.4" evalue="4.3E-22" hmm-start="10" hmm-end="78" hmm-length="0" start="136" end="212"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="8.1E-7" score="28.8">
+                <signature ac="PF00010" desc="Helix-loop-helix DNA-binding domain" name="HLH">
+                    <entry ac="IPR011598" desc="Myc-type, basic helix-loop-helix (bHLH) domain" name="bHLH_dom" type="DOMAIN">
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0046983" name="protein dimerization activity"/>
+                    </entry>
+                    <models>
+                        <model ac="PF00010" desc="Helix-loop-helix DNA-binding domain" name="HLH"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="200" env-start="151" score="27.9" evalue="1.6E-6" hmm-start="4" hmm-end="55" hmm-length="0" start="153" end="200"/>
                 </locations>
             </hmmer3-match>
             <mobidblite-match>
@@ -197,50 +197,6 @@
         </matches>
     </protein>
     <protein>
-        <sequence md5="8f09462759670edb8d3c21c99fec7d1d">MEKGAGTRRRRLVERGSDRLAFITGQTRSLSCDPIPDSPLRSQFEGGTRDDGFSERNQLQKSEPSDLVPGFQDPGTRQGVKARTLSYDALVPEFERAGGRQENNASTLSYEDELFRKFKMGSAVPEIQPVNQTPLHTHDQETVSNNIIHAGVSKNTSHDGVSKNTSHDEVASVQPSREAEMRPRSAPPSQSTQADNSGWSVETLMELLDFTPQEITKAISATESNRFVASVVIAFLVVLSNWGLDIGGAITRVLVGTRPLLFLIVTNITIVFTLLMENKDPNVRSRPVGVNLGSADSLGQMLEIGLLLQKALGALLIDCSVCAVIMICFLGF</sequence>
-        <xref id="Zm00014a027427"/>
-        <matches>
-            <mobidblite-match>
-                <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
-                    <signature-library-release library="MOBIDB_LITE" version="1.0"/>
-                </signature>
-                <locations>
-                    <mobidblite-location start="152" end="197"/>
-                </locations>
-            </mobidblite-match>
-            <mobidblite-match>
-                <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
-                    <signature-library-release library="MOBIDB_LITE" version="1.0"/>
-                </signature>
-                <locations>
-                    <mobidblite-location start="25" end="79"/>
-                </locations>
-            </mobidblite-match>
-            <panther-match evalue="4.7E-113" familyName="SUBFAMILY NOT NAMED" score="380.2">
-                <signature ac="PTHR35469:SF4" name="SUBFAMILY NOT NAMED">
-                    <models>
-                        <model ac="PTHR35469:SF4" name="SUBFAMILY NOT NAMED"/>
-                    </models>
-                    <signature-library-release library="PANTHER" version="11.1"/>
-                </signature>
-                <locations>
-                    <panther-location start="1" end="332"/>
-                </locations>
-            </panther-match>
-            <panther-match evalue="4.7E-113" familyName="FAMILY NOT NAMED" score="380.2">
-                <signature ac="PTHR35469" name="FAMILY NOT NAMED">
-                    <models>
-                        <model ac="PTHR35469" name="FAMILY NOT NAMED"/>
-                    </models>
-                    <signature-library-release library="PANTHER" version="11.1"/>
-                </signature>
-                <locations>
-                    <panther-location start="1" end="332"/>
-                </locations>
-            </panther-match>
-        </matches>
-    </protein>
-    <protein>
         <sequence md5="dcfeb5ce7fe39caa4bcb470daaba1733">MAEEDVQPLVCDNGTGMVKAGFAGDDAPRAVFPSIVGRPRHTGVMVGMGQKDAYVGDEAQSKRGILTLKYPIEHGIVGNWDDMEKIWHHTFYNELRVAPEEHPILLTEAPLNPKANREKMTQIMFETFNCPAMYVAIQAVLSLYASGRTTGIVLDSGDGVSHTVPIYEGYTLPHAILRLDLAGRDLTDNLMKILTERGYSFTTTAEREIVRDIKEKLAYVALDYEQELETARTSSSVEKSYELPDGQVITIGAERFRCPEVLFQPSFIGMESAGIHEATYNSIMKCDVDIRKDLYGNVVLSGGSTMFPGIGDRMSKEITALAPSSMKVKVVAPPERKYSVWIGGSILASLSTFQQMWISKEEYDESGPGIVHMKCF</sequence>
         <xref id="Zm00014a027420"/>
         <matches>
@@ -273,6 +229,35 @@
                     <hmmer2-location score="807.0" evalue="4.2E-238" hmm-start="1" hmm-end="487" hmm-length="0" start="6" end="376"/>
                 </locations>
             </hmmer2-match>
+            <hmmer3-match evalue="5.9E-148" score="492.7">
+                <signature ac="PF00022" desc="Actin" name="Actin">
+                    <entry ac="IPR004000" desc="Actin family" name="Actin" type="FAMILY"/>
+                    <models>
+                        <model ac="PF00022" desc="Actin" name="Actin"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="376" env-start="3" score="491.0" evalue="1.9E-147" hmm-start="2" hmm-end="407" hmm-length="0" start="4" end="376"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="4.7E-36" score="122.2">
+                <signature ac="G3DSA:3.90.640.10">
+                    <models>
+                        <model ac="1k8kA04"/>
+                        <model ac="4a2aA04"/>
+                        <model ac="4jneA03"/>
+                        <model ac="4gniA04"/>
+                        <model ac="4czlA03"/>
+                        <model ac="4b1yB03"/>
+                        <model ac="3i33A04"/>
+                    </models>
+                    <signature-library-release library="GENE3D" version="4.1.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="256" env-start="197" score="121.4" evalue="8.2E-36" hmm-start="1" hmm-end="89" hmm-length="0" start="197" end="256"/>
+                </locations>
+            </hmmer3-match>
             <hmmer3-match evalue="7.9E-42" score="140.5">
                 <signature ac="G3DSA:3.30.420.40">
                     <models>
@@ -408,172 +393,6 @@
                 </signature>
                 <locations>
                     <hmmer3-location env-end="196" env-start="165" score="49.1" evalue="2.5E-13" hmm-start="1" hmm-end="60" hmm-length="0" start="165" end="196"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="4.7E-36" score="122.2">
-                <signature ac="G3DSA:3.90.640.10">
-                    <models>
-                        <model ac="1k8kA04"/>
-                        <model ac="4a2aA04"/>
-                        <model ac="4jneA03"/>
-                        <model ac="4gniA04"/>
-                        <model ac="4czlA03"/>
-                        <model ac="4b1yB03"/>
-                        <model ac="3i33A04"/>
-                    </models>
-                    <signature-library-release library="GENE3D" version="4.1.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="256" env-start="197" score="121.4" evalue="8.2E-36" hmm-start="1" hmm-end="89" hmm-length="0" start="197" end="256"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="5.9E-148" score="492.7">
-                <signature ac="PF00022" desc="Actin" name="Actin">
-                    <entry ac="IPR004000" desc="Actin family" name="Actin" type="FAMILY"/>
-                    <models>
-                        <model ac="PF00022" desc="Actin" name="Actin"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="376" env-start="3" score="491.0" evalue="1.9E-147" hmm-start="2" hmm-end="407" hmm-length="0" start="4" end="376"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="6.0E-64" score="214.0">
-                <signature ac="G3DSA:3.30.420.40">
-                    <models>
-                        <model ac="4h0pB02"/>
-                        <model ac="1woqA02"/>
-                        <model ac="2ychA03"/>
-                        <model ac="4cbuA01"/>
-                        <model ac="3sk3A02"/>
-                        <model ac="1u6zA01"/>
-                        <model ac="1k8kB01"/>
-                        <model ac="3i8bA02"/>
-                        <model ac="3venA01"/>
-                        <model ac="3js6A02"/>
-                        <model ac="4czgA02"/>
-                        <model ac="4db3A01"/>
-                        <model ac="2gupA02"/>
-                        <model ac="4gniA03"/>
-                        <model ac="4htlA02"/>
-                        <model ac="2q2rA01"/>
-                        <model ac="1z05A02"/>
-                        <model ac="4jneA01"/>
-                        <model ac="2yhwA01"/>
-                        <model ac="4a2bA01"/>
-                        <model ac="2itmB02"/>
-                        <model ac="3ohrA01"/>
-                        <model ac="2nrhB01"/>
-                        <model ac="4ijaB02"/>
-                        <model ac="2itmA01"/>
-                        <model ac="3i33A03"/>
-                        <model ac="3bexA01"/>
-                        <model ac="2fxuA01"/>
-                        <model ac="4bc3A02"/>
-                        <model ac="1woqA01"/>
-                        <model ac="2ap1A02"/>
-                        <model ac="2e2oA01"/>
-                        <model ac="3qdkA02"/>
-                        <model ac="3cetB01"/>
-                        <model ac="2ch5B02"/>
-                        <model ac="3r8eA01"/>
-                        <model ac="2v7yA01"/>
-                        <model ac="4i6mB01"/>
-                        <model ac="3d2fA01"/>
-                        <model ac="4fo0A04"/>
-                        <model ac="2zgyA01"/>
-                        <model ac="4jd2B01"/>
-                        <model ac="2ch5A01"/>
-                        <model ac="3ll3B02"/>
-                        <model ac="3h1qA02"/>
-                        <model ac="3hz6A01"/>
-                        <model ac="1k8kA03"/>
-                        <model ac="2uytA02"/>
-                        <model ac="3h6eA03"/>
-                        <model ac="4jneA02"/>
-                        <model ac="1z05A03"/>
-                        <model ac="3ohrA02"/>
-                        <model ac="4bgbA02"/>
-                        <model ac="3qb0A01"/>
-                        <model ac="3zeuA02"/>
-                        <model ac="3qb0A02"/>
-                        <model ac="3ifrB02"/>
-                        <model ac="3vglA02"/>
-                        <model ac="3mdqA01"/>
-                        <model ac="3zeuA01"/>
-                        <model ac="3ifrA01"/>
-                        <model ac="4ehuA01"/>
-                        <model ac="3hi0A01"/>
-                        <model ac="4ijnB01"/>
-                        <model ac="2h3gX02"/>
-                        <model ac="4mo4A01"/>
-                        <model ac="2p9uB01"/>
-                        <model ac="1sazA01"/>
-                        <model ac="3hz6A02"/>
-                        <model ac="4ehuA02"/>
-                        <model ac="1sazA02"/>
-                        <model ac="2uytA01"/>
-                        <model ac="3cerC01"/>
-                        <model ac="4i6mA02"/>
-                        <model ac="4h0oA02"/>
-                        <model ac="1sz2B01"/>
-                        <model ac="3vpzA01"/>
-                        <model ac="4e1jD02"/>
-                        <model ac="2hoeA02"/>
-                        <model ac="1zc6A02"/>
-                        <model ac="3h46O01"/>
-                        <model ac="3lm2A01"/>
-                        <model ac="3o08A02"/>
-                        <model ac="4fo0A01"/>
-                        <model ac="2qm1A02"/>
-                        <model ac="1zc6B01"/>
-                        <model ac="3mcpA01"/>
-                        <model ac="2qm1B01"/>
-                        <model ac="1zbsA02"/>
-                        <model ac="3vglA01"/>
-                        <model ac="3d2fA03"/>
-                        <model ac="4ijaA03"/>
-                        <model ac="3i33A01"/>
-                        <model ac="2zgyA02"/>
-                        <model ac="4am6A01"/>
-                        <model ac="3htvA01"/>
-                        <model ac="2d0oA04"/>
-                        <model ac="3ll3B01"/>
-                        <model ac="3htvA02"/>
-                        <model ac="3f9mA02"/>
-                        <model ac="2aa4A02"/>
-                        <model ac="2fsjA02"/>
-                        <model ac="2f9wA01"/>
-                        <model ac="4i6mA01"/>
-                        <model ac="4htlA01"/>
-                        <model ac="3weeB02"/>
-                        <model ac="2aa4A01"/>
-                        <model ac="3r8eA02"/>
-                        <model ac="4a2bA03"/>
-                        <model ac="4i6mB02"/>
-                        <model ac="2nrhB02"/>
-                        <model ac="2yhwA02"/>
-                        <model ac="2d0oA01"/>
-                        <model ac="4czgA01"/>
-                        <model ac="2hoeA03"/>
-                        <model ac="2w40A01"/>
-                        <model ac="4b1yB02"/>
-                        <model ac="1qz5A01"/>
-                        <model ac="2yhxA02"/>
-                        <model ac="3h1qB01"/>
-                        <model ac="2ychA01"/>
-                        <model ac="4mo4A02"/>
-                        <model ac="1zbsA01"/>
-                        <model ac="2e2oA02"/>
-                        <model ac="3qdkB01"/>
-                        <model ac="2a6aA01"/>
-                        <model ac="1t6cA01"/>
-                    </models>
-                    <signature-library-release library="GENE3D" version="4.1.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="374" env-start="257" score="138.1" evalue="1.3E-40" hmm-start="31" hmm-end="164" hmm-length="0" start="257" end="374"/>
                 </locations>
             </hmmer3-match>
             <hmmer3-match evalue="3.5E-101" score="335.6">
@@ -713,6 +532,143 @@
                     <hmmer3-location env-end="164" env-start="1" score="270.9" evalue="2.4E-81" hmm-start="1" hmm-end="174" hmm-length="0" start="1" end="164"/>
                 </locations>
             </hmmer3-match>
+            <hmmer3-match evalue="6.0E-64" score="214.0">
+                <signature ac="G3DSA:3.30.420.40">
+                    <models>
+                        <model ac="4h0pB02"/>
+                        <model ac="1woqA02"/>
+                        <model ac="2ychA03"/>
+                        <model ac="4cbuA01"/>
+                        <model ac="3sk3A02"/>
+                        <model ac="1u6zA01"/>
+                        <model ac="1k8kB01"/>
+                        <model ac="3i8bA02"/>
+                        <model ac="3venA01"/>
+                        <model ac="3js6A02"/>
+                        <model ac="4czgA02"/>
+                        <model ac="4db3A01"/>
+                        <model ac="2gupA02"/>
+                        <model ac="4gniA03"/>
+                        <model ac="4htlA02"/>
+                        <model ac="2q2rA01"/>
+                        <model ac="1z05A02"/>
+                        <model ac="4jneA01"/>
+                        <model ac="2yhwA01"/>
+                        <model ac="4a2bA01"/>
+                        <model ac="2itmB02"/>
+                        <model ac="3ohrA01"/>
+                        <model ac="2nrhB01"/>
+                        <model ac="4ijaB02"/>
+                        <model ac="2itmA01"/>
+                        <model ac="3i33A03"/>
+                        <model ac="3bexA01"/>
+                        <model ac="2fxuA01"/>
+                        <model ac="4bc3A02"/>
+                        <model ac="1woqA01"/>
+                        <model ac="2ap1A02"/>
+                        <model ac="2e2oA01"/>
+                        <model ac="3qdkA02"/>
+                        <model ac="3cetB01"/>
+                        <model ac="2ch5B02"/>
+                        <model ac="3r8eA01"/>
+                        <model ac="2v7yA01"/>
+                        <model ac="4i6mB01"/>
+                        <model ac="3d2fA01"/>
+                        <model ac="4fo0A04"/>
+                        <model ac="2zgyA01"/>
+                        <model ac="4jd2B01"/>
+                        <model ac="2ch5A01"/>
+                        <model ac="3ll3B02"/>
+                        <model ac="3h1qA02"/>
+                        <model ac="3hz6A01"/>
+                        <model ac="1k8kA03"/>
+                        <model ac="2uytA02"/>
+                        <model ac="3h6eA03"/>
+                        <model ac="4jneA02"/>
+                        <model ac="1z05A03"/>
+                        <model ac="3ohrA02"/>
+                        <model ac="4bgbA02"/>
+                        <model ac="3qb0A01"/>
+                        <model ac="3zeuA02"/>
+                        <model ac="3qb0A02"/>
+                        <model ac="3ifrB02"/>
+                        <model ac="3vglA02"/>
+                        <model ac="3mdqA01"/>
+                        <model ac="3zeuA01"/>
+                        <model ac="3ifrA01"/>
+                        <model ac="4ehuA01"/>
+                        <model ac="3hi0A01"/>
+                        <model ac="4ijnB01"/>
+                        <model ac="2h3gX02"/>
+                        <model ac="4mo4A01"/>
+                        <model ac="2p9uB01"/>
+                        <model ac="1sazA01"/>
+                        <model ac="3hz6A02"/>
+                        <model ac="4ehuA02"/>
+                        <model ac="1sazA02"/>
+                        <model ac="2uytA01"/>
+                        <model ac="3cerC01"/>
+                        <model ac="4i6mA02"/>
+                        <model ac="4h0oA02"/>
+                        <model ac="1sz2B01"/>
+                        <model ac="3vpzA01"/>
+                        <model ac="4e1jD02"/>
+                        <model ac="2hoeA02"/>
+                        <model ac="1zc6A02"/>
+                        <model ac="3h46O01"/>
+                        <model ac="3lm2A01"/>
+                        <model ac="3o08A02"/>
+                        <model ac="4fo0A01"/>
+                        <model ac="2qm1A02"/>
+                        <model ac="1zc6B01"/>
+                        <model ac="3mcpA01"/>
+                        <model ac="2qm1B01"/>
+                        <model ac="1zbsA02"/>
+                        <model ac="3vglA01"/>
+                        <model ac="3d2fA03"/>
+                        <model ac="4ijaA03"/>
+                        <model ac="3i33A01"/>
+                        <model ac="2zgyA02"/>
+                        <model ac="4am6A01"/>
+                        <model ac="3htvA01"/>
+                        <model ac="2d0oA04"/>
+                        <model ac="3ll3B01"/>
+                        <model ac="3htvA02"/>
+                        <model ac="3f9mA02"/>
+                        <model ac="2aa4A02"/>
+                        <model ac="2fsjA02"/>
+                        <model ac="2f9wA01"/>
+                        <model ac="4i6mA01"/>
+                        <model ac="4htlA01"/>
+                        <model ac="3weeB02"/>
+                        <model ac="2aa4A01"/>
+                        <model ac="3r8eA02"/>
+                        <model ac="4a2bA03"/>
+                        <model ac="4i6mB02"/>
+                        <model ac="2nrhB02"/>
+                        <model ac="2yhwA02"/>
+                        <model ac="2d0oA01"/>
+                        <model ac="4czgA01"/>
+                        <model ac="2hoeA03"/>
+                        <model ac="2w40A01"/>
+                        <model ac="4b1yB02"/>
+                        <model ac="1qz5A01"/>
+                        <model ac="2yhxA02"/>
+                        <model ac="3h1qB01"/>
+                        <model ac="2ychA01"/>
+                        <model ac="4mo4A02"/>
+                        <model ac="1zbsA01"/>
+                        <model ac="2e2oA02"/>
+                        <model ac="3qdkB01"/>
+                        <model ac="2a6aA01"/>
+                        <model ac="1t6cA01"/>
+                    </models>
+                    <signature-library-release library="GENE3D" version="4.1.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="374" env-start="257" score="138.1" evalue="1.3E-40" hmm-start="31" hmm-end="164" hmm-length="0" start="257" end="374"/>
+                </locations>
+            </hmmer3-match>
             <panther-match evalue="1.1E-272" familyName="BETA-ACTIN-LIKE PROTEIN 3-RELATED" score="909.5">
                 <signature ac="PTHR11937:SF347" name="BETA-ACTIN-LIKE PROTEIN 3-RELATED">
                     <models>
@@ -736,6 +692,20 @@
                     <panther-location start="9" end="375"/>
                 </locations>
             </panther-match>
+            <patternscan-match>
+                <signature ac="PS01132" desc="Actins and actin-related proteins signature." name="ACTINS_ACT_LIKE">
+                    <entry ac="IPR020902" desc="Actin/actin-like conserved site" name="Actin/actin-like_CS" type="CONSERVED_SITE"/>
+                    <models>
+                        <model ac="PS01132" desc="Actins and actin-related proteins signature." name="ACTINS_ACT_LIKE"/>
+                    </models>
+                    <signature-library-release library="PROSITE_PATTERNS" version="20.132"/>
+                </signature>
+                <locations>
+                    <patternscan-location level="STRONG" start="105" end="117">
+                        <alignment>LLTEApLNPkaNR</alignment>
+                    </patternscan-location>
+                </locations>
+            </patternscan-match>
             <patternscan-match>
                 <signature ac="PS00432" desc="Actins signature 2." name="ACTINS_2">
                     <entry ac="IPR004001" desc="Actin, conserved site" name="Actin_CS" type="CONSERVED_SITE"/>
@@ -761,20 +731,6 @@
                 <locations>
                     <patternscan-location level="STRONG" start="54" end="64">
                         <alignment>YVGDEAQsKRG</alignment>
-                    </patternscan-location>
-                </locations>
-            </patternscan-match>
-            <patternscan-match>
-                <signature ac="PS01132" desc="Actins and actin-related proteins signature." name="ACTINS_ACT_LIKE">
-                    <entry ac="IPR020902" desc="Actin/actin-like conserved site" name="Actin/actin-like_CS" type="CONSERVED_SITE"/>
-                    <models>
-                        <model ac="PS01132" desc="Actins and actin-related proteins signature." name="ACTINS_ACT_LIKE"/>
-                    </models>
-                    <signature-library-release library="PROSITE_PATTERNS" version="20.132"/>
-                </signature>
-                <locations>
-                    <patternscan-location level="STRONG" start="105" end="117">
-                        <alignment>LLTEApLNPkaNR</alignment>
                     </patternscan-location>
                 </locations>
             </patternscan-match>
@@ -1028,6 +984,50 @@
         </matches>
     </protein>
     <protein>
+        <sequence md5="8f09462759670edb8d3c21c99fec7d1d">MEKGAGTRRRRLVERGSDRLAFITGQTRSLSCDPIPDSPLRSQFEGGTRDDGFSERNQLQKSEPSDLVPGFQDPGTRQGVKARTLSYDALVPEFERAGGRQENNASTLSYEDELFRKFKMGSAVPEIQPVNQTPLHTHDQETVSNNIIHAGVSKNTSHDGVSKNTSHDEVASVQPSREAEMRPRSAPPSQSTQADNSGWSVETLMELLDFTPQEITKAISATESNRFVASVVIAFLVVLSNWGLDIGGAITRVLVGTRPLLFLIVTNITIVFTLLMENKDPNVRSRPVGVNLGSADSLGQMLEIGLLLQKALGALLIDCSVCAVIMICFLGF</sequence>
+        <xref id="Zm00014a027427"/>
+        <matches>
+            <mobidblite-match>
+                <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
+                    <signature-library-release library="MOBIDB_LITE" version="1.0"/>
+                </signature>
+                <locations>
+                    <mobidblite-location start="25" end="79"/>
+                </locations>
+            </mobidblite-match>
+            <mobidblite-match>
+                <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
+                    <signature-library-release library="MOBIDB_LITE" version="1.0"/>
+                </signature>
+                <locations>
+                    <mobidblite-location start="152" end="197"/>
+                </locations>
+            </mobidblite-match>
+            <panther-match evalue="4.7E-113" familyName="FAMILY NOT NAMED" score="380.2">
+                <signature ac="PTHR35469" name="FAMILY NOT NAMED">
+                    <models>
+                        <model ac="PTHR35469" name="FAMILY NOT NAMED"/>
+                    </models>
+                    <signature-library-release library="PANTHER" version="11.1"/>
+                </signature>
+                <locations>
+                    <panther-location start="1" end="332"/>
+                </locations>
+            </panther-match>
+            <panther-match evalue="4.7E-113" familyName="SUBFAMILY NOT NAMED" score="380.2">
+                <signature ac="PTHR35469:SF4" name="SUBFAMILY NOT NAMED">
+                    <models>
+                        <model ac="PTHR35469:SF4" name="SUBFAMILY NOT NAMED"/>
+                    </models>
+                    <signature-library-release library="PANTHER" version="11.1"/>
+                </signature>
+                <locations>
+                    <panther-location start="1" end="332"/>
+                </locations>
+            </panther-match>
+        </matches>
+    </protein>
+    <protein>
         <sequence md5="391ced82e4cf61e26c70c818b2ee02bb">MISPERSSSQSPRSQAVAGAPFLWISVMDPVKMGTGVQAYISYRVITKTNLPEFEGPEKIVIRRYSDFEWLHDRLAERYKGVFIPPLPEKNAVEKFRFSKEFIELRRQALDLFVNRIASHPELKQSDVLRTFLQADEEIMDRARSYETGIFKKPSDFLQMFKDVQSKVSDVVLGKEKPVEESTPEYEKLKSYIFELEIHLAEAQKQAYRLVKRHRELGQSLADFGKAIKLLGSCEGDLMEKVFSEVGSKSEMLSIKLQREADNLLFNFEEPLKDYVRALQSIKATMLDRANAFRQHFDLDQERKYKELNLEKLKFMNPEKYAEAESEFRGASCCNFPLRNSLHSLVDELKADSEEATKKFEHIVRLMNEELSRFQEQKTADIGLAFHEFAKGQAKLAKDIADAWRSVLPKLEACSTS</sequence>
         <xref id="Zm00014a027426"/>
         <matches>
@@ -1045,6 +1045,18 @@
                     <hmmer2-location score="104.5" evalue="1.3E-26" hmm-start="1" hmm-end="142" hmm-length="0" start="19" end="136"/>
                 </locations>
             </hmmer2-match>
+            <hmmer3-match evalue="2.2E-18" score="66.6">
+                <signature ac="PF09325" desc="Vps5 C terminal like" name="Vps5">
+                    <entry ac="IPR015404" desc="Sorting nexin Vps5-like, C-terminal" name="Vps5_C" type="DOMAIN"/>
+                    <models>
+                        <model ac="PF09325" desc="Vps5 C terminal like" name="Vps5"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="332" env-start="157" score="50.9" evalue="1.4E-13" hmm-start="10" hmm-end="173" hmm-length="0" start="166" end="329"/>
+                </locations>
+            </hmmer3-match>
             <hmmer3-match evalue="4.8E-25" score="87.6">
                 <signature ac="PF00787" desc="PX domain" name="PX">
                     <entry ac="IPR001683" desc="Phox homologous domain" name="Phox" type="DOMAIN">
@@ -1057,38 +1069,6 @@
                 </signature>
                 <locations>
                     <hmmer3-location env-end="136" env-start="20" score="85.9" evalue="1.7E-24" hmm-start="6" hmm-end="112" hmm-length="0" start="25" end="135"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="1.4E-29" score="102.9">
-                <signature ac="G3DSA:1.20.1270.60">
-                    <models>
-                        <model ac="3dytA02"/>
-                        <model ac="2d1lB00"/>
-                        <model ac="3cazB00"/>
-                        <model ac="1i4dA00"/>
-                        <model ac="2yktA00"/>
-                        <model ac="2q12A00"/>
-                        <model ac="4atmA00"/>
-                        <model ac="1zwwA00"/>
-                        <model ac="2c08A00"/>
-                        <model ac="3ok8A00"/>
-                    </models>
-                    <signature-library-release library="GENE3D" version="4.1.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="414" env-start="186" score="102.0" evalue="2.7E-29" hmm-start="3" hmm-end="190" hmm-length="0" start="186" end="414"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="2.2E-18" score="66.6">
-                <signature ac="PF09325" desc="Vps5 C terminal like" name="Vps5">
-                    <entry ac="IPR015404" desc="Sorting nexin Vps5-like, C-terminal" name="Vps5_C" type="DOMAIN"/>
-                    <models>
-                        <model ac="PF09325" desc="Vps5 C terminal like" name="Vps5"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="332" env-start="157" score="50.9" evalue="1.4E-13" hmm-start="10" hmm-end="173" hmm-length="0" start="166" end="329"/>
                 </locations>
             </hmmer3-match>
             <hmmer3-match evalue="9.4E-31" score="105.9">
@@ -1123,6 +1103,26 @@
                     <hmmer3-location env-end="151" env-start="13" score="105.9" evalue="9.4E-31" hmm-start="19" hmm-end="130" hmm-length="0" start="13" end="151"/>
                 </locations>
             </hmmer3-match>
+            <hmmer3-match evalue="1.4E-29" score="102.9">
+                <signature ac="G3DSA:1.20.1270.60">
+                    <models>
+                        <model ac="3dytA02"/>
+                        <model ac="2d1lB00"/>
+                        <model ac="3cazB00"/>
+                        <model ac="1i4dA00"/>
+                        <model ac="2yktA00"/>
+                        <model ac="2q12A00"/>
+                        <model ac="4atmA00"/>
+                        <model ac="1zwwA00"/>
+                        <model ac="2c08A00"/>
+                        <model ac="3ok8A00"/>
+                    </models>
+                    <signature-library-release library="GENE3D" version="4.1.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="414" env-start="186" score="102.0" evalue="2.7E-29" hmm-start="3" hmm-end="190" hmm-length="0" start="186" end="414"/>
+                </locations>
+            </hmmer3-match>
             <panther-match evalue="9.7E-200" familyName="SORTING NEXIN" score="665.9">
                 <signature ac="PTHR10555" name="SORTING NEXIN">
                     <models>
@@ -1137,10 +1137,10 @@
             <panther-match evalue="9.7E-200" familyName="SORTING NEXIN 1" score="665.9">
                 <signature ac="PTHR10555:SF174" name="SORTING NEXIN 1">
                     <entry ac="IPR033241" desc="Sorting nexin 1, plant" name="SNX1_plant" type="FAMILY">
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0007034" name="vacuolar transport"/>
                         <go-xref category="CELLULAR_COMPONENT" db="GO" id="GO:0030904" name="retromer complex"/>
                         <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0048364" name="root development"/>
                         <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0010252" name="auxin homeostasis"/>
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0007034" name="vacuolar transport"/>
                     </entry>
                     <models>
                         <model ac="PTHR10555:SF174" name="SORTING NEXIN 1"/>
@@ -1293,18 +1293,6 @@
         <sequence md5="08ddeb3d5b11ed81330343c733bc1f26">MDPANSSAGAELDDASEWRTRALGGTEYSWLRAVPGGTGTTLLALRLSRGDAAEAGLHSLRDAHPVLRARLRTSSPSGPTLAFPDPAPPFLLAPIPAPGSAPDFHALLEHELNRNPWADDPASSDDAPVLFATLYELPAATGGAALFVRIHTVACDRSAASALARELVALLAGAGGEEPDPEDAAAEAGLEARIPQRDTWKPFWARGLDMVGYSINGLRTSTLPFVETGTERSTQMLRLGLGLDETTRLLDACKENGVRLCSAVAAATMLAARQSKPLESGQQETYSVVTLINCRKFLEPVLEDRNVGFFYSAITNTHTIHGGEGLWELAKRCHDSYTSAKSNKKHLTDINDLNFLMCRAIENPQLTTAGALRTALVSVFEDPVVADVAELQSKAGVEDCVCCATVHGIGPSIGVFDSIKDGKLDWACVYPSPLHSRKQVQEIFDKVKQILRHAAAAEENFEDCT</sequence>
         <xref id="Zm00014a027425"/>
         <matches>
-            <hmmer3-match evalue="1.0E-5" score="24.5">
-                <signature ac="PF07247" desc="Alcohol acetyltransferase" name="AATase">
-                    <entry ac="IPR010828" desc="Alcohol acetyltransferase/N-acetyltransferase" name="Atf2/Sli1-like" type="FAMILY"/>
-                    <models>
-                        <model ac="PF07247" desc="Alcohol acetyltransferase" name="AATase"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="360" env-start="220" score="24.0" evalue="1.4E-5" hmm-start="257" hmm-end="378" hmm-length="0" start="242" end="352"/>
-                </locations>
-            </hmmer3-match>
             <hmmer3-match evalue="7.4E-11" score="41.7">
                 <signature ac="G3DSA:3.30.559.10">
                     <models>
@@ -1329,6 +1317,18 @@
                 </signature>
                 <locations>
                     <hmmer3-location env-end="209" env-start="24" score="41.1" evalue="1.1E-10" hmm-start="59" hmm-end="189" hmm-length="0" start="24" end="209"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="1.0E-5" score="24.5">
+                <signature ac="PF07247" desc="Alcohol acetyltransferase" name="AATase">
+                    <entry ac="IPR010828" desc="Alcohol acetyltransferase/N-acetyltransferase" name="Atf2/Sli1-like" type="FAMILY"/>
+                    <models>
+                        <model ac="PF07247" desc="Alcohol acetyltransferase" name="AATase"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="360" env-start="220" score="24.0" evalue="1.4E-5" hmm-start="257" hmm-end="378" hmm-length="0" start="242" end="352"/>
                 </locations>
             </hmmer3-match>
             <panther-match evalue="2.5E-175" familyName="FAMILY NOT NAMED" score="585.9">
