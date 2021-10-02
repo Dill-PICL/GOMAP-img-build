@@ -7,8 +7,8 @@
             <hmmer3-match evalue="1.0E-83" score="280.4">
                 <signature ac="PF03159" desc="XRN 5'-3' exonuclease N-terminus" name="XRN_N">
                     <entry ac="IPR004859" desc="Putative 5-3 exonuclease" name="Put_53exo" type="DOMAIN">
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0003676" name="nucleic acid binding"/>
                         <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0004527" name="exonuclease activity"/>
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0003676" name="nucleic acid binding"/>
                     </entry>
                     <models>
                         <model ac="PF03159" desc="XRN 5'-3' exonuclease N-terminus" name="XRN_N"/>
@@ -24,7 +24,7 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="788" end="809"/>
+                    <mobidblite-location start="686" end="725"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
@@ -32,13 +32,14 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="686" end="725"/>
+                    <mobidblite-location start="788" end="809"/>
                 </locations>
             </mobidblite-match>
-            <panther-match evalue="0.0" familyName="SUBFAMILY NOT NAMED" score="1169.6">
-                <signature ac="PTHR12341:SF46" name="SUBFAMILY NOT NAMED">
+            <panther-match evalue="0.0" familyName="5'-&gt;3' EXORIBONUCLEASE" score="1169.6">
+                <signature ac="PTHR12341" name="5'-&gt;3' EXORIBONUCLEASE">
+                    <entry ac="IPR027073" desc="5'-3' exoribonuclease" name="5_3_exoribonuclease" type="FAMILY"/>
                     <models>
-                        <model ac="PTHR12341:SF46" name="SUBFAMILY NOT NAMED"/>
+                        <model ac="PTHR12341" name="5'-&gt;3' EXORIBONUCLEASE"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -46,11 +47,10 @@
                     <panther-location start="386" end="798"/>
                 </locations>
             </panther-match>
-            <panther-match evalue="0.0" familyName="5'-&gt;3' EXORIBONUCLEASE" score="1169.6">
-                <signature ac="PTHR12341" name="5'-&gt;3' EXORIBONUCLEASE">
-                    <entry ac="IPR027073" desc="5'-3' exoribonuclease" name="5_3_exoribonuclease" type="FAMILY"/>
+            <panther-match evalue="0.0" familyName="SUBFAMILY NOT NAMED" score="1169.6">
+                <signature ac="PTHR12341:SF46" name="SUBFAMILY NOT NAMED">
                     <models>
-                        <model ac="PTHR12341" name="5'-&gt;3' EXORIBONUCLEASE"/>
+                        <model ac="PTHR12341:SF46" name="SUBFAMILY NOT NAMED"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -69,14 +69,6 @@
                     <signature-library-release library="COILS" version="2.2.1"/>
                 </signature>
                 <locations>
-                    <coils-location start="541" end="600"/>
-                </locations>
-            </coils-match>
-            <coils-match>
-                <signature ac="Coil" name="Coil">
-                    <signature-library-release library="COILS" version="2.2.1"/>
-                </signature>
-                <locations>
                     <coils-location start="473" end="537"/>
                 </locations>
             </coils-match>
@@ -88,18 +80,14 @@
                     <coils-location start="905" end="932"/>
                 </locations>
             </coils-match>
-            <hmmer2-match evalue="6.5E-19" score="78.8">
-                <signature ac="SM00571" name="testlast3">
-                    <entry ac="IPR018501" desc="DDT domain" name="DDT_dom" type="DOMAIN"/>
-                    <models>
-                        <model ac="SM00571" name="testlast3"/>
-                    </models>
-                    <signature-library-release library="SMART" version="7.1"/>
+            <coils-match>
+                <signature ac="Coil" name="Coil">
+                    <signature-library-release library="COILS" version="2.2.1"/>
                 </signature>
                 <locations>
-                    <hmmer2-location score="78.8" evalue="6.5E-19" hmm-start="1" hmm-end="65" hmm-length="0" start="648" end="707"/>
+                    <coils-location start="541" end="600"/>
                 </locations>
-            </hmmer2-match>
+            </coils-match>
             <hmmer2-match evalue="3.8E-6" score="36.4">
                 <signature ac="SM00389" name="HOX_1">
                     <entry ac="IPR001356" desc="Homeobox domain" name="Homeobox_dom" type="DOMAIN">
@@ -112,6 +100,18 @@
                 </signature>
                 <locations>
                     <hmmer2-location score="36.4" evalue="3.8E-6" hmm-start="1" hmm-end="63" hmm-length="0" start="46" end="138"/>
+                </locations>
+            </hmmer2-match>
+            <hmmer2-match evalue="6.5E-19" score="78.8">
+                <signature ac="SM00571" name="testlast3">
+                    <entry ac="IPR018501" desc="DDT domain" name="DDT_dom" type="DOMAIN"/>
+                    <models>
+                        <model ac="SM00571" name="testlast3"/>
+                    </models>
+                    <signature-library-release library="SMART" version="7.1"/>
+                </signature>
+                <locations>
+                    <hmmer2-location score="78.8" evalue="6.5E-19" hmm-start="1" hmm-end="65" hmm-length="0" start="648" end="707"/>
                 </locations>
             </hmmer2-match>
             <hmmer3-match evalue="3.3E-11" score="42.7">
@@ -287,23 +287,11 @@
                     <hmmer3-location env-end="1090" env-start="1047" score="35.4" evalue="4.9E-9" hmm-start="6" hmm-end="46" hmm-length="0" start="1050" end="1090"/>
                 </locations>
             </hmmer3-match>
-            <hmmer3-match evalue="1.2E-12" score="48.1">
-                <signature ac="PF15613" desc="Williams-Beuren syndrome DDT (WSD), D-TOX E motif" name="WSD">
-                    <entry ac="IPR028941" desc="WHIM2 domain" name="WHIM2_dom" type="DOMAIN"/>
-                    <models>
-                        <model ac="PF15613" desc="Williams-Beuren syndrome DDT (WSD), D-TOX E motif" name="WSD"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="1300" env-start="1226" score="48.1" evalue="1.2E-12" hmm-start="2" hmm-end="98" hmm-length="0" start="1227" end="1298"/>
-                </locations>
-            </hmmer3-match>
             <hmmer3-match evalue="1.1E-15" score="57.6">
                 <signature ac="PF05066" desc="HB1, ASXL, restriction endonuclease HTH domain" name="HARE-HTH">
                     <entry ac="IPR007759" desc="HB1/Asxl, restriction endonuclease HTH domain" name="HB1/Asxl_HTH" type="DOMAIN">
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0006355" name="regulation of transcription, DNA-templated"/>
                         <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0006351" name="transcription, DNA-templated"/>
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0006355" name="regulation of transcription, DNA-templated"/>
                     </entry>
                     <models>
                         <model ac="PF05066" desc="HB1, ASXL, restriction endonuclease HTH domain" name="HARE-HTH"/>
@@ -312,18 +300,6 @@
                 </signature>
                 <locations>
                     <hmmer3-location env-end="892" env-start="824" score="56.1" evalue="3.3E-15" hmm-start="1" hmm-end="71" hmm-length="0" start="824" end="892"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="1.7E-16" score="60.1">
-                <signature ac="PF02791" desc="DDT domain" name="DDT">
-                    <entry ac="IPR018501" desc="DDT domain" name="DDT_dom" type="DOMAIN"/>
-                    <models>
-                        <model ac="PF02791" desc="DDT domain" name="DDT"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="704" env-start="649" score="59.1" evalue="3.7E-16" hmm-start="2" hmm-end="60" hmm-length="0" start="650" end="704"/>
                 </locations>
             </hmmer3-match>
             <hmmer3-match evalue="1.6E-6" score="26.9">
@@ -736,12 +712,36 @@
                     <hmmer3-location env-end="596" env-start="217" score="26.9" evalue="1.6E-6" hmm-start="175" hmm-end="295" hmm-length="0" start="217" end="596"/>
                 </locations>
             </hmmer3-match>
+            <hmmer3-match evalue="1.7E-16" score="60.1">
+                <signature ac="PF02791" desc="DDT domain" name="DDT">
+                    <entry ac="IPR018501" desc="DDT domain" name="DDT_dom" type="DOMAIN"/>
+                    <models>
+                        <model ac="PF02791" desc="DDT domain" name="DDT"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="704" env-start="649" score="59.1" evalue="3.7E-16" hmm-start="2" hmm-end="60" hmm-length="0" start="650" end="704"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="1.2E-12" score="48.1">
+                <signature ac="PF15613" desc="Williams-Beuren syndrome DDT (WSD), D-TOX E motif" name="WSD">
+                    <entry ac="IPR028941" desc="WHIM2 domain" name="WHIM2_dom" type="DOMAIN"/>
+                    <models>
+                        <model ac="PF15613" desc="Williams-Beuren syndrome DDT (WSD), D-TOX E motif" name="WSD"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="1300" env-start="1226" score="48.1" evalue="1.2E-12" hmm-start="2" hmm-end="98" hmm-length="0" start="1227" end="1298"/>
+                </locations>
+            </hmmer3-match>
             <mobidblite-match>
                 <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="131" end="152"/>
+                    <mobidblite-location start="437" end="473"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
@@ -757,15 +757,7 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="437" end="473"/>
-                </locations>
-            </mobidblite-match>
-            <mobidblite-match>
-                <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
-                    <signature-library-release library="MOBIDB_LITE" version="1.0"/>
-                </signature>
-                <locations>
-                    <mobidblite-location start="918" end="968"/>
+                    <mobidblite-location start="131" end="152"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
@@ -781,7 +773,7 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="1" end="48"/>
+                    <mobidblite-location start="918" end="968"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
@@ -792,10 +784,18 @@
                     <mobidblite-location start="499" end="570"/>
                 </locations>
             </mobidblite-match>
-            <panther-match evalue="0.0" familyName="FAMILY NOT NAMED" score="2467.5">
-                <signature ac="PTHR36968" name="FAMILY NOT NAMED">
+            <mobidblite-match>
+                <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
+                    <signature-library-release library="MOBIDB_LITE" version="1.0"/>
+                </signature>
+                <locations>
+                    <mobidblite-location start="1" end="48"/>
+                </locations>
+            </mobidblite-match>
+            <panther-match evalue="0.0" familyName="HOMEOBOX-1" score="2467.5">
+                <signature ac="PTHR36968:SF5" name="HOMEOBOX-1">
                     <models>
-                        <model ac="PTHR36968" name="FAMILY NOT NAMED"/>
+                        <model ac="PTHR36968:SF5" name="HOMEOBOX-1"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -803,10 +803,10 @@
                     <panther-location start="96" end="1861"/>
                 </locations>
             </panther-match>
-            <panther-match evalue="0.0" familyName="HOMEOBOX-1" score="2467.5">
-                <signature ac="PTHR36968:SF5" name="HOMEOBOX-1">
+            <panther-match evalue="0.0" familyName="FAMILY NOT NAMED" score="2467.5">
+                <signature ac="PTHR36968" name="FAMILY NOT NAMED">
                     <models>
-                        <model ac="PTHR36968:SF5" name="HOMEOBOX-1"/>
+                        <model ac="PTHR36968" name="FAMILY NOT NAMED"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -1047,110 +1047,6 @@
         <sequence md5="e65e7d47e6c445003d6730f14fff24ea">MAHSPAPSGGGGGGPLPLLVSLNCLDDLSLEQEGLAGVAAVEHVPLSAVACGRIEAASAVLLPSLAFLPRAAQRRLRPWQLLLCLGSADRAADAAAAADLGLRLVHVDANRAEEVADTVMALILGLLRRTHLLSCHASSVPAAGWLGSVQPMCRGMRRCRGLVLGIIGRSAAARCLATRSLAFRMSVLYFDPRYVASGKTKRPSIVFPSAARRMDTLNDLLAASDLISLHCGLTNETMHILNADCLQHIKPGAFIVNTGSCQLIDDCALKQLLIDGTIAGCALDGAEGPQWMEAWVREMPNVLILPRSADYSEEVWMEIREKAITMLQSFFFDGVLPSSAISDEDEEISEAKNEDDYLGPQAKDSQSQIFDTEIDESHITLESEKKRAISHHKEPQASGKSVNIGSRSEGRRSRSGKKGKKRPAHRRPQQKPDDLSAVESDSNYSSRRDDDTAMSSRDQVVSSSSRFASPEDPKYKHKSLSESPMEITSEKKVPVLLSRKYPDKLKDGFIVALRARDNSGYHVARQRVVGGGGWILDVVSNATNRDPAAQFLVTFKNKDTMGLRSFVAGGKLLQINRKMEFVFASHSFDVWESWMLDGSLLEGSKLINCRNPSAVLDICIEILAAPSEEDGVTRWLDSPRWGL</sequence>
         <xref id="Zm00001d027450"/>
         <matches>
-            <hmmer3-match evalue="4.5E-28" score="97.7">
-                <signature ac="PF02826" desc="D-isomer specific 2-hydroxyacid dehydrogenase, NAD binding domain" name="2-Hacid_dh_C">
-                    <entry ac="IPR006140" desc="D-isomer specific 2-hydroxyacid dehydrogenase, NAD-binding domain" name="D-isomer_DH_NAD-bd" type="DOMAIN">
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055114" name="oxidation-reduction process"/>
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0051287" name="NAD binding"/>
-                    </entry>
-                    <models>
-                        <model ac="PF02826" desc="D-isomer specific 2-hydroxyacid dehydrogenase, NAD binding domain" name="2-Hacid_dh_C"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="309" env-start="120" score="97.1" evalue="7.1E-28" hmm-start="1" hmm-end="175" hmm-length="0" start="120" end="306"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="7.9E-5" score="22.7">
-                <signature ac="G3DSA:2.80.10.50">
-                    <models>
-                        <model ac="2yugA00"/>
-                        <model ac="4izeA00"/>
-                        <model ac="2kkiA00"/>
-                        <model ac="4oujA01"/>
-                        <model ac="1wbaA00"/>
-                        <model ac="3q7xA00"/>
-                        <model ac="3llpB01"/>
-                        <model ac="2d7iA02"/>
-                        <model ac="3n7lA02"/>
-                        <model ac="3nbcA00"/>
-                        <model ac="2x2sC00"/>
-                        <model ac="3pg0A00"/>
-                        <model ac="2vseA05"/>
-                        <model ac="4j2kB00"/>
-                        <model ac="2e4mC00"/>
-                        <model ac="3hsmB00"/>
-                        <model ac="3iagC02"/>
-                        <model ac="2fdbN00"/>
-                        <model ac="4ihzA00"/>
-                        <model ac="1ihkA00"/>
-                        <model ac="3llpA03"/>
-                        <model ac="2gzbB00"/>
-                        <model ac="3p6iA00"/>
-                        <model ac="2vseA04"/>
-                        <model ac="1avwB00"/>
-                        <model ac="2p39A00"/>
-                        <model ac="3s8kB00"/>
-                        <model ac="2wryA00"/>
-                        <model ac="3rsjB02"/>
-                        <model ac="3c9zA01"/>
-                        <model ac="1a8dA02"/>
-                        <model ac="3llpB04"/>
-                        <model ac="3phzA01"/>
-                        <model ac="1pwaA00"/>
-                        <model ac="1wd3A02"/>
-                        <model ac="4jp0A01"/>
-                        <model ac="1rg8A00"/>
-                        <model ac="3tc2B00"/>
-                        <model ac="3llpB02"/>
-                        <model ac="1jlxA01"/>
-                        <model ac="1vclA02"/>
-                        <model ac="2qn4A00"/>
-                        <model ac="4p0lA00"/>
-                        <model ac="3oggA02"/>
-                        <model ac="2vseA02"/>
-                        <model ac="3ef2D01"/>
-                        <model ac="3e8lC00"/>
-                        <model ac="1sr4C00"/>
-                        <model ac="1q1uA00"/>
-                        <model ac="4g9mB00"/>
-                        <model ac="1knmA00"/>
-                        <model ac="3aj6A02"/>
-                        <model ac="2dreA00"/>
-                        <model ac="1epwA04"/>
-                        <model ac="1vclA01"/>
-                        <model ac="3o44A03"/>
-                        <model ac="4izxA00"/>
-                        <model ac="1dqgA00"/>
-                        <model ac="1hcdA00"/>
-                        <model ac="3a07B00"/>
-                        <model ac="2vxtI00"/>
-                        <model ac="4l4hA02"/>
-                        <model ac="1sr4A00"/>
-                        <model ac="1ybiA02"/>
-                        <model ac="3c9zA02"/>
-                        <model ac="4i4oA00"/>
-                        <model ac="1r8nA00"/>
-                        <model ac="1upsA02"/>
-                        <model ac="1m2tB02"/>
-                        <model ac="2dryA00"/>
-                        <model ac="4h04A03"/>
-                        <model ac="1n4kA01"/>
-                        <model ac="2vseA03"/>
-                        <model ac="2ffuA02"/>
-                        <model ac="1l2hA00"/>
-                        <model ac="1xzzA00"/>
-                        <model ac="1jlxA02"/>
-                        <model ac="1t9fA00"/>
-                        <model ac="3akhA02"/>
-                    </models>
-                    <signature-library-release library="GENE3D" version="4.1.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="596" env-start="343" score="18.3" evalue="0.0018" hmm-start="20" hmm-end="110" hmm-length="0" start="343" end="596"/>
-                </locations>
-            </hmmer3-match>
             <hmmer3-match evalue="2.9E-7" score="29.8">
                 <signature ac="G3DSA:3.40.50.720">
                     <models>
@@ -1697,6 +1593,110 @@
                 </signature>
                 <locations>
                     <hmmer3-location env-end="125" env-start="21" score="29.0" evalue="5.3E-7" hmm-start="6" hmm-end="114" hmm-length="0" start="21" end="125"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="4.5E-28" score="97.7">
+                <signature ac="PF02826" desc="D-isomer specific 2-hydroxyacid dehydrogenase, NAD binding domain" name="2-Hacid_dh_C">
+                    <entry ac="IPR006140" desc="D-isomer specific 2-hydroxyacid dehydrogenase, NAD-binding domain" name="D-isomer_DH_NAD-bd" type="DOMAIN">
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055114" name="oxidation-reduction process"/>
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0051287" name="NAD binding"/>
+                    </entry>
+                    <models>
+                        <model ac="PF02826" desc="D-isomer specific 2-hydroxyacid dehydrogenase, NAD binding domain" name="2-Hacid_dh_C"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="309" env-start="120" score="97.1" evalue="7.1E-28" hmm-start="1" hmm-end="175" hmm-length="0" start="120" end="306"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="7.9E-5" score="22.7">
+                <signature ac="G3DSA:2.80.10.50">
+                    <models>
+                        <model ac="2yugA00"/>
+                        <model ac="4izeA00"/>
+                        <model ac="2kkiA00"/>
+                        <model ac="4oujA01"/>
+                        <model ac="1wbaA00"/>
+                        <model ac="3q7xA00"/>
+                        <model ac="3llpB01"/>
+                        <model ac="2d7iA02"/>
+                        <model ac="3n7lA02"/>
+                        <model ac="3nbcA00"/>
+                        <model ac="2x2sC00"/>
+                        <model ac="3pg0A00"/>
+                        <model ac="2vseA05"/>
+                        <model ac="4j2kB00"/>
+                        <model ac="2e4mC00"/>
+                        <model ac="3hsmB00"/>
+                        <model ac="3iagC02"/>
+                        <model ac="2fdbN00"/>
+                        <model ac="4ihzA00"/>
+                        <model ac="1ihkA00"/>
+                        <model ac="3llpA03"/>
+                        <model ac="2gzbB00"/>
+                        <model ac="3p6iA00"/>
+                        <model ac="2vseA04"/>
+                        <model ac="1avwB00"/>
+                        <model ac="2p39A00"/>
+                        <model ac="3s8kB00"/>
+                        <model ac="2wryA00"/>
+                        <model ac="3rsjB02"/>
+                        <model ac="3c9zA01"/>
+                        <model ac="1a8dA02"/>
+                        <model ac="3llpB04"/>
+                        <model ac="3phzA01"/>
+                        <model ac="1pwaA00"/>
+                        <model ac="1wd3A02"/>
+                        <model ac="4jp0A01"/>
+                        <model ac="1rg8A00"/>
+                        <model ac="3tc2B00"/>
+                        <model ac="3llpB02"/>
+                        <model ac="1jlxA01"/>
+                        <model ac="1vclA02"/>
+                        <model ac="2qn4A00"/>
+                        <model ac="4p0lA00"/>
+                        <model ac="3oggA02"/>
+                        <model ac="2vseA02"/>
+                        <model ac="3ef2D01"/>
+                        <model ac="3e8lC00"/>
+                        <model ac="1sr4C00"/>
+                        <model ac="1q1uA00"/>
+                        <model ac="4g9mB00"/>
+                        <model ac="1knmA00"/>
+                        <model ac="3aj6A02"/>
+                        <model ac="2dreA00"/>
+                        <model ac="1epwA04"/>
+                        <model ac="1vclA01"/>
+                        <model ac="3o44A03"/>
+                        <model ac="4izxA00"/>
+                        <model ac="1dqgA00"/>
+                        <model ac="1hcdA00"/>
+                        <model ac="3a07B00"/>
+                        <model ac="2vxtI00"/>
+                        <model ac="4l4hA02"/>
+                        <model ac="1sr4A00"/>
+                        <model ac="1ybiA02"/>
+                        <model ac="3c9zA02"/>
+                        <model ac="4i4oA00"/>
+                        <model ac="1r8nA00"/>
+                        <model ac="1upsA02"/>
+                        <model ac="1m2tB02"/>
+                        <model ac="2dryA00"/>
+                        <model ac="4h04A03"/>
+                        <model ac="1n4kA01"/>
+                        <model ac="2vseA03"/>
+                        <model ac="2ffuA02"/>
+                        <model ac="1l2hA00"/>
+                        <model ac="1xzzA00"/>
+                        <model ac="1jlxA02"/>
+                        <model ac="1t9fA00"/>
+                        <model ac="3akhA02"/>
+                    </models>
+                    <signature-library-release library="GENE3D" version="4.1.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="596" env-start="343" score="18.3" evalue="0.0018" hmm-start="20" hmm-end="110" hmm-length="0" start="343" end="596"/>
                 </locations>
             </hmmer3-match>
             <hmmer3-match evalue="4.0E-38" score="130.3">
@@ -2252,7 +2252,7 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="386" end="487"/>
+                    <mobidblite-location start="342" end="370"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
@@ -2260,13 +2260,13 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="342" end="370"/>
+                    <mobidblite-location start="386" end="487"/>
                 </locations>
             </mobidblite-match>
-            <panther-match evalue="0.0" familyName="SUBFAMILY NOT NAMED" score="1202.1">
-                <signature ac="PTHR43254:SF1" name="SUBFAMILY NOT NAMED">
+            <panther-match evalue="0.0" familyName="FAMILY NOT NAMED" score="1202.1">
+                <signature ac="PTHR43254" name="FAMILY NOT NAMED">
                     <models>
-                        <model ac="PTHR43254:SF1" name="SUBFAMILY NOT NAMED"/>
+                        <model ac="PTHR43254" name="FAMILY NOT NAMED"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -2274,10 +2274,10 @@
                     <panther-location start="3" end="637"/>
                 </locations>
             </panther-match>
-            <panther-match evalue="0.0" familyName="FAMILY NOT NAMED" score="1202.1">
-                <signature ac="PTHR43254" name="FAMILY NOT NAMED">
+            <panther-match evalue="0.0" familyName="SUBFAMILY NOT NAMED" score="1202.1">
+                <signature ac="PTHR43254:SF1" name="SUBFAMILY NOT NAMED">
                     <models>
-                        <model ac="PTHR43254" name="FAMILY NOT NAMED"/>
+                        <model ac="PTHR43254:SF1" name="SUBFAMILY NOT NAMED"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -2622,8 +2622,8 @@
                     <hmmer2-location score="1.7" evalue="160.0" hmm-start="1" hmm-end="28" hmm-length="0" start="203" end="230"/>
                     <hmmer2-location score="16.8" evalue="1.1" hmm-start="1" hmm-end="28" hmm-length="0" start="315" end="342"/>
                     <hmmer2-location score="1.2" evalue="180.0" hmm-start="1" hmm-end="28" hmm-length="0" start="609" end="636"/>
-                    <hmmer2-location score="27.6" evalue="0.0018" hmm-start="1" hmm-end="28" hmm-length="0" start="259" end="286"/>
                     <hmmer2-location score="26.3" evalue="0.0041" hmm-start="1" hmm-end="28" hmm-length="0" start="579" end="606"/>
+                    <hmmer2-location score="27.6" evalue="0.0018" hmm-start="1" hmm-end="28" hmm-length="0" start="259" end="286"/>
                 </locations>
             </hmmer2-match>
             <hmmer3-match evalue="1.1E-97" score="325.4">
@@ -2695,8 +2695,8 @@
                     <hmmer3-location env-end="357" env-start="290" score="46.1" evalue="3.1E-12" hmm-start="9" hmm-end="69" hmm-length="0" start="290" end="357"/>
                     <hmmer3-location env-end="289" env-start="199" score="66.0" evalue="2.6E-18" hmm-start="6" hmm-end="86" hmm-length="0" start="199" end="289"/>
                     <hmmer3-location env-end="514" env-start="443" score="82.0" evalue="3.3E-23" hmm-start="6" hmm-end="86" hmm-length="0" start="443" end="514"/>
-                    <hmmer3-location env-end="442" env-start="358" score="51.9" evalue="5.2E-14" hmm-start="15" hmm-end="94" hmm-length="0" start="358" end="442"/>
                     <hmmer3-location env-end="570" env-start="515" score="68.4" evalue="4.9E-19" hmm-start="19" hmm-end="86" hmm-length="0" start="515" end="570"/>
+                    <hmmer3-location env-end="442" env-start="358" score="51.9" evalue="5.2E-14" hmm-start="15" hmm-end="94" hmm-length="0" start="358" end="442"/>
                     <hmmer3-location env-end="642" env-start="571" score="55.4" evalue="4.6E-15" hmm-start="16" hmm-end="85" hmm-length="0" start="571" end="642"/>
                 </locations>
             </hmmer3-match>
@@ -2713,10 +2713,10 @@
                 <locations>
                     <hmmer3-location env-end="601" env-start="579" score="23.7" evalue="2.9E-5" hmm-start="2" hmm-end="24" hmm-length="0" start="579" end="601"/>
                     <hmmer3-location env-end="252" env-start="235" score="9.2" evalue="1.3" hmm-start="7" hmm-end="23" hmm-length="0" start="236" end="252"/>
-                    <hmmer3-location env-end="544" env-start="524" score="12.8" evalue="0.089" hmm-start="5" hmm-end="24" hmm-length="0" start="525" end="544"/>
                     <hmmer3-location env-end="572" env-start="549" score="19.4" evalue="6.9E-4" hmm-start="1" hmm-end="24" hmm-length="0" start="549" end="572"/>
-                    <hmmer3-location env-end="281" env-start="259" score="32.8" evalue="3.4E-8" hmm-start="2" hmm-end="24" hmm-length="0" start="259" end="281"/>
+                    <hmmer3-location env-end="544" env-start="524" score="12.8" evalue="0.089" hmm-start="5" hmm-end="24" hmm-length="0" start="525" end="544"/>
                     <hmmer3-location env-end="516" env-start="493" score="24.7" evalue="1.4E-5" hmm-start="2" hmm-end="24" hmm-length="0" start="494" end="516"/>
+                    <hmmer3-location env-end="281" env-start="259" score="32.8" evalue="3.4E-8" hmm-start="2" hmm-end="24" hmm-length="0" start="259" end="281"/>
                     <hmmer3-location env-end="403" env-start="380" score="13.6" evalue="0.05" hmm-start="2" hmm-end="23" hmm-length="0" start="381" end="402"/>
                 </locations>
             </hmmer3-match>
@@ -2728,10 +2728,10 @@
                     <mobidblite-location start="1" end="113"/>
                 </locations>
             </mobidblite-match>
-            <panther-match evalue="5.7E-72" familyName="FAMILY NOT NAMED" score="245.7">
-                <signature ac="PTHR24112" name="FAMILY NOT NAMED">
+            <panther-match evalue="5.7E-72" familyName="PROTEIN PHOSPHATASE 1 REGULATORY SUBUNIT 37" score="245.7">
+                <signature ac="PTHR24112:SF47" name="PROTEIN PHOSPHATASE 1 REGULATORY SUBUNIT 37">
                     <models>
-                        <model ac="PTHR24112" name="FAMILY NOT NAMED"/>
+                        <model ac="PTHR24112:SF47" name="PROTEIN PHOSPHATASE 1 REGULATORY SUBUNIT 37"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -2739,10 +2739,10 @@
                     <panther-location start="461" end="618"/>
                 </locations>
             </panther-match>
-            <panther-match evalue="5.7E-72" familyName="PROTEIN PHOSPHATASE 1 REGULATORY SUBUNIT 37" score="245.7">
-                <signature ac="PTHR24112:SF47" name="PROTEIN PHOSPHATASE 1 REGULATORY SUBUNIT 37">
+            <panther-match evalue="5.7E-72" familyName="FAMILY NOT NAMED" score="245.7">
+                <signature ac="PTHR24112" name="FAMILY NOT NAMED">
                     <models>
-                        <model ac="PTHR24112:SF47" name="PROTEIN PHOSPHATASE 1 REGULATORY SUBUNIT 37"/>
+                        <model ac="PTHR24112" name="FAMILY NOT NAMED"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -2788,6 +2788,93 @@
         <sequence md5="232a8efbecca494ebf845cfc9cc44bd6">MAGKRGRSAFLPSFLCWARLVTGRDGQDEGGAKAGLPAMDISLAFPQATPASIFPPSASDYYQSDDLLTSEERSIRMKVRGIMEKEIAPIMSAYWEKAEFPFNAIPKLASLGVAGGTIKGYGCPGLSITASAVTMSEIARVDASCSTFILVHSSLAMVTIALCGSEAQKQKYLPSLAQLTTVGCWALTEPNYGSDASSLRTIATKAPGGWHIDGQKRWIGNSTFADVLVVLARNADTQQLNGFIVRKGAPGLKATKIENKIGLRMVQNGDIVLNKVFVPDEDRLPGINSFQDISKVLAISRIMVAWQPVGISMGVFDMCHRYLKERKQFGVPLAAFQLNQEKLARMLGNVQSMVLVGWRLCKLYESGKMTPGHASLGKAWNSRTAREVVSLGRELLGGNGILADFLVAKAFCDLEPIYSYEGTYDINSLVTGREVTGIASFRPAAPAKARL</sequence>
         <xref id="Zm00001d039768"/>
         <matches>
+            <hmmer3-match evalue="5.3E-22" score="77.7">
+                <signature ac="PF02770" desc="Acyl-CoA dehydrogenase, middle domain" name="Acyl-CoA_dh_M">
+                    <entry ac="IPR006091" desc="Acyl-CoA oxidase/dehydrogenase, central domain" name="Acyl-CoA_Oxase/DH_cen-dom" type="DOMAIN">
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055114" name="oxidation-reduction process"/>
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0016627" name="oxidoreductase activity, acting on the CH-CH group of donors"/>
+                    </entry>
+                    <models>
+                        <model ac="PF02770" desc="Acyl-CoA dehydrogenase, middle domain" name="Acyl-CoA_dh_M"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="276" env-start="184" score="77.0" evalue="9.1E-22" hmm-start="1" hmm-end="97" hmm-length="0" start="184" end="276"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="5.5E-25" score="88.2">
+                <signature ac="PF00441" desc="Acyl-CoA dehydrogenase, C-terminal domain" name="Acyl-CoA_dh_1">
+                    <entry ac="IPR009075" desc="Acyl-CoA dehydrogenase/oxidase C-terminal" name="AcylCo_DH/oxidase_C" type="DOMAIN">
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055114" name="oxidation-reduction process"/>
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0016627" name="oxidoreductase activity, acting on the CH-CH group of donors"/>
+                    </entry>
+                    <models>
+                        <model ac="PF00441" desc="Acyl-CoA dehydrogenase, C-terminal domain" name="Acyl-CoA_dh_1"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="436" env-start="290" score="87.7" evalue="7.9E-25" hmm-start="7" hmm-end="147" hmm-length="0" start="293" end="433"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="1.4E-28" score="99.2">
+                <signature ac="G3DSA:1.10.540.10">
+                    <entry ac="IPR013786" desc="Acyl-CoA dehydrogenase/oxidase, N-terminal" name="AcylCoA_DH/ox_N" type="DOMAIN">
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0016627" name="oxidoreductase activity, acting on the CH-CH group of donors"/>
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055114" name="oxidation-reduction process"/>
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0050660" name="flavin adenine dinucleotide binding"/>
+                    </entry>
+                    <models>
+                        <model ac="2ddhA01"/>
+                        <model ac="2jbrA01"/>
+                        <model ac="4iv6B01"/>
+                        <model ac="2ix5A01"/>
+                        <model ac="3swoB01"/>
+                        <model ac="4doyA01"/>
+                        <model ac="1rx0C01"/>
+                        <model ac="2rfqB01"/>
+                        <model ac="1udyA01"/>
+                        <model ac="2or0B01"/>
+                        <model ac="2jifA01"/>
+                        <model ac="4hr3A01"/>
+                        <model ac="2uxwA02"/>
+                        <model ac="1r2jA01"/>
+                        <model ac="3p4tA01"/>
+                        <model ac="2d29A01"/>
+                        <model ac="4l1fA01"/>
+                        <model ac="3ii9B01"/>
+                        <model ac="4irnA01"/>
+                        <model ac="3owaA01"/>
+                        <model ac="1w07A01"/>
+                        <model ac="2pg0A01"/>
+                        <model ac="3m9vA01"/>
+                        <model ac="3mkhA01"/>
+                        <model ac="4u83A01"/>
+                        <model ac="3mpiA01"/>
+                    </models>
+                    <signature-library-release library="GENE3D" version="4.1.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="182" env-start="49" score="98.2" evalue="2.7E-28" hmm-start="9" hmm-end="135" hmm-length="0" start="49" end="182"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="3.4E-24" score="85.6">
+                <signature ac="PF02771" desc="Acyl-CoA dehydrogenase, N-terminal domain" name="Acyl-CoA_dh_N">
+                    <entry ac="IPR013786" desc="Acyl-CoA dehydrogenase/oxidase, N-terminal" name="AcylCoA_DH/ox_N" type="DOMAIN">
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0016627" name="oxidoreductase activity, acting on the CH-CH group of donors"/>
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055114" name="oxidation-reduction process"/>
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0050660" name="flavin adenine dinucleotide binding"/>
+                    </entry>
+                    <models>
+                        <model ac="PF02771" desc="Acyl-CoA dehydrogenase, N-terminal domain" name="Acyl-CoA_dh_N"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="179" env-start="69" score="84.5" evalue="7.2E-24" hmm-start="1" hmm-end="111" hmm-length="0" start="69" end="178"/>
+                </locations>
+            </hmmer3-match>
             <hmmer3-match evalue="2.3E-36" score="124.5">
                 <signature ac="G3DSA:1.20.140.10">
                     <models>
@@ -2827,52 +2914,6 @@
                     <hmmer3-location env-end="448" env-start="294" score="123.9" evalue="3.6E-36" hmm-start="2" hmm-end="152" hmm-length="0" start="294" end="448"/>
                 </locations>
             </hmmer3-match>
-            <hmmer3-match evalue="5.3E-22" score="77.7">
-                <signature ac="PF02770" desc="Acyl-CoA dehydrogenase, middle domain" name="Acyl-CoA_dh_M">
-                    <entry ac="IPR006091" desc="Acyl-CoA oxidase/dehydrogenase, central domain" name="Acyl-CoA_Oxase/DH_cen-dom" type="DOMAIN">
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0016627" name="oxidoreductase activity, acting on the CH-CH group of donors"/>
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055114" name="oxidation-reduction process"/>
-                    </entry>
-                    <models>
-                        <model ac="PF02770" desc="Acyl-CoA dehydrogenase, middle domain" name="Acyl-CoA_dh_M"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="276" env-start="184" score="77.0" evalue="9.1E-22" hmm-start="1" hmm-end="97" hmm-length="0" start="184" end="276"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="3.4E-24" score="85.6">
-                <signature ac="PF02771" desc="Acyl-CoA dehydrogenase, N-terminal domain" name="Acyl-CoA_dh_N">
-                    <entry ac="IPR013786" desc="Acyl-CoA dehydrogenase/oxidase, N-terminal" name="AcylCoA_DH/ox_N" type="DOMAIN">
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055114" name="oxidation-reduction process"/>
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0050660" name="flavin adenine dinucleotide binding"/>
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0016627" name="oxidoreductase activity, acting on the CH-CH group of donors"/>
-                    </entry>
-                    <models>
-                        <model ac="PF02771" desc="Acyl-CoA dehydrogenase, N-terminal domain" name="Acyl-CoA_dh_N"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="179" env-start="69" score="84.5" evalue="7.2E-24" hmm-start="1" hmm-end="111" hmm-length="0" start="69" end="178"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="5.5E-25" score="88.2">
-                <signature ac="PF00441" desc="Acyl-CoA dehydrogenase, C-terminal domain" name="Acyl-CoA_dh_1">
-                    <entry ac="IPR009075" desc="Acyl-CoA dehydrogenase/oxidase C-terminal" name="AcylCo_DH/oxidase_C" type="DOMAIN">
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0016627" name="oxidoreductase activity, acting on the CH-CH group of donors"/>
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055114" name="oxidation-reduction process"/>
-                    </entry>
-                    <models>
-                        <model ac="PF00441" desc="Acyl-CoA dehydrogenase, C-terminal domain" name="Acyl-CoA_dh_1"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="436" env-start="290" score="87.7" evalue="7.9E-25" hmm-start="7" hmm-end="147" hmm-length="0" start="293" end="433"/>
-                </locations>
-            </hmmer3-match>
             <hmmer3-match evalue="8.6E-31" score="105.9">
                 <signature ac="G3DSA:2.40.110.10">
                     <models>
@@ -2896,47 +2937,6 @@
                 </signature>
                 <locations>
                     <hmmer3-location env-end="293" env-start="183" score="105.3" evalue="1.3E-30" hmm-start="1" hmm-end="113" hmm-length="0" start="183" end="293"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="1.4E-28" score="99.2">
-                <signature ac="G3DSA:1.10.540.10">
-                    <entry ac="IPR013786" desc="Acyl-CoA dehydrogenase/oxidase, N-terminal" name="AcylCoA_DH/ox_N" type="DOMAIN">
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055114" name="oxidation-reduction process"/>
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0050660" name="flavin adenine dinucleotide binding"/>
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0016627" name="oxidoreductase activity, acting on the CH-CH group of donors"/>
-                    </entry>
-                    <models>
-                        <model ac="2ddhA01"/>
-                        <model ac="2jbrA01"/>
-                        <model ac="4iv6B01"/>
-                        <model ac="2ix5A01"/>
-                        <model ac="3swoB01"/>
-                        <model ac="4doyA01"/>
-                        <model ac="1rx0C01"/>
-                        <model ac="2rfqB01"/>
-                        <model ac="1udyA01"/>
-                        <model ac="2or0B01"/>
-                        <model ac="2jifA01"/>
-                        <model ac="4hr3A01"/>
-                        <model ac="2uxwA02"/>
-                        <model ac="1r2jA01"/>
-                        <model ac="3p4tA01"/>
-                        <model ac="2d29A01"/>
-                        <model ac="4l1fA01"/>
-                        <model ac="3ii9B01"/>
-                        <model ac="4irnA01"/>
-                        <model ac="3owaA01"/>
-                        <model ac="1w07A01"/>
-                        <model ac="2pg0A01"/>
-                        <model ac="3m9vA01"/>
-                        <model ac="3mkhA01"/>
-                        <model ac="4u83A01"/>
-                        <model ac="3mpiA01"/>
-                    </models>
-                    <signature-library-release library="GENE3D" version="4.1.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="182" env-start="49" score="98.2" evalue="2.7E-28" hmm-start="9" hmm-end="135" hmm-length="0" start="49" end="182"/>
                 </locations>
             </hmmer3-match>
             <panther-match evalue="7.0E-226" familyName="ACYL-COENZYME A OXIDASE 4, PEROXISOMAL" score="752.0">
@@ -2978,11 +2978,40 @@
                     </patternscan-location>
                 </locations>
             </patternscan-match>
+            <superfamilyhmmer3-match evalue="2.23E-63">
+                <signature ac="SSF56645" name="Acyl-CoA dehydrogenase NM domain-like">
+                    <entry ac="IPR009100" desc="Acyl-CoA dehydrogenase/oxidase, N-terminal and middle domain" name="AcylCoA_DH/oxidase_NM_dom" type="DOMAIN">
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0008152" name="metabolic process"/>
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055114" name="oxidation-reduction process"/>
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0016627" name="oxidoreductase activity, acting on the CH-CH group of donors"/>
+                    </entry>
+                    <models>
+                        <model ac="0049932" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                        <model ac="0036988" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                        <model ac="0050327" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                        <model ac="0045540" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                        <model ac="0049259" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                        <model ac="0047431" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                        <model ac="0047447" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                        <model ac="0039701" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                        <model ac="0052370" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                        <model ac="0049822" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                        <model ac="0043102" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                        <model ac="0049407" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                        <model ac="0052090" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                        <model ac="0046013" name="Acyl-CoA dehydrogenase NM domain-like"/>
+                    </models>
+                    <signature-library-release library="SUPERFAMILY" version="1.75"/>
+                </signature>
+                <locations>
+                    <superfamilyhmmer3-location start="59" end="288"/>
+                </locations>
+            </superfamilyhmmer3-match>
             <superfamilyhmmer3-match evalue="4.99E-35">
                 <signature ac="SSF47203" name="Acyl-CoA dehydrogenase C-terminal domain-like">
                     <entry ac="IPR009075" desc="Acyl-CoA dehydrogenase/oxidase C-terminal" name="AcylCo_DH/oxidase_C" type="DOMAIN">
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0016627" name="oxidoreductase activity, acting on the CH-CH group of donors"/>
                         <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055114" name="oxidation-reduction process"/>
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0016627" name="oxidoreductase activity, acting on the CH-CH group of donors"/>
                     </entry>
                     <models>
                         <model ac="0036987" name="Acyl-CoA dehydrogenase C-terminal domain-like"/>
@@ -3008,49 +3037,12 @@
                     <superfamilyhmmer3-location start="290" end="438"/>
                 </locations>
             </superfamilyhmmer3-match>
-            <superfamilyhmmer3-match evalue="2.23E-63">
-                <signature ac="SSF56645" name="Acyl-CoA dehydrogenase NM domain-like">
-                    <entry ac="IPR009100" desc="Acyl-CoA dehydrogenase/oxidase, N-terminal and middle domain" name="AcylCoA_DH/oxidase_NM_dom" type="DOMAIN">
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0016627" name="oxidoreductase activity, acting on the CH-CH group of donors"/>
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055114" name="oxidation-reduction process"/>
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0008152" name="metabolic process"/>
-                    </entry>
-                    <models>
-                        <model ac="0049932" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                        <model ac="0036988" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                        <model ac="0050327" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                        <model ac="0045540" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                        <model ac="0049259" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                        <model ac="0047431" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                        <model ac="0047447" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                        <model ac="0039701" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                        <model ac="0052370" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                        <model ac="0049822" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                        <model ac="0043102" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                        <model ac="0049407" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                        <model ac="0052090" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                        <model ac="0046013" name="Acyl-CoA dehydrogenase NM domain-like"/>
-                    </models>
-                    <signature-library-release library="SUPERFAMILY" version="1.75"/>
-                </signature>
-                <locations>
-                    <superfamilyhmmer3-location start="59" end="288"/>
-                </locations>
-            </superfamilyhmmer3-match>
         </matches>
     </protein>
     <protein>
         <sequence md5="a28c8f225fc193feaa7bf08890dff5c2">MVDRAAARAQAVSSDPPPPALLEPDPRLSQPGAADGQEVASAGATAGPPSLPQASDAEEDALASPAGQPGERCRAMMEVVAKDGAWKVTKLVVEHCHELQVAPGHVAVTVPALGMEFDSVDDAKGFYYGYGEQVGFKARMGSNRRSVGDGEKILQRFLCWKGNYANRSRCKDSDAGKETDEVLEGLSAAAGKRKREPYKTRSRNPGRSTEVIEVEKGVGLGGAGNGLELDNGRRSRRGRSKKAEVEHGEDSVVGFEAEEVAKAVSDADEEEDEGDEDQEAAEQEVEVEVKEQRARGRPRKAVMEDNALQARVLRELGVRALQYNNEERKKILNKYRSKRQSRSVSSRPTKISSRQALAERRKRGNGGRFLSSEEQPLPSERRSKRLKKQNLKMQKAESKEDETMEAEPDPEIDVVPGPGGEPKVGMVFLNEDKAYEFYANYAETAGFSVRKGWLDKTAKNVTKSRAYVCSKEGFRPRSASIESKKPSLEARTGCQAHMTIKITASTKYVVTEFVADHNHDLETPLVDIQILKSEKLLAKVQQPPDPPKVVLIPNEYKNYTRTKRTKNMQLGDTQAICEYLQRMKGENPSFFYAIQVDEDDMFTNVFWADAKSIMDYNYFGDVVCVDTRYCTSDYGRPLLLFTGVNHHNQLIIFGSALIYDDSAQSFRWLFETFKSAMSGKQPKTVLTDQSAALSDAVSSWPGTIHRFSLLHLYLNATKISRDTLQGLETFASDFSRWLYEYEEDNFYSSWEILSEKYNIKDNEWFCKLYEDRERWALPYGRDTFCADIATTLRRDNTNTILTDLIKPEIDLQNFFNNYDKFLEEKRLAEQQADYLGAQITQRVAPLHLLWQAANLYTPTLFEMFRMEYEQISKCVVYSCGEIGPISEYQVTVKDRPQGQFVRFDSTECMVVCSCKKFEFMGLLCCHVLKILDLRNIKELPRHYILKRWRKDAQSESPENYGFAAIDEDPKFSLSKRYNALYRNLYKIAAKASESVEAYAFLENQYEQLVEQVEVLLQAKLHDKSSLSTVLKGNQPNMLNSEVNSSEHRRATGKKIKNVEVRRQQQSLDPNKKKKGRQVLLEPEIEIPLRVEPPTVSNDIQNHLRTTNQFLAPSHMMQAPYVAQQFGLGSLQGFPGMSPFGQIQEPTPLQQPHLQPPSFHSGPQITQAPPPDIQSLQFLSSNPQLGHQTTDQGQYTIPVWDFL</sequence>
         <xref id="Zm00001d034282"/>
         <matches>
-            <coils-match>
-                <signature ac="Coil" name="Coil">
-                    <signature-library-release library="COILS" version="2.2.1"/>
-                </signature>
-                <locations>
-                    <coils-location start="991" end="1018"/>
-                </locations>
-            </coils-match>
             <coils-match>
                 <signature ac="Coil" name="Coil">
                     <signature-library-release library="COILS" version="2.2.1"/>
@@ -3065,6 +3057,14 @@
                 </signature>
                 <locations>
                     <coils-location start="811" end="831"/>
+                </locations>
+            </coils-match>
+            <coils-match>
+                <signature ac="Coil" name="Coil">
+                    <signature-library-release library="COILS" version="2.2.1"/>
+                </signature>
+                <locations>
+                    <coils-location start="991" end="1018"/>
                 </locations>
             </coils-match>
             <hmmer2-match evalue="5.8E-4" score="28.6">
@@ -3132,7 +3132,7 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="1030" end="1052"/>
+                    <mobidblite-location start="1" end="70"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
@@ -3148,7 +3148,7 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="1" end="70"/>
+                    <mobidblite-location start="1030" end="1052"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
@@ -3159,6 +3159,17 @@
                     <mobidblite-location start="222" end="301"/>
                 </locations>
             </mobidblite-match>
+            <panther-match evalue="0.0" familyName="SUBFAMILY NOT NAMED" score="1794.5">
+                <signature ac="PTHR31669:SF99" name="SUBFAMILY NOT NAMED">
+                    <models>
+                        <model ac="PTHR31669:SF99" name="SUBFAMILY NOT NAMED"/>
+                    </models>
+                    <signature-library-release library="PANTHER" version="11.1"/>
+                </signature>
+                <locations>
+                    <panther-location start="224" end="1175"/>
+                </locations>
+            </panther-match>
             <panther-match evalue="0.0" familyName="FAMILY NOT NAMED" score="1794.5">
                 <signature ac="PTHR31669" name="FAMILY NOT NAMED">
                     <entry ac="IPR031052" desc="FHY3/FAR1 family" name="FHY3/FAR1" type="FAMILY">
@@ -3173,17 +3184,27 @@
                     <panther-location start="224" end="1175"/>
                 </locations>
             </panther-match>
-            <panther-match evalue="0.0" familyName="SUBFAMILY NOT NAMED" score="1794.5">
-                <signature ac="PTHR31669:SF99" name="SUBFAMILY NOT NAMED">
+            <profilescan-match>
+                <signature ac="PS51152" desc="NF-YA/HAP2 family profile." name="NFYA_HAP2_2">
+                    <entry ac="IPR001289" desc="Nuclear transcription factor Y subunit A" name="NFYA" type="FAMILY">
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0006355" name="regulation of transcription, DNA-templated"/>
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0003700" name="transcription factor activity, sequence-specific DNA binding"/>
+                        <pathway-xref db="Reactome" id="R-HSA-1989781" name="PPARA activates gene expression"/>
+                        <pathway-xref db="Reactome" id="R-HSA-380994" name="ATF4 activates genes"/>
+                        <pathway-xref db="Reactome" id="R-HSA-2426168" name="Activation of gene expression by SREBF (SREBP)"/>
+                        <pathway-xref db="Reactome" id="R-HSA-381183" name="ATF6 (ATF6-alpha) activates chaperone genes"/>
+                    </entry>
                     <models>
-                        <model ac="PTHR31669:SF99" name="SUBFAMILY NOT NAMED"/>
+                        <model ac="PS51152" desc="NF-YA/HAP2 family profile." name="NFYA_HAP2_2"/>
                     </models>
-                    <signature-library-release library="PANTHER" version="11.1"/>
+                    <signature-library-release library="PROSITE_PROFILES" version="20.132"/>
                 </signature>
                 <locations>
-                    <panther-location start="224" end="1175"/>
+                    <profilescan-location score="9.31" start="312" end="372">
+                        <alignment>VLRELGVRALQYNNEERKKILNKYRSkRQSRSVS-SRPTKISSRQALAERRKRGNGGRFLSS</alignment>
+                    </profilescan-location>
                 </locations>
-            </panther-match>
+            </profilescan-match>
             <profilescan-match>
                 <signature ac="PS50966" desc="Zinc finger SWIM-type profile." name="ZF_SWIM">
                     <entry ac="IPR007527" desc="Zinc finger, SWIM-type" name="Znf_SWIM" type="DOMAIN">
@@ -3197,27 +3218,6 @@
                 <locations>
                     <profilescan-location score="9.693" start="888" end="935">
                         <alignment>YQVTVKDRPQGQfvrfdstecMVVCSCKKFEfMGLLCCHVLKILDLRN</alignment>
-                    </profilescan-location>
-                </locations>
-            </profilescan-match>
-            <profilescan-match>
-                <signature ac="PS51152" desc="NF-YA/HAP2 family profile." name="NFYA_HAP2_2">
-                    <entry ac="IPR001289" desc="Nuclear transcription factor Y subunit A" name="NFYA" type="FAMILY">
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0003700" name="transcription factor activity, sequence-specific DNA binding"/>
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0006355" name="regulation of transcription, DNA-templated"/>
-                        <pathway-xref db="Reactome" id="R-HSA-1989781" name="PPARA activates gene expression"/>
-                        <pathway-xref db="Reactome" id="R-HSA-380994" name="ATF4 activates genes"/>
-                        <pathway-xref db="Reactome" id="R-HSA-381183" name="ATF6 (ATF6-alpha) activates chaperone genes"/>
-                        <pathway-xref db="Reactome" id="R-HSA-2426168" name="Activation of gene expression by SREBF (SREBP)"/>
-                    </entry>
-                    <models>
-                        <model ac="PS51152" desc="NF-YA/HAP2 family profile." name="NFYA_HAP2_2"/>
-                    </models>
-                    <signature-library-release library="PROSITE_PROFILES" version="20.132"/>
-                </signature>
-                <locations>
-                    <profilescan-location score="9.31" start="312" end="372">
-                        <alignment>VLRELGVRALQYNNEERKKILNKYRSkRQSRSVS-SRPTKISSRQALAERRKRGNGGRFLSS</alignment>
                     </profilescan-location>
                 </locations>
             </profilescan-match>
@@ -3346,29 +3346,6 @@
                     <hmmer2-location score="90.0" evalue="2.8E-22" hmm-start="1" hmm-end="123" hmm-length="0" start="341" end="458"/>
                 </locations>
             </hmmer2-match>
-            <hmmer3-match evalue="1.2E-13" score="50.8">
-                <signature ac="PF00027" desc="Cyclic nucleotide-binding domain" name="cNMP_binding">
-                    <entry ac="IPR000595" desc="Cyclic nucleotide-binding domain" name="cNMP-bd_dom" type="DOMAIN"/>
-                    <models>
-                        <model ac="PF00027" desc="Cyclic nucleotide-binding domain" name="cNMP_binding"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="446" env-start="359" score="50.1" evalue="1.9E-13" hmm-start="3" hmm-end="88" hmm-length="0" start="361" end="446"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="1.1E-6" score="28.5">
-                <signature ac="G3DSA:1.10.287.630">
-                    <models>
-                        <model ac="3bpzA01"/>
-                    </models>
-                    <signature-library-release library="GENE3D" version="4.1.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="319" env-start="266" score="27.2" evalue="2.6E-6" hmm-start="6" hmm-end="67" hmm-length="0" start="266" end="319"/>
-                </locations>
-            </hmmer3-match>
             <hmmer3-match evalue="1.3E-22" score="79.4">
                 <signature ac="G3DSA:1.10.287.70">
                     <models>
@@ -3400,33 +3377,27 @@
                     <hmmer3-location env-end="265" env-start="132" score="78.3" evalue="2.8E-22" hmm-start="24" hmm-end="122" hmm-length="0" start="132" end="265"/>
                 </locations>
             </hmmer3-match>
-            <hmmer3-match evalue="5.9E-20" score="71.4">
-                <signature ac="PF00520" desc="Ion transport protein" name="Ion_trans">
-                    <entry ac="IPR005821" desc="Ion transport domain" name="Ion_trans_dom" type="DOMAIN">
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0005216" name="ion channel activity"/>
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055085" name="transmembrane transport"/>
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0006811" name="ion transport"/>
-                        <go-xref category="CELLULAR_COMPONENT" db="GO" id="GO:0016020" name="membrane"/>
-                    </entry>
+            <hmmer3-match evalue="1.2E-13" score="50.8">
+                <signature ac="PF00027" desc="Cyclic nucleotide-binding domain" name="cNMP_binding">
+                    <entry ac="IPR000595" desc="Cyclic nucleotide-binding domain" name="cNMP-bd_dom" type="DOMAIN"/>
                     <models>
-                        <model ac="PF00520" desc="Ion transport protein" name="Ion_trans"/>
+                        <model ac="PF00027" desc="Cyclic nucleotide-binding domain" name="cNMP_binding"/>
                     </models>
                     <signature-library-release library="PFAM" version="31.0"/>
                 </signature>
                 <locations>
-                    <hmmer3-location env-end="271" env-start="144" score="52.9" evalue="2.6E-14" hmm-start="110" hmm-end="244" hmm-length="0" start="146" end="270"/>
+                    <hmmer3-location env-end="446" env-start="359" score="50.1" evalue="1.9E-13" hmm-start="3" hmm-end="88" hmm-length="0" start="361" end="446"/>
                 </locations>
             </hmmer3-match>
-            <hmmer3-match evalue="1.2E-22" score="79.7">
-                <signature ac="PF11834" desc="KHA, dimerisation domain of potassium ion channel" name="KHA">
-                    <entry ac="IPR021789" desc="KHA domain" name="KHA_dom" type="DOMAIN"/>
+            <hmmer3-match evalue="1.1E-6" score="28.5">
+                <signature ac="G3DSA:1.10.287.630">
                     <models>
-                        <model ac="PF11834" desc="KHA, dimerisation domain of potassium ion channel" name="KHA"/>
+                        <model ac="3bpzA01"/>
                     </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
+                    <signature-library-release library="GENE3D" version="4.1.0"/>
                 </signature>
                 <locations>
-                    <hmmer3-location env-end="693" env-start="624" score="78.7" evalue="2.5E-22" hmm-start="1" hmm-end="67" hmm-length="0" start="624" end="693"/>
+                    <hmmer3-location env-end="319" env-start="266" score="27.2" evalue="2.6E-6" hmm-start="6" hmm-end="67" hmm-length="0" start="266" end="319"/>
                 </locations>
             </hmmer3-match>
             <hmmer3-match evalue="3.7E-27" score="94.3">
@@ -3592,6 +3563,35 @@
                 </signature>
                 <locations>
                     <hmmer3-location env-end="468" env-start="320" score="93.6" evalue="6.2E-27" hmm-start="4" hmm-end="157" hmm-length="0" start="320" end="468"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="5.9E-20" score="71.4">
+                <signature ac="PF00520" desc="Ion transport protein" name="Ion_trans">
+                    <entry ac="IPR005821" desc="Ion transport domain" name="Ion_trans_dom" type="DOMAIN">
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0055085" name="transmembrane transport"/>
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0005216" name="ion channel activity"/>
+                        <go-xref category="CELLULAR_COMPONENT" db="GO" id="GO:0016020" name="membrane"/>
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0006811" name="ion transport"/>
+                    </entry>
+                    <models>
+                        <model ac="PF00520" desc="Ion transport protein" name="Ion_trans"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="271" env-start="144" score="52.9" evalue="2.6E-14" hmm-start="110" hmm-end="244" hmm-length="0" start="146" end="270"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="1.2E-22" score="79.7">
+                <signature ac="PF11834" desc="KHA, dimerisation domain of potassium ion channel" name="KHA">
+                    <entry ac="IPR021789" desc="KHA domain" name="KHA_dom" type="DOMAIN"/>
+                    <models>
+                        <model ac="PF11834" desc="KHA, dimerisation domain of potassium ion channel" name="KHA"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="693" env-start="624" score="78.7" evalue="2.5E-22" hmm-start="1" hmm-end="67" hmm-length="0" start="624" end="693"/>
                 </locations>
             </hmmer3-match>
             <panther-match evalue="0.0" familyName="VOLTAGE AND LIGAND GATED POTASSIUM CHANNEL" score="1304.7">
@@ -3969,10 +3969,10 @@
                     <hmmer3-location env-end="463" env-start="245" score="43.2" evalue="2.4E-11" hmm-start="18" hmm-end="181" hmm-length="0" start="245" end="463"/>
                 </locations>
             </hmmer3-match>
-            <panther-match evalue="6.5E-88" familyName="Y34B4A.7" score="298.1">
-                <signature ac="PTHR12176:SF40" name="Y34B4A.7">
+            <panther-match evalue="6.5E-88" familyName="UNCHARACTERIZED" score="298.1">
+                <signature ac="PTHR12176" name="UNCHARACTERIZED">
                     <models>
-                        <model ac="PTHR12176:SF40" name="Y34B4A.7"/>
+                        <model ac="PTHR12176" name="UNCHARACTERIZED"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -3980,10 +3980,10 @@
                     <panther-location start="1" end="453"/>
                 </locations>
             </panther-match>
-            <panther-match evalue="6.5E-88" familyName="UNCHARACTERIZED" score="298.1">
-                <signature ac="PTHR12176" name="UNCHARACTERIZED">
+            <panther-match evalue="6.5E-88" familyName="Y34B4A.7" score="298.1">
+                <signature ac="PTHR12176:SF40" name="Y34B4A.7">
                     <models>
-                        <model ac="PTHR12176" name="UNCHARACTERIZED"/>
+                        <model ac="PTHR12176:SF40" name="Y34B4A.7"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -4135,6 +4135,22 @@
         <sequence md5="6bf4c6197c43dd431cec731bab4b2609">MCPCRTCLALCLCMATILLLGPCQWVGTAAATTTASQAVTVTDTASSSDREALLCIKSYLSHRNGSGGALATWGSNNGSLDVCRWQGVRCKRRQDSGGGGGALRVVTGLSLEGEGVAGQIPPCISNLTYLTRIHLPFNSLGGALPPEIGRLRRLRYVNLSSNALTGAIPTELASCSALRVVSLKKNNLSGGIPAALFKNCYSIQKVDLRMNNLDGPIPDLLPYHSSTDTSSSLQLLGLTQNNLSGEIPSSVGNLSSLVYFLAAQNLLTGSIPGSLASLASIQVIDLTYNNLSGTVPSSIFNLSSLIYLGLGDNGFVGELPATMGNRLPNIQGLILSANNFYGEIPKSIANATNLVDIYMQENSLGGVIPSLGTLRSLQTLFLYNNKKLEAGDDWAFLSSLANCPQLGFLVLDRNRLQGPLPSSVANLSQNLKEFVLGSNLITGAIPSGIGDLANLSVLYLDNNMLSGHIPASIGKLRSMFALNLSKNRLSGEIPASIGDNWAQLTELYLQENSLSGAIPAGLAGCRNLLALNLSSNAFSGPIPEGLFGRLDQLNWYLDLSKNQLAGSIPDEFSNMINLESLNISSNSISGKIPSTLGSCVLLQALRLEANSLDGQIPSSLATLKGIKELDFSRNNLSGKIPEFLEQFDSLQYLNLSFNNLDGPIPTQGVVFGNATSRLFLQGNPKLCAETIAVLGLPLCRAQNPSARNRFLVRFLAVLLPCVVVVSLLSVLFLKRWSRKPRPFHESSEESFKMVTYSDLSMATNGFSPGSLIGSGQSSSVYRGSLPSKTDDVHTMIAVKVFKLGQSSSSKSFLAECRALRNTRHRNLVKVITACSTCDPFGNEFKALVLEYVPNGTLADHLHAKYPGYGDGARLSLGDRIGIAADVASVLEYLHVWSAPPMAHCDIKPSNILLDDDNVAHVGDFGLARFLQHASSACAGGHRNATSSVGAAGSVGYIPPEYGMGSRISTEGDVYSYGIVLLEMLTGKSPTDESFHDGFTLHKYVEEALPRIGEVLDADLSEEVADLTSRTRSSQERRASNTEVHKCIFQLLNLGLLCSQEAPKDRPSIQYVYAEIVQVKEHFGSCSVKET</sequence>
         <xref id="Zm00001d030981"/>
         <matches>
+            <hmmer2-match evalue="6.5E-28" score="108.7">
+                <signature ac="SM00220" name="serkin_6">
+                    <entry ac="IPR000719" desc="Protein kinase domain" name="Prot_kinase_dom" type="DOMAIN">
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0004672" name="protein kinase activity"/>
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0006468" name="protein phosphorylation"/>
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0005524" name="ATP binding"/>
+                    </entry>
+                    <models>
+                        <model ac="SM00220" name="serkin_6"/>
+                    </models>
+                    <signature-library-release library="SMART" version="7.1"/>
+                </signature>
+                <locations>
+                    <hmmer2-location score="108.7" evalue="6.5E-28" hmm-start="1" hmm-end="231" hmm-length="0" start="766" end="1047"/>
+                </locations>
+            </hmmer2-match>
             <hmmer2-match evalue="1.5E-5" score="34.4">
                 <signature ac="SM00369" name="LRR_typ_2">
                     <entry ac="IPR003591" desc="Leucine-rich repeat, typical subtype" name="Leu-rich_rpt_typical-subtyp" type="REPEAT"/>
@@ -4150,22 +4166,6 @@
                     <hmmer2-location score="0.2" evalue="390.0" hmm-start="1" hmm-end="24" hmm-length="0" start="374" end="398"/>
                     <hmmer2-location score="6.2" evalue="73.0" hmm-start="1" hmm-end="24" hmm-length="0" start="151" end="175"/>
                     <hmmer2-location score="7.3" evalue="54.0" hmm-start="1" hmm-end="24" hmm-length="0" start="575" end="599"/>
-                </locations>
-            </hmmer2-match>
-            <hmmer2-match evalue="6.5E-28" score="108.7">
-                <signature ac="SM00220" name="serkin_6">
-                    <entry ac="IPR000719" desc="Protein kinase domain" name="Prot_kinase_dom" type="DOMAIN">
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0006468" name="protein phosphorylation"/>
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0005524" name="ATP binding"/>
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0004672" name="protein kinase activity"/>
-                    </entry>
-                    <models>
-                        <model ac="SM00220" name="serkin_6"/>
-                    </models>
-                    <signature-library-release library="SMART" version="7.1"/>
-                </signature>
-                <locations>
-                    <hmmer2-location score="108.7" evalue="6.5E-28" hmm-start="1" hmm-end="231" hmm-length="0" start="766" end="1047"/>
                 </locations>
             </hmmer2-match>
             <hmmer3-match evalue="5.2E-100" score="333.0">
@@ -4408,280 +4408,6 @@
                     <hmmer3-location env-end="851" env-start="746" score="65.1" evalue="3.1E-18" hmm-start="7" hmm-end="108" hmm-length="0" start="746" end="851"/>
                 </locations>
             </hmmer3-match>
-            <hmmer3-match evalue="5.9E-43" score="144.4">
-                <signature ac="PF13855" desc="Leucine rich repeat" name="LRR_8">
-                    <entry ac="IPR001611" desc="Leucine-rich repeat" name="Leu-rich_rpt" type="REPEAT">
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0005515" name="protein binding"/>
-                    </entry>
-                    <models>
-                        <model ac="PF13855" desc="Leucine rich repeat" name="LRR_8"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="564" env-start="502" score="28.8" evalue="7.2E-7" hmm-start="2" hmm-end="61" hmm-length="0" start="503" end="564"/>
-                    <hmmer3-location env-end="489" env-start="429" score="32.7" evalue="4.3E-8" hmm-start="2" hmm-end="61" hmm-length="0" start="430" end="489"/>
-                    <hmmer3-location env-end="660" env-start="601" score="29.6" evalue="4.1E-7" hmm-start="3" hmm-end="61" hmm-length="0" start="602" end="660"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="4.3E-110" score="366.8">
-                <signature ac="G3DSA:3.80.10.10">
-                    <entry ac="IPR032675" desc="Leucine-rich repeat domain, L domain-like" name="L_dom-like" type="DOMAIN"/>
-                    <models>
-                        <model ac="4hq1A01"/>
-                        <model ac="1p9aG00"/>
-                        <model ac="1wwlA00"/>
-                        <model ac="1xkuA00"/>
-                        <model ac="3rfsA00"/>
-                        <model ac="1io0A00"/>
-                        <model ac="3bz5A01"/>
-                        <model ac="2z66A00"/>
-                        <model ac="3e6jA00"/>
-                        <model ac="4im6A00"/>
-                        <model ac="1h6uA02"/>
-                        <model ac="1a9nC00"/>
-                        <model ac="2je0A00"/>
-                        <model ac="1ogqA00"/>
-                        <model ac="3m19A00"/>
-                        <model ac="2r9uA00"/>
-                        <model ac="2xwtC00"/>
-                        <model ac="4perA00"/>
-                        <model ac="4l3aA02"/>
-                        <model ac="2ca6A00"/>
-                        <model ac="1oznA00"/>
-                        <model ac="3rw6A02"/>
-                        <model ac="1xeuA01"/>
-                        <model ac="2ra8A02"/>
-                        <model ac="2v70A00"/>
-                        <model ac="4ezgA00"/>
-                        <model ac="2v9tB00"/>
-                        <model ac="4ay9X00"/>
-                        <model ac="1ds9A00"/>
-                        <model ac="3g06A01"/>
-                        <model ac="1dceA03"/>
-                        <model ac="2ifgA01"/>
-                        <model ac="1fs2A00"/>
-                        <model ac="2z62A00"/>
-                        <model ac="3zyiA01"/>
-                        <model ac="1h6tA01"/>
-                        <model ac="4fhoB00"/>
-                        <model ac="4nkhE00"/>
-                        <model ac="3o53B00"/>
-                        <model ac="4cncA00"/>
-                        <model ac="4fmzA00"/>
-                        <model ac="2xotB01"/>
-                        <model ac="2o6sA00"/>
-                    </models>
-                    <signature-library-release library="GENE3D" version="4.1.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="438" env-start="313" score="83.5" evalue="5.9E-24" hmm-start="204" hmm-end="344" hmm-length="0" start="313" end="438"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="8.3E-110" score="362.5">
-                <signature ac="G3DSA:3.80.10.10">
-                    <entry ac="IPR032675" desc="Leucine-rich repeat domain, L domain-like" name="L_dom-like" type="DOMAIN"/>
-                    <models>
-                        <model ac="4hq1A01"/>
-                        <model ac="1p9aG00"/>
-                        <model ac="1wwlA00"/>
-                        <model ac="1xkuA00"/>
-                        <model ac="3rfsA00"/>
-                        <model ac="1io0A00"/>
-                        <model ac="3bz5A01"/>
-                        <model ac="2z66A00"/>
-                        <model ac="3e6jA00"/>
-                        <model ac="4im6A00"/>
-                        <model ac="1h6uA02"/>
-                        <model ac="1a9nC00"/>
-                        <model ac="2je0A00"/>
-                        <model ac="1ogqA00"/>
-                        <model ac="3m19A00"/>
-                        <model ac="2r9uA00"/>
-                        <model ac="2xwtC00"/>
-                        <model ac="4perA00"/>
-                        <model ac="4l3aA02"/>
-                        <model ac="2ca6A00"/>
-                        <model ac="1oznA00"/>
-                        <model ac="3rw6A02"/>
-                        <model ac="1xeuA01"/>
-                        <model ac="2ra8A02"/>
-                        <model ac="2v70A00"/>
-                        <model ac="4ezgA00"/>
-                        <model ac="2v9tB00"/>
-                        <model ac="4ay9X00"/>
-                        <model ac="1ds9A00"/>
-                        <model ac="3g06A01"/>
-                        <model ac="1dceA03"/>
-                        <model ac="2ifgA01"/>
-                        <model ac="1fs2A00"/>
-                        <model ac="2z62A00"/>
-                        <model ac="3zyiA01"/>
-                        <model ac="1h6tA01"/>
-                        <model ac="4fhoB00"/>
-                        <model ac="4nkhE00"/>
-                        <model ac="3o53B00"/>
-                        <model ac="4cncA00"/>
-                        <model ac="4fmzA00"/>
-                        <model ac="2xotB01"/>
-                        <model ac="2o6sA00"/>
-                    </models>
-                    <signature-library-release library="GENE3D" version="4.1.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="312" env-start="227" score="63.2" evalue="1.1E-17" hmm-start="5" hmm-end="100" hmm-length="0" start="227" end="312"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="6.3E-133" score="441.6">
-                <signature ac="G3DSA:3.80.10.10">
-                    <entry ac="IPR032675" desc="Leucine-rich repeat domain, L domain-like" name="L_dom-like" type="DOMAIN"/>
-                    <models>
-                        <model ac="4hq1A01"/>
-                        <model ac="1p9aG00"/>
-                        <model ac="1wwlA00"/>
-                        <model ac="1xkuA00"/>
-                        <model ac="3rfsA00"/>
-                        <model ac="1io0A00"/>
-                        <model ac="3bz5A01"/>
-                        <model ac="2z66A00"/>
-                        <model ac="3e6jA00"/>
-                        <model ac="4im6A00"/>
-                        <model ac="1h6uA02"/>
-                        <model ac="1a9nC00"/>
-                        <model ac="2je0A00"/>
-                        <model ac="1ogqA00"/>
-                        <model ac="3m19A00"/>
-                        <model ac="2r9uA00"/>
-                        <model ac="2xwtC00"/>
-                        <model ac="4perA00"/>
-                        <model ac="4l3aA02"/>
-                        <model ac="2ca6A00"/>
-                        <model ac="1oznA00"/>
-                        <model ac="3rw6A02"/>
-                        <model ac="1xeuA01"/>
-                        <model ac="2ra8A02"/>
-                        <model ac="2v70A00"/>
-                        <model ac="4ezgA00"/>
-                        <model ac="2v9tB00"/>
-                        <model ac="4ay9X00"/>
-                        <model ac="1ds9A00"/>
-                        <model ac="3g06A01"/>
-                        <model ac="1dceA03"/>
-                        <model ac="2ifgA01"/>
-                        <model ac="1fs2A00"/>
-                        <model ac="2z62A00"/>
-                        <model ac="3zyiA01"/>
-                        <model ac="1h6tA01"/>
-                        <model ac="4fhoB00"/>
-                        <model ac="4nkhE00"/>
-                        <model ac="3o53B00"/>
-                        <model ac="4cncA00"/>
-                        <model ac="4fmzA00"/>
-                        <model ac="2xotB01"/>
-                        <model ac="2o6sA00"/>
-                    </models>
-                    <signature-library-release library="GENE3D" version="4.1.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="226" env-start="45" score="111.1" evalue="2.7E-32" hmm-start="2" hmm-end="162" hmm-length="0" start="45" end="226"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="5.2E-37" score="127.4">
-                <signature ac="PF07714" desc="Protein tyrosine kinase" name="Pkinase_Tyr">
-                    <entry ac="IPR001245" desc="Serine-threonine/tyrosine-protein kinase, catalytic domain" name="Ser-Thr/Tyr_kinase_cat_dom" type="DOMAIN">
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0006468" name="protein phosphorylation"/>
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0004672" name="protein kinase activity"/>
-                    </entry>
-                    <models>
-                        <model ac="PF07714" desc="Protein tyrosine kinase" name="Pkinase_Tyr"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="1075" env-start="766" score="126.4" evalue="1.0E-36" hmm-start="5" hmm-end="257" hmm-length="0" start="770" end="1072"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="1.1E-133" score="440.5">
-                <signature ac="G3DSA:3.80.10.10">
-                    <entry ac="IPR032675" desc="Leucine-rich repeat domain, L domain-like" name="L_dom-like" type="DOMAIN"/>
-                    <models>
-                        <model ac="4hq1A01"/>
-                        <model ac="1p9aG00"/>
-                        <model ac="1wwlA00"/>
-                        <model ac="1xkuA00"/>
-                        <model ac="3rfsA00"/>
-                        <model ac="1io0A00"/>
-                        <model ac="3bz5A01"/>
-                        <model ac="2z66A00"/>
-                        <model ac="3e6jA00"/>
-                        <model ac="4im6A00"/>
-                        <model ac="1h6uA02"/>
-                        <model ac="1a9nC00"/>
-                        <model ac="2je0A00"/>
-                        <model ac="1ogqA00"/>
-                        <model ac="3m19A00"/>
-                        <model ac="2r9uA00"/>
-                        <model ac="2xwtC00"/>
-                        <model ac="4perA00"/>
-                        <model ac="4l3aA02"/>
-                        <model ac="2ca6A00"/>
-                        <model ac="1oznA00"/>
-                        <model ac="3rw6A02"/>
-                        <model ac="1xeuA01"/>
-                        <model ac="2ra8A02"/>
-                        <model ac="2v70A00"/>
-                        <model ac="4ezgA00"/>
-                        <model ac="2v9tB00"/>
-                        <model ac="4ay9X00"/>
-                        <model ac="1ds9A00"/>
-                        <model ac="3g06A01"/>
-                        <model ac="1dceA03"/>
-                        <model ac="2ifgA01"/>
-                        <model ac="1fs2A00"/>
-                        <model ac="2z62A00"/>
-                        <model ac="3zyiA01"/>
-                        <model ac="1h6tA01"/>
-                        <model ac="4fhoB00"/>
-                        <model ac="4nkhE00"/>
-                        <model ac="3o53B00"/>
-                        <model ac="4cncA00"/>
-                        <model ac="4fmzA00"/>
-                        <model ac="2xotB01"/>
-                        <model ac="2o6sA00"/>
-                    </models>
-                    <signature-library-release library="GENE3D" version="4.1.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="491" env-start="439" score="56.3" evalue="1.7E-15" hmm-start="63" hmm-end="135" hmm-length="0" start="439" end="491"/>
-                    <hmmer3-location env-end="541" env-start="492" score="48.4" evalue="4.7E-13" hmm-start="68" hmm-end="134" hmm-length="0" start="492" end="541"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="2.2E-12" score="45.5">
-                <signature ac="PF00560" desc="Leucine Rich Repeat" name="LRR_1">
-                    <entry ac="IPR001611" desc="Leucine-rich repeat" name="Leu-rich_rpt" type="REPEAT">
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0005515" name="protein binding"/>
-                    </entry>
-                    <models>
-                        <model ac="PF00560" desc="Leucine Rich Repeat" name="LRR_1"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="599" env-start="577" score="13.1" evalue="0.099" hmm-start="1" hmm-end="23" hmm-length="0" start="577" end="599"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="2.7E-7" score="30.7">
-                <signature ac="PF08263" desc="Leucine rich repeat N-terminal domain" name="LRRNT_2">
-                    <entry ac="IPR013210" desc="Leucine-rich repeat-containing N-terminal, plant-type" name="LRR_N_plant-typ" type="DOMAIN"/>
-                    <models>
-                        <model ac="PF08263" desc="Leucine rich repeat N-terminal domain" name="LRRNT_2"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="91" env-start="46" score="30.7" evalue="2.7E-7" hmm-start="2" hmm-end="40" hmm-length="0" start="47" end="90"/>
-                </locations>
-            </hmmer3-match>
             <hmmer3-match evalue="1.9E-40" score="138.2">
                 <signature ac="G3DSA:1.10.510.10">
                     <models>
@@ -4804,6 +4530,280 @@
                     <hmmer3-location env-end="1078" env-start="852" score="137.5" evalue="3.1E-40" hmm-start="11" hmm-end="221" hmm-length="0" start="852" end="1078"/>
                 </locations>
             </hmmer3-match>
+            <hmmer3-match evalue="2.7E-7" score="30.7">
+                <signature ac="PF08263" desc="Leucine rich repeat N-terminal domain" name="LRRNT_2">
+                    <entry ac="IPR013210" desc="Leucine-rich repeat-containing N-terminal, plant-type" name="LRR_N_plant-typ" type="DOMAIN"/>
+                    <models>
+                        <model ac="PF08263" desc="Leucine rich repeat N-terminal domain" name="LRRNT_2"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="91" env-start="46" score="30.7" evalue="2.7E-7" hmm-start="2" hmm-end="40" hmm-length="0" start="47" end="90"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="2.2E-12" score="45.5">
+                <signature ac="PF00560" desc="Leucine Rich Repeat" name="LRR_1">
+                    <entry ac="IPR001611" desc="Leucine-rich repeat" name="Leu-rich_rpt" type="REPEAT">
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0005515" name="protein binding"/>
+                    </entry>
+                    <models>
+                        <model ac="PF00560" desc="Leucine Rich Repeat" name="LRR_1"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="599" env-start="577" score="13.1" evalue="0.099" hmm-start="1" hmm-end="23" hmm-length="0" start="577" end="599"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="1.1E-133" score="440.5">
+                <signature ac="G3DSA:3.80.10.10">
+                    <entry ac="IPR032675" desc="Leucine-rich repeat domain, L domain-like" name="L_dom-like" type="DOMAIN"/>
+                    <models>
+                        <model ac="4hq1A01"/>
+                        <model ac="1p9aG00"/>
+                        <model ac="1wwlA00"/>
+                        <model ac="1xkuA00"/>
+                        <model ac="3rfsA00"/>
+                        <model ac="1io0A00"/>
+                        <model ac="3bz5A01"/>
+                        <model ac="2z66A00"/>
+                        <model ac="3e6jA00"/>
+                        <model ac="4im6A00"/>
+                        <model ac="1h6uA02"/>
+                        <model ac="1a9nC00"/>
+                        <model ac="2je0A00"/>
+                        <model ac="1ogqA00"/>
+                        <model ac="3m19A00"/>
+                        <model ac="2r9uA00"/>
+                        <model ac="2xwtC00"/>
+                        <model ac="4perA00"/>
+                        <model ac="4l3aA02"/>
+                        <model ac="2ca6A00"/>
+                        <model ac="1oznA00"/>
+                        <model ac="3rw6A02"/>
+                        <model ac="1xeuA01"/>
+                        <model ac="2ra8A02"/>
+                        <model ac="2v70A00"/>
+                        <model ac="4ezgA00"/>
+                        <model ac="2v9tB00"/>
+                        <model ac="4ay9X00"/>
+                        <model ac="1ds9A00"/>
+                        <model ac="3g06A01"/>
+                        <model ac="1dceA03"/>
+                        <model ac="2ifgA01"/>
+                        <model ac="1fs2A00"/>
+                        <model ac="2z62A00"/>
+                        <model ac="3zyiA01"/>
+                        <model ac="1h6tA01"/>
+                        <model ac="4fhoB00"/>
+                        <model ac="4nkhE00"/>
+                        <model ac="3o53B00"/>
+                        <model ac="4cncA00"/>
+                        <model ac="4fmzA00"/>
+                        <model ac="2xotB01"/>
+                        <model ac="2o6sA00"/>
+                    </models>
+                    <signature-library-release library="GENE3D" version="4.1.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="491" env-start="439" score="56.3" evalue="1.7E-15" hmm-start="63" hmm-end="135" hmm-length="0" start="439" end="491"/>
+                    <hmmer3-location env-end="541" env-start="492" score="48.4" evalue="4.7E-13" hmm-start="68" hmm-end="134" hmm-length="0" start="492" end="541"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="6.3E-133" score="441.6">
+                <signature ac="G3DSA:3.80.10.10">
+                    <entry ac="IPR032675" desc="Leucine-rich repeat domain, L domain-like" name="L_dom-like" type="DOMAIN"/>
+                    <models>
+                        <model ac="4hq1A01"/>
+                        <model ac="1p9aG00"/>
+                        <model ac="1wwlA00"/>
+                        <model ac="1xkuA00"/>
+                        <model ac="3rfsA00"/>
+                        <model ac="1io0A00"/>
+                        <model ac="3bz5A01"/>
+                        <model ac="2z66A00"/>
+                        <model ac="3e6jA00"/>
+                        <model ac="4im6A00"/>
+                        <model ac="1h6uA02"/>
+                        <model ac="1a9nC00"/>
+                        <model ac="2je0A00"/>
+                        <model ac="1ogqA00"/>
+                        <model ac="3m19A00"/>
+                        <model ac="2r9uA00"/>
+                        <model ac="2xwtC00"/>
+                        <model ac="4perA00"/>
+                        <model ac="4l3aA02"/>
+                        <model ac="2ca6A00"/>
+                        <model ac="1oznA00"/>
+                        <model ac="3rw6A02"/>
+                        <model ac="1xeuA01"/>
+                        <model ac="2ra8A02"/>
+                        <model ac="2v70A00"/>
+                        <model ac="4ezgA00"/>
+                        <model ac="2v9tB00"/>
+                        <model ac="4ay9X00"/>
+                        <model ac="1ds9A00"/>
+                        <model ac="3g06A01"/>
+                        <model ac="1dceA03"/>
+                        <model ac="2ifgA01"/>
+                        <model ac="1fs2A00"/>
+                        <model ac="2z62A00"/>
+                        <model ac="3zyiA01"/>
+                        <model ac="1h6tA01"/>
+                        <model ac="4fhoB00"/>
+                        <model ac="4nkhE00"/>
+                        <model ac="3o53B00"/>
+                        <model ac="4cncA00"/>
+                        <model ac="4fmzA00"/>
+                        <model ac="2xotB01"/>
+                        <model ac="2o6sA00"/>
+                    </models>
+                    <signature-library-release library="GENE3D" version="4.1.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="226" env-start="45" score="111.1" evalue="2.7E-32" hmm-start="2" hmm-end="162" hmm-length="0" start="45" end="226"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="8.3E-110" score="362.5">
+                <signature ac="G3DSA:3.80.10.10">
+                    <entry ac="IPR032675" desc="Leucine-rich repeat domain, L domain-like" name="L_dom-like" type="DOMAIN"/>
+                    <models>
+                        <model ac="4hq1A01"/>
+                        <model ac="1p9aG00"/>
+                        <model ac="1wwlA00"/>
+                        <model ac="1xkuA00"/>
+                        <model ac="3rfsA00"/>
+                        <model ac="1io0A00"/>
+                        <model ac="3bz5A01"/>
+                        <model ac="2z66A00"/>
+                        <model ac="3e6jA00"/>
+                        <model ac="4im6A00"/>
+                        <model ac="1h6uA02"/>
+                        <model ac="1a9nC00"/>
+                        <model ac="2je0A00"/>
+                        <model ac="1ogqA00"/>
+                        <model ac="3m19A00"/>
+                        <model ac="2r9uA00"/>
+                        <model ac="2xwtC00"/>
+                        <model ac="4perA00"/>
+                        <model ac="4l3aA02"/>
+                        <model ac="2ca6A00"/>
+                        <model ac="1oznA00"/>
+                        <model ac="3rw6A02"/>
+                        <model ac="1xeuA01"/>
+                        <model ac="2ra8A02"/>
+                        <model ac="2v70A00"/>
+                        <model ac="4ezgA00"/>
+                        <model ac="2v9tB00"/>
+                        <model ac="4ay9X00"/>
+                        <model ac="1ds9A00"/>
+                        <model ac="3g06A01"/>
+                        <model ac="1dceA03"/>
+                        <model ac="2ifgA01"/>
+                        <model ac="1fs2A00"/>
+                        <model ac="2z62A00"/>
+                        <model ac="3zyiA01"/>
+                        <model ac="1h6tA01"/>
+                        <model ac="4fhoB00"/>
+                        <model ac="4nkhE00"/>
+                        <model ac="3o53B00"/>
+                        <model ac="4cncA00"/>
+                        <model ac="4fmzA00"/>
+                        <model ac="2xotB01"/>
+                        <model ac="2o6sA00"/>
+                    </models>
+                    <signature-library-release library="GENE3D" version="4.1.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="312" env-start="227" score="63.2" evalue="1.1E-17" hmm-start="5" hmm-end="100" hmm-length="0" start="227" end="312"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="4.3E-110" score="366.8">
+                <signature ac="G3DSA:3.80.10.10">
+                    <entry ac="IPR032675" desc="Leucine-rich repeat domain, L domain-like" name="L_dom-like" type="DOMAIN"/>
+                    <models>
+                        <model ac="4hq1A01"/>
+                        <model ac="1p9aG00"/>
+                        <model ac="1wwlA00"/>
+                        <model ac="1xkuA00"/>
+                        <model ac="3rfsA00"/>
+                        <model ac="1io0A00"/>
+                        <model ac="3bz5A01"/>
+                        <model ac="2z66A00"/>
+                        <model ac="3e6jA00"/>
+                        <model ac="4im6A00"/>
+                        <model ac="1h6uA02"/>
+                        <model ac="1a9nC00"/>
+                        <model ac="2je0A00"/>
+                        <model ac="1ogqA00"/>
+                        <model ac="3m19A00"/>
+                        <model ac="2r9uA00"/>
+                        <model ac="2xwtC00"/>
+                        <model ac="4perA00"/>
+                        <model ac="4l3aA02"/>
+                        <model ac="2ca6A00"/>
+                        <model ac="1oznA00"/>
+                        <model ac="3rw6A02"/>
+                        <model ac="1xeuA01"/>
+                        <model ac="2ra8A02"/>
+                        <model ac="2v70A00"/>
+                        <model ac="4ezgA00"/>
+                        <model ac="2v9tB00"/>
+                        <model ac="4ay9X00"/>
+                        <model ac="1ds9A00"/>
+                        <model ac="3g06A01"/>
+                        <model ac="1dceA03"/>
+                        <model ac="2ifgA01"/>
+                        <model ac="1fs2A00"/>
+                        <model ac="2z62A00"/>
+                        <model ac="3zyiA01"/>
+                        <model ac="1h6tA01"/>
+                        <model ac="4fhoB00"/>
+                        <model ac="4nkhE00"/>
+                        <model ac="3o53B00"/>
+                        <model ac="4cncA00"/>
+                        <model ac="4fmzA00"/>
+                        <model ac="2xotB01"/>
+                        <model ac="2o6sA00"/>
+                    </models>
+                    <signature-library-release library="GENE3D" version="4.1.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="438" env-start="313" score="83.5" evalue="5.9E-24" hmm-start="204" hmm-end="344" hmm-length="0" start="313" end="438"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="5.2E-37" score="127.4">
+                <signature ac="PF07714" desc="Protein tyrosine kinase" name="Pkinase_Tyr">
+                    <entry ac="IPR001245" desc="Serine-threonine/tyrosine-protein kinase, catalytic domain" name="Ser-Thr/Tyr_kinase_cat_dom" type="DOMAIN">
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0006468" name="protein phosphorylation"/>
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0004672" name="protein kinase activity"/>
+                    </entry>
+                    <models>
+                        <model ac="PF07714" desc="Protein tyrosine kinase" name="Pkinase_Tyr"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="1075" env-start="766" score="126.4" evalue="1.0E-36" hmm-start="5" hmm-end="257" hmm-length="0" start="770" end="1072"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="5.9E-43" score="144.4">
+                <signature ac="PF13855" desc="Leucine rich repeat" name="LRR_8">
+                    <entry ac="IPR001611" desc="Leucine-rich repeat" name="Leu-rich_rpt" type="REPEAT">
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0005515" name="protein binding"/>
+                    </entry>
+                    <models>
+                        <model ac="PF13855" desc="Leucine rich repeat" name="LRR_8"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="564" env-start="502" score="28.8" evalue="7.2E-7" hmm-start="2" hmm-end="61" hmm-length="0" start="503" end="564"/>
+                    <hmmer3-location env-end="660" env-start="601" score="29.6" evalue="4.1E-7" hmm-start="3" hmm-end="61" hmm-length="0" start="602" end="660"/>
+                    <hmmer3-location env-end="489" env-start="429" score="32.7" evalue="4.3E-8" hmm-start="2" hmm-end="61" hmm-length="0" start="430" end="489"/>
+                </locations>
+            </hmmer3-match>
             <panther-match evalue="0.0" familyName="FAMILY NOT NAMED" score="1020.0">
                 <signature ac="PTHR27000" name="FAMILY NOT NAMED">
                     <models>
@@ -4827,22 +4827,6 @@
                 </locations>
             </panther-match>
             <patternscan-match>
-                <signature ac="PS00107" desc="Protein kinases ATP-binding region signature." name="PROTEIN_KINASE_ATP">
-                    <entry ac="IPR017441" desc="Protein kinase, ATP binding site" name="Protein_kinase_ATP_BS" type="BINDING_SITE">
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0005524" name="ATP binding"/>
-                    </entry>
-                    <models>
-                        <model ac="PS00107" desc="Protein kinases ATP-binding region signature." name="PROTEIN_KINASE_ATP"/>
-                    </models>
-                    <signature-library-release library="PROSITE_PATTERNS" version="20.132"/>
-                </signature>
-                <locations>
-                    <patternscan-location level="STRONG" start="772" end="799">
-                        <alignment>IGSGQSSSVYrGslpsktddvhtmIAVK</alignment>
-                    </patternscan-location>
-                </locations>
-            </patternscan-match>
-            <patternscan-match>
                 <signature ac="PS00108" desc="Serine/Threonine protein kinases active-site signature." name="PROTEIN_KINASE_ST">
                     <entry ac="IPR008271" desc="Serine/threonine-protein kinase, active site" name="Ser/Thr_kinase_AS" type="ACTIVE_SITE">
                         <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0004672" name="protein kinase activity"/>
@@ -4859,12 +4843,28 @@
                     </patternscan-location>
                 </locations>
             </patternscan-match>
+            <patternscan-match>
+                <signature ac="PS00107" desc="Protein kinases ATP-binding region signature." name="PROTEIN_KINASE_ATP">
+                    <entry ac="IPR017441" desc="Protein kinase, ATP binding site" name="Protein_kinase_ATP_BS" type="BINDING_SITE">
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0005524" name="ATP binding"/>
+                    </entry>
+                    <models>
+                        <model ac="PS00107" desc="Protein kinases ATP-binding region signature." name="PROTEIN_KINASE_ATP"/>
+                    </models>
+                    <signature-library-release library="PROSITE_PATTERNS" version="20.132"/>
+                </signature>
+                <locations>
+                    <patternscan-location level="STRONG" start="772" end="799">
+                        <alignment>IGSGQSSSVYrGslpsktddvhtmIAVK</alignment>
+                    </patternscan-location>
+                </locations>
+            </patternscan-match>
             <profilescan-match>
                 <signature ac="PS50011" desc="Protein kinase domain profile." name="PROTEIN_KINASE_DOM">
                     <entry ac="IPR000719" desc="Protein kinase domain" name="Prot_kinase_dom" type="DOMAIN">
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0004672" name="protein kinase activity"/>
                         <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0006468" name="protein phosphorylation"/>
                         <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0005524" name="ATP binding"/>
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0004672" name="protein kinase activity"/>
                     </entry>
                     <models>
                         <model ac="PS50011" desc="Protein kinase domain profile." name="PROTEIN_KINASE_DOM"/>
@@ -4877,6 +4877,59 @@
                     </profilescan-location>
                 </locations>
             </profilescan-match>
+            <superfamilyhmmer3-match evalue="2.28E-53">
+                <signature ac="SSF52047" name="RNI-like">
+                    <models>
+                        <model ac="0048761" name="RNI-like"/>
+                        <model ac="0039098" name="RNI-like"/>
+                        <model ac="0037738" name="RNI-like"/>
+                        <model ac="0045099" name="RNI-like"/>
+                        <model ac="0045711" name="RNI-like"/>
+                        <model ac="0052014" name="RNI-like"/>
+                    </models>
+                    <signature-library-release library="SUPERFAMILY" version="1.75"/>
+                </signature>
+                <locations>
+                    <superfamilyhmmer3-location start="197" end="515"/>
+                </locations>
+            </superfamilyhmmer3-match>
+            <superfamilyhmmer3-match evalue="2.83E-59">
+                <signature ac="SSF52058" name="L domain-like">
+                    <entry ac="IPR032675" desc="Leucine-rich repeat domain, L domain-like" name="L_dom-like" type="DOMAIN"/>
+                    <models>
+                        <model ac="0040811" name="L domain-like"/>
+                        <model ac="0041264" name="L domain-like"/>
+                        <model ac="0050397" name="L domain-like"/>
+                        <model ac="0048505" name="L domain-like"/>
+                        <model ac="0041263" name="L domain-like"/>
+                        <model ac="0040812" name="L domain-like"/>
+                        <model ac="0039014" name="L domain-like"/>
+                        <model ac="0053853" name="L domain-like"/>
+                        <model ac="0042103" name="L domain-like"/>
+                        <model ac="0047619" name="L domain-like"/>
+                        <model ac="0046244" name="L domain-like"/>
+                        <model ac="0053646" name="L domain-like"/>
+                        <model ac="0053852" name="L domain-like"/>
+                        <model ac="0046297" name="L domain-like"/>
+                        <model ac="0051010" name="L domain-like"/>
+                        <model ac="0048059" name="L domain-like"/>
+                        <model ac="0041267" name="L domain-like"/>
+                        <model ac="0039015" name="L domain-like"/>
+                        <model ac="0041848" name="L domain-like"/>
+                        <model ac="0046830" name="L domain-like"/>
+                        <model ac="0039222" name="L domain-like"/>
+                        <model ac="0045746" name="L domain-like"/>
+                        <model ac="0041268" name="L domain-like"/>
+                        <model ac="0053105" name="L domain-like"/>
+                        <model ac="0047132" name="L domain-like"/>
+                        <model ac="0039223" name="L domain-like"/>
+                    </models>
+                    <signature-library-release library="SUPERFAMILY" version="1.75"/>
+                </signature>
+                <locations>
+                    <superfamilyhmmer3-location start="428" end="688"/>
+                </locations>
+            </superfamilyhmmer3-match>
             <superfamilyhmmer3-match evalue="1.75E-62">
                 <signature ac="SSF56112" name="Protein kinase-like (PK-like)">
                     <entry ac="IPR011009" desc="Protein kinase-like domain" name="Kinase-like_dom" type="DOMAIN"/>
@@ -5001,59 +5054,6 @@
                 </signature>
                 <locations>
                     <superfamilyhmmer3-location start="78" end="257"/>
-                </locations>
-            </superfamilyhmmer3-match>
-            <superfamilyhmmer3-match evalue="2.28E-53">
-                <signature ac="SSF52047" name="RNI-like">
-                    <models>
-                        <model ac="0048761" name="RNI-like"/>
-                        <model ac="0039098" name="RNI-like"/>
-                        <model ac="0037738" name="RNI-like"/>
-                        <model ac="0045099" name="RNI-like"/>
-                        <model ac="0045711" name="RNI-like"/>
-                        <model ac="0052014" name="RNI-like"/>
-                    </models>
-                    <signature-library-release library="SUPERFAMILY" version="1.75"/>
-                </signature>
-                <locations>
-                    <superfamilyhmmer3-location start="197" end="515"/>
-                </locations>
-            </superfamilyhmmer3-match>
-            <superfamilyhmmer3-match evalue="2.83E-59">
-                <signature ac="SSF52058" name="L domain-like">
-                    <entry ac="IPR032675" desc="Leucine-rich repeat domain, L domain-like" name="L_dom-like" type="DOMAIN"/>
-                    <models>
-                        <model ac="0040811" name="L domain-like"/>
-                        <model ac="0041264" name="L domain-like"/>
-                        <model ac="0050397" name="L domain-like"/>
-                        <model ac="0048505" name="L domain-like"/>
-                        <model ac="0041263" name="L domain-like"/>
-                        <model ac="0040812" name="L domain-like"/>
-                        <model ac="0039014" name="L domain-like"/>
-                        <model ac="0053853" name="L domain-like"/>
-                        <model ac="0042103" name="L domain-like"/>
-                        <model ac="0047619" name="L domain-like"/>
-                        <model ac="0046244" name="L domain-like"/>
-                        <model ac="0053646" name="L domain-like"/>
-                        <model ac="0053852" name="L domain-like"/>
-                        <model ac="0046297" name="L domain-like"/>
-                        <model ac="0051010" name="L domain-like"/>
-                        <model ac="0048059" name="L domain-like"/>
-                        <model ac="0041267" name="L domain-like"/>
-                        <model ac="0039015" name="L domain-like"/>
-                        <model ac="0041848" name="L domain-like"/>
-                        <model ac="0046830" name="L domain-like"/>
-                        <model ac="0039222" name="L domain-like"/>
-                        <model ac="0045746" name="L domain-like"/>
-                        <model ac="0041268" name="L domain-like"/>
-                        <model ac="0053105" name="L domain-like"/>
-                        <model ac="0047132" name="L domain-like"/>
-                        <model ac="0039223" name="L domain-like"/>
-                    </models>
-                    <signature-library-release library="SUPERFAMILY" version="1.75"/>
-                </signature>
-                <locations>
-                    <superfamilyhmmer3-location start="428" end="688"/>
                 </locations>
             </superfamilyhmmer3-match>
         </matches>

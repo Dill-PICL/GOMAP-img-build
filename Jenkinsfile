@@ -30,17 +30,21 @@ pipeline {
                     echo $FILEPATH
                     git lfs pull
                     # singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
-                    azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
+                    #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
+                    rsync -P /mnt/gomap/GOMAP-base_latest.sif GOMAP-base.sif
                 '''
 
                 sh '''
                     du -chs *
                     git clone --branch=dev https://github.com/bioinformapping/GOMAP.git
                     mkdir -p GOMAP/data/data/ && 
-                    azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/  --recursive=true
-                    mkdir -p GOMAP/data/software/ &&
-                    azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ --recursive=true &&
-                    chmod -R a+rwx GOMAP/data/software/  
+                    rsync -ruP /mnt/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/ && 
+                    mkdir -p GOMAP/data/software/ && 
+                    rsync -ruP /mnt/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ && 
+                    chmod -R a+rwx GOMAP/data/software/ 
+                    
+                    #azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/  --recursive=true
+                    #azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ --recursive=true &&
                 ''' 
             }
         }
@@ -113,8 +117,10 @@ pipeline {
             }
             steps {
                 sh '''
-                    azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
-                    azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" singularity/GOMAP-base.sif
+                    rsync -P /mnt/gomap/GOMAP-base_latest.sif GOMAP-base.sif 
+                    rsync -P /mnt/gomap/GOMAP-base_latest.sif singularity/GOMAP-base.sif 
+                    #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
+                    #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" singularity/GOMAP-base.sif
                     if [ -d tmp ]
                     then
                         sudo rm -r tmp
@@ -145,7 +151,8 @@ pipeline {
                 echo 'Image Successfully tested'
                 sh '''
                     mkdir -p /mnt/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    azcopy cp ${IMAGE}.sif "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}"
+                    rsync -v ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif 
+                    #azcopy cp ${IMAGE}.sif "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}"
                 '''
                 // rsync -uP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/
                 echo 'Image Successfully uploaded'
@@ -171,7 +178,8 @@ pipeline {
                 echo 'Copying from File Share to local Disk'
                 
                 sh '''
-                    azcopy cp "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}" ${IMAGE}.sif
+                    rsync ${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif 
+                    #azcopy cp "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}" ${IMAGE}.sif
                 '''
                 
 
