@@ -31,16 +31,16 @@ pipeline {
                     git lfs pull
                     # singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
                     #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
-                    rsync -P /mnt/gomap/GOMAP-base_latest.sif GOMAP-base.sif
+                    rsync -P /gomap/GOMAP-base_latest.sif GOMAP-base.sif
                 '''
 
                 sh '''
                     du -chs *
                     git clone --branch=dev https://github.com/bioinformapping/GOMAP.git
                     mkdir -p GOMAP/data/data/ && 
-                    rsync -ruP /mnt/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/ && 
+                    rsync -ruP gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/ && 
                     mkdir -p GOMAP/data/software/ && 
-                    rsync -ruP /mnt/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ && 
+                    rsync -ruP /gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ && 
                     chmod -R a+rwx GOMAP/data/software/ 
                     
                     #azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/  --recursive=true
@@ -59,7 +59,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                        sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
+                        sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
                 }
             }
@@ -111,14 +111,14 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                        sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
+                        sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
                 }
             }
             steps {
                 sh '''
-                    rsync -P /mnt/gomap/GOMAP-base_latest.sif GOMAP-base.sif 
-                    rsync -P /mnt/gomap/GOMAP-base_latest.sif singularity/GOMAP-base.sif 
+                    rsync -P /gomap/GOMAP-base_latest.sif GOMAP-base.sif 
+                    rsync -P /gomap/GOMAP-base_latest.sif singularity/GOMAP-base.sif 
                     #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
                     #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" singularity/GOMAP-base.sif
                     if [ -d tmp ]
@@ -143,15 +143,15 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                        sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
+                        sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
                 }
             }
             steps {
                 echo 'Image Successfully tested'
                 sh '''
-                    mkdir -p /mnt/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    rsync -v ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif 
+                    mkdir -p /${CONTAINER}/${IMAGE}/${VERSION}/ && \
+                    rsync -v ${IMAGE}.sif /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif 
                     #azcopy cp ${IMAGE}.sif "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}"
                 '''
                 // rsync -uP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/
@@ -169,7 +169,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                        sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'true' 
+                        sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'true' 
                     }
                 }
             }
