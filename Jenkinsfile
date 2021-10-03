@@ -177,7 +177,7 @@ pipeline {
                 
                 sh '''
                     #rsync /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif
-                    azcopy cp "https://gokoolstorage.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ${IMAGE}.sif
+                    azcopy cp "https://gokoolstorage.blob.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ${IMAGE}.sif
                 '''
                 
 
