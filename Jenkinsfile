@@ -176,8 +176,8 @@ pipeline {
                 echo 'Copying from File Share to local Disk'
                 
                 sh '''
-                    rsync /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif 
-                    #azcopy cp "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}" ${IMAGE}.sif
+                    #rsync /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif
+                    azcopy cp ""https://gokoolstorage.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ${IMAGE}.sif
                 '''
                 
 
