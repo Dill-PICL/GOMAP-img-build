@@ -3,7 +3,7 @@ pipeline {
     environment {
         CONTAINER = 'gomap'
         IMAGE = 'GOMAP'
-        VERSION = 'v1.3.7'   
+        VERSION = 'v1.3.7'
         IPLANT_CREDS = credentials('iplant-credentials')
         FILESHARE_SAS = credentials('fileshareSAS') 
         BLOBSHARE_SAS = credentials('blobstorageSAS') 
@@ -118,8 +118,8 @@ pipeline {
                 sh '''
                     rsync -P /gomap/GOMAP-base_latest.sif GOMAP-base.sif 
                     rsync -P /gomap/GOMAP-base_latest.sif singularity/GOMAP-base.sif 
-                    #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
-                    #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" singularity/GOMAP-base.sif
+                    #azcopy cp "https://gokoolstorage.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
+                    #azcopy cp "https://gokoolstorage.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" singularity/GOMAP-base.sif
                     if [ -d tmp ]
                     then
                         sudo rm -r tmp
@@ -176,7 +176,7 @@ pipeline {
                 echo 'Copying from File Share to local Disk'
                 
                 sh '''
-                    rsync ${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif 
+                    rsync /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif 
                     #azcopy cp "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}" ${IMAGE}.sif
                 '''
                 
