@@ -9,7 +9,7 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="271" end="295"/>
+                    <mobidblite-location start="1" end="165"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
@@ -17,20 +17,9 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="1" end="165"/>
+                    <mobidblite-location start="271" end="295"/>
                 </locations>
             </mobidblite-match>
-            <panther-match evalue="5.1E-188" familyName="SUBFAMILY NOT NAMED" score="629.6">
-                <signature ac="PTHR35701:SF2" name="SUBFAMILY NOT NAMED">
-                    <models>
-                        <model ac="PTHR35701:SF2" name="SUBFAMILY NOT NAMED"/>
-                    </models>
-                    <signature-library-release library="PANTHER" version="11.1"/>
-                </signature>
-                <locations>
-                    <panther-location start="205" end="618"/>
-                </locations>
-            </panther-match>
             <panther-match evalue="5.1E-188" familyName="FAMILY NOT NAMED" score="629.6">
                 <signature ac="PTHR35701" name="FAMILY NOT NAMED">
                     <models>
@@ -60,6 +49,29 @@
                     <hmmer2-location score="25.9" evalue="0.0055" hmm-start="1" hmm-end="23" hmm-length="0" start="425" end="459"/>
                 </locations>
             </hmmer2-match>
+            <hmmer3-match evalue="1.6E-11" score="43.8">
+                <signature ac="PF13920" desc="Zinc finger, C3HC4 type (RING finger)" name="zf-C3HC4_3">
+                    <models>
+                        <model ac="PF13920" desc="Zinc finger, C3HC4 type (RING finger)" name="zf-C3HC4_3"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="466" env-start="421" score="42.8" evalue="3.3E-11" hmm-start="2" hmm-end="49" hmm-length="0" start="422" end="465"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="3.3E-93" score="311.9">
+                <signature ac="PF10269" desc="Transmembrane Fragile-X-F protein" name="Tmemb_185A">
+                    <entry ac="IPR019396" desc="Transmembrane Fragile-X-F-associated protein" name="TM_Fragile-X-F-assoc" type="FAMILY"/>
+                    <models>
+                        <model ac="PF10269" desc="Transmembrane Fragile-X-F protein" name="Tmemb_185A"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="297" env-start="34" score="311.3" evalue="4.9E-93" hmm-start="1" hmm-end="247" hmm-length="0" start="34" end="297"/>
+                </locations>
+            </hmmer3-match>
             <hmmer3-match evalue="7.1E-16" score="58.3">
                 <signature ac="G3DSA:1.10.1170.10">
                     <models>
@@ -81,33 +93,10 @@
                     <hmmer3-location env-end="472" env-start="335" score="57.7" evalue="1.0E-15" hmm-start="39" hmm-end="137" hmm-length="0" start="335" end="472"/>
                 </locations>
             </hmmer3-match>
-            <hmmer3-match evalue="3.3E-93" score="311.9">
-                <signature ac="PF10269" desc="Transmembrane Fragile-X-F protein" name="Tmemb_185A">
-                    <entry ac="IPR019396" desc="Transmembrane Fragile-X-F-associated protein" name="TM_Fragile-X-F-assoc" type="FAMILY"/>
+            <panther-match evalue="2.9E-272" familyName="INHIBITOR OF APOPTOSIS" score="905.7">
+                <signature ac="PTHR10044" name="INHIBITOR OF APOPTOSIS">
                     <models>
-                        <model ac="PF10269" desc="Transmembrane Fragile-X-F protein" name="Tmemb_185A"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="297" env-start="34" score="311.3" evalue="4.9E-93" hmm-start="1" hmm-end="247" hmm-length="0" start="34" end="297"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="1.6E-11" score="43.8">
-                <signature ac="PF13920" desc="Zinc finger, C3HC4 type (RING finger)" name="zf-C3HC4_3">
-                    <models>
-                        <model ac="PF13920" desc="Zinc finger, C3HC4 type (RING finger)" name="zf-C3HC4_3"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="466" env-start="421" score="42.8" evalue="3.3E-11" hmm-start="2" hmm-end="49" hmm-length="0" start="422" end="465"/>
-                </locations>
-            </hmmer3-match>
-            <panther-match evalue="2.9E-272" familyName="TRANSMEMBRANE FRAGILE-X-F-ASSOCIATED PROTEIN" score="905.7">
-                <signature ac="PTHR10044:SF153" name="TRANSMEMBRANE FRAGILE-X-F-ASSOCIATED PROTEIN">
-                    <models>
-                        <model ac="PTHR10044:SF153" name="TRANSMEMBRANE FRAGILE-X-F-ASSOCIATED PROTEIN"/>
+                        <model ac="PTHR10044" name="INHIBITOR OF APOPTOSIS"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -115,10 +104,10 @@
                     <panther-location start="8" end="471"/>
                 </locations>
             </panther-match>
-            <panther-match evalue="2.9E-272" familyName="INHIBITOR OF APOPTOSIS" score="905.7">
-                <signature ac="PTHR10044" name="INHIBITOR OF APOPTOSIS">
+            <panther-match evalue="2.9E-272" familyName="TRANSMEMBRANE FRAGILE-X-F-ASSOCIATED PROTEIN" score="905.7">
+                <signature ac="PTHR10044:SF153" name="TRANSMEMBRANE FRAGILE-X-F-ASSOCIATED PROTEIN">
                     <models>
-                        <model ac="PTHR10044" name="INHIBITOR OF APOPTOSIS"/>
+                        <model ac="PTHR10044:SF153" name="TRANSMEMBRANE FRAGILE-X-F-ASSOCIATED PROTEIN"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -186,12 +175,12 @@
             <hmmer3-match evalue="1.6E-53" score="182.0">
                 <signature ac="PF02364" desc="1,3-beta-glucan synthase component" name="Glucan_synthase">
                     <entry ac="IPR003440" desc="Glycosyl transferase, family 48" name="Glyco_trans_48" type="FAMILY">
-                        <go-xref category="CELLULAR_COMPONENT" db="GO" id="GO:0016020" name="membrane"/>
-                        <go-xref category="CELLULAR_COMPONENT" db="GO" id="GO:0000148" name="1,3-beta-D-glucan synthase complex"/>
                         <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0006075" name="(1-&gt;3)-beta-D-glucan biosynthetic process"/>
                         <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0003843" name="1,3-beta-D-glucan synthase activity"/>
-                        <pathway-xref db="MetaCyc" id="PWY-6773" name="1,3-beta-D-glucan biosynthesis"/>
+                        <go-xref category="CELLULAR_COMPONENT" db="GO" id="GO:0016020" name="membrane"/>
+                        <go-xref category="CELLULAR_COMPONENT" db="GO" id="GO:0000148" name="1,3-beta-D-glucan synthase complex"/>
                         <pathway-xref db="KEGG" id="00500+2.4.1.34" name="Starch and sucrose metabolism"/>
+                        <pathway-xref db="MetaCyc" id="PWY-6773" name="1,3-beta-D-glucan biosynthesis"/>
                     </entry>
                     <models>
                         <model ac="PF02364" desc="1,3-beta-glucan synthase component" name="Glucan_synthase"/>
@@ -569,10 +558,10 @@
                     <mobidblite-location start="559" end="578"/>
                 </locations>
             </mobidblite-match>
-            <panther-match evalue="0.0" familyName="FAMILY NOT NAMED" score="1093.4">
-                <signature ac="PTHR27001" name="FAMILY NOT NAMED">
+            <panther-match evalue="0.0" familyName="PROTEIN KINASE FAMILY PROTEIN" score="1093.4">
+                <signature ac="PTHR27001:SF292" name="PROTEIN KINASE FAMILY PROTEIN">
                     <models>
-                        <model ac="PTHR27001" name="FAMILY NOT NAMED"/>
+                        <model ac="PTHR27001:SF292" name="PROTEIN KINASE FAMILY PROTEIN"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -580,10 +569,10 @@
                     <panther-location start="309" end="964"/>
                 </locations>
             </panther-match>
-            <panther-match evalue="0.0" familyName="PROTEIN KINASE FAMILY PROTEIN" score="1093.4">
-                <signature ac="PTHR27001:SF292" name="PROTEIN KINASE FAMILY PROTEIN">
+            <panther-match evalue="0.0" familyName="FAMILY NOT NAMED" score="1093.4">
+                <signature ac="PTHR27001" name="FAMILY NOT NAMED">
                     <models>
-                        <model ac="PTHR27001:SF292" name="PROTEIN KINASE FAMILY PROTEIN"/>
+                        <model ac="PTHR27001" name="FAMILY NOT NAMED"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -625,6 +614,19 @@
                 </locations>
             </patternscan-match>
             <profilescan-match>
+                <signature ac="PS51257" desc="Prokaryotic membrane lipoprotein lipid attachment site profile." name="PROKAR_LIPOPROTEIN">
+                    <models>
+                        <model ac="PS51257" desc="Prokaryotic membrane lipoprotein lipid attachment site profile." name="PROKAR_LIPOPROTEIN"/>
+                    </models>
+                    <signature-library-release library="PROSITE_PROFILES" version="20.132"/>
+                </signature>
+                <locations>
+                    <profilescan-location score="5.0" start="1" end="20">
+                        <alignment>MGRC---------------GGGSGAGAGGGALGGC</alignment>
+                    </profilescan-location>
+                </locations>
+            </profilescan-match>
+            <profilescan-match>
                 <signature ac="PS50011" desc="Protein kinase domain profile." name="PROTEIN_KINASE_DOM">
                     <entry ac="IPR000719" desc="Protein kinase domain" name="Prot_kinase_dom" type="DOMAIN">
                         <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:0004672" name="protein kinase activity"/>
@@ -639,19 +641,6 @@
                 <locations>
                     <profilescan-location score="38.831" start="616" end="890">
                         <alignment>FDESRIIGEGGFGRVYEGIL-EDGERVAIKVLKRDD--QQGTREFLAEVEMLSRLHHRNLVKLIGICTEGHSRCLVYELVPNGSVESHLHDKGAArFDWDARLKIALGAARGLAYLHEDsspRVIHRDFKSSNILLEHDFTPKVSDFGLARTAlgEGNEHISTRVMGTFGYVAPEYA--MTGHLLvKSDVYSYGVVLLELLTGMKPVDMLrpPGQENLVAWAGSL----------LtsrdglesivdpslgssipfdSIARVAAIASMCVQPEVDQRPFMGEVVQaLKLV</alignment>
-                    </profilescan-location>
-                </locations>
-            </profilescan-match>
-            <profilescan-match>
-                <signature ac="PS51257" desc="Prokaryotic membrane lipoprotein lipid attachment site profile." name="PROKAR_LIPOPROTEIN">
-                    <models>
-                        <model ac="PS51257" desc="Prokaryotic membrane lipoprotein lipid attachment site profile." name="PROKAR_LIPOPROTEIN"/>
-                    </models>
-                    <signature-library-release library="PROSITE_PROFILES" version="20.132"/>
-                </signature>
-                <locations>
-                    <profilescan-location score="5.0" start="1" end="20">
-                        <alignment>MGRC---------------GGGSGAGAGGGALGGC</alignment>
                     </profilescan-location>
                 </locations>
             </profilescan-match>
@@ -865,6 +854,18 @@
                     <hmmer2-location score="158.0" evalue="9.4E-43" hmm-start="1" hmm-end="196" hmm-length="0" start="197" end="356"/>
                 </locations>
             </hmmer2-match>
+            <hmmer3-match evalue="3.6E-9" score="37.3">
+                <signature ac="PF00929" desc="Exonuclease" name="RNase_T">
+                    <entry ac="IPR013520" desc="Exonuclease, RNase T/DNA polymerase III" name="Exonuclease_RNaseT/DNA_pol3" type="DOMAIN"/>
+                    <models>
+                        <model ac="PF00929" desc="Exonuclease" name="RNase_T"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="347" env-start="199" score="36.4" evalue="6.7E-9" hmm-start="2" hmm-end="164" hmm-length="0" start="200" end="346"/>
+                </locations>
+            </hmmer3-match>
             <hmmer3-match evalue="1.1E-30" score="106.1">
                 <signature ac="G3DSA:3.30.420.10">
                     <entry ac="IPR012337" desc="Ribonuclease H-like domain" name="RNaseH-like_dom" type="DOMAIN">
@@ -934,18 +935,6 @@
                 </signature>
                 <locations>
                     <hmmer3-location env-end="358" env-start="186" score="104.5" evalue="3.5E-30" hmm-start="16" hmm-end="194" hmm-length="0" start="186" end="358"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="3.6E-9" score="37.3">
-                <signature ac="PF00929" desc="Exonuclease" name="RNase_T">
-                    <entry ac="IPR013520" desc="Exonuclease, RNase T/DNA polymerase III" name="Exonuclease_RNaseT/DNA_pol3" type="DOMAIN"/>
-                    <models>
-                        <model ac="PF00929" desc="Exonuclease" name="RNase_T"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="347" env-start="199" score="36.4" evalue="6.7E-9" hmm-start="2" hmm-end="164" hmm-length="0" start="200" end="346"/>
                 </locations>
             </hmmer3-match>
             <panther-match evalue="9.0E-92" familyName="EXONUCLEASE" score="311.0">
@@ -1107,7 +1096,7 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="29" end="48"/>
+                    <mobidblite-location start="77" end="110"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
@@ -1123,7 +1112,7 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="166" end="189"/>
+                    <mobidblite-location start="29" end="48"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
@@ -1139,7 +1128,7 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="77" end="110"/>
+                    <mobidblite-location start="166" end="189"/>
                 </locations>
             </mobidblite-match>
             <panther-match evalue="4.6E-109" familyName="FAMILY NOT NAMED" score="367.5">
@@ -1164,31 +1153,15 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="297" end="331"/>
-                </locations>
-            </mobidblite-match>
-            <mobidblite-match>
-                <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
-                    <signature-library-release library="MOBIDB_LITE" version="1.0"/>
-                </signature>
-                <locations>
-                    <mobidblite-location start="827" end="896"/>
-                </locations>
-            </mobidblite-match>
-            <mobidblite-match>
-                <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
-                    <signature-library-release library="MOBIDB_LITE" version="1.0"/>
-                </signature>
-                <locations>
-                    <mobidblite-location start="1084" end="1104"/>
-                </locations>
-            </mobidblite-match>
-            <mobidblite-match>
-                <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
-                    <signature-library-release library="MOBIDB_LITE" version="1.0"/>
-                </signature>
-                <locations>
                     <mobidblite-location start="1042" end="1071"/>
+                </locations>
+            </mobidblite-match>
+            <mobidblite-match>
+                <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
+                    <signature-library-release library="MOBIDB_LITE" version="1.0"/>
+                </signature>
+                <locations>
+                    <mobidblite-location start="297" end="331"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
@@ -1204,7 +1177,15 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="785" end="806"/>
+                    <mobidblite-location start="1084" end="1104"/>
+                </locations>
+            </mobidblite-match>
+            <mobidblite-match>
+                <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
+                    <signature-library-release library="MOBIDB_LITE" version="1.0"/>
+                </signature>
+                <locations>
+                    <mobidblite-location start="827" end="896"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
@@ -1213,6 +1194,14 @@
                 </signature>
                 <locations>
                     <mobidblite-location start="346" end="381"/>
+                </locations>
+            </mobidblite-match>
+            <mobidblite-match>
+                <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
+                    <signature-library-release library="MOBIDB_LITE" version="1.0"/>
+                </signature>
+                <locations>
+                    <mobidblite-location start="785" end="806"/>
                 </locations>
             </mobidblite-match>
             <panther-match evalue="0.0" familyName="SUBFAMILY NOT NAMED" score="1896.3">
@@ -1229,8 +1218,8 @@
             <panther-match evalue="0.0" familyName="WASP-1" score="1896.3">
                 <signature ac="PTHR12902" name="WASP-1">
                     <entry ac="IPR028288" desc="SCAR/WAVE family" name="SCAR/WAVE_fam" type="FAMILY">
-                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0030036" name="actin cytoskeleton organization"/>
                         <go-xref category="CELLULAR_COMPONENT" db="GO" id="GO:0005856" name="cytoskeleton"/>
+                        <go-xref category="BIOLOGICAL_PROCESS" db="GO" id="GO:0030036" name="actin cytoskeleton organization"/>
                         <pathway-xref db="Reactome" id="R-HSA-4420097" name="VEGFA-VEGFR2 Pathway"/>
                         <pathway-xref db="Reactome" id="R-HSA-2029482" name="Regulation of actin dynamics for phagocytic cup formation"/>
                         <pathway-xref db="Reactome" id="R-HSA-5663213" name="RHO GTPases Activate WASPs and WAVEs"/>
@@ -1359,10 +1348,10 @@
                     <mobidblite-location start="1" end="38"/>
                 </locations>
             </mobidblite-match>
-            <panther-match evalue="5.1E-100" familyName="FAMILY NOT NAMED" score="337.7">
-                <signature ac="PTHR33065" name="FAMILY NOT NAMED">
+            <panther-match evalue="5.1E-100" familyName="SUBFAMILY NOT NAMED" score="337.7">
+                <signature ac="PTHR33065:SF36" name="SUBFAMILY NOT NAMED">
                     <models>
-                        <model ac="PTHR33065" name="FAMILY NOT NAMED"/>
+                        <model ac="PTHR33065:SF36" name="SUBFAMILY NOT NAMED"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -1370,10 +1359,10 @@
                     <panther-location start="169" end="507"/>
                 </locations>
             </panther-match>
-            <panther-match evalue="5.1E-100" familyName="SUBFAMILY NOT NAMED" score="337.7">
-                <signature ac="PTHR33065:SF36" name="SUBFAMILY NOT NAMED">
+            <panther-match evalue="5.1E-100" familyName="FAMILY NOT NAMED" score="337.7">
+                <signature ac="PTHR33065" name="FAMILY NOT NAMED">
                     <models>
-                        <model ac="PTHR33065:SF36" name="SUBFAMILY NOT NAMED"/>
+                        <model ac="PTHR33065" name="FAMILY NOT NAMED"/>
                     </models>
                     <signature-library-release library="PANTHER" version="11.1"/>
                 </signature>
@@ -1427,22 +1416,6 @@
                     <hmmer2-location score="57.0" evalue="2.4E-12" hmm-start="1" hmm-end="96" hmm-length="0" start="791" end="876"/>
                 </locations>
             </hmmer2-match>
-            <hmmer3-match evalue="2.1E-50" score="169.1">
-                <signature ac="PF16760" desc="Starch/carbohydrate-binding module (family 53)" name="CBM53">
-                    <entry ac="IPR005085" desc="Carbohydrate binding module family 25" name="CBM25" type="DOMAIN">
-                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:2001070" name="starch binding"/>
-                    </entry>
-                    <models>
-                        <model ac="PF16760" desc="Starch/carbohydrate-binding module (family 53)" name="CBM53"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="875" env-start="794" score="57.9" evalue="1.1E-15" hmm-start="2" hmm-end="81" hmm-length="0" start="795" end="875"/>
-                    <hmmer3-location env-end="1056" env-start="969" score="59.9" evalue="2.5E-16" hmm-start="1" hmm-end="80" hmm-length="0" start="969" end="1055"/>
-                    <hmmer3-location env-end="1216" env-start="1131" score="60.5" evalue="1.6E-16" hmm-start="2" hmm-end="81" hmm-length="0" start="1132" end="1216"/>
-                </locations>
-            </hmmer3-match>
             <hmmer3-match evalue="4.3E-27" score="94.3">
                 <signature ac="G3DSA:3.40.50.2000">
                     <models>
@@ -1512,6 +1485,49 @@
                     <hmmer3-location env-end="1670" env-start="1440" score="94.3" evalue="4.4E-27" hmm-start="1" hmm-end="212" hmm-length="0" start="1440" end="1670"/>
                 </locations>
             </hmmer3-match>
+            <hmmer3-match evalue="2.6E-47" score="161.5">
+                <signature ac="PF08323" desc="Starch synthase catalytic domain" name="Glyco_transf_5">
+                    <entry ac="IPR013534" desc="Starch synthase, catalytic domain" name="Starch_synth_cat_dom" type="DOMAIN">
+                        <pathway-xref db="KEGG" id="00500+2.4.1.21" name="Starch and sucrose metabolism"/>
+                        <pathway-xref db="MetaCyc" id="PWY-622" name="Starch biosynthesis"/>
+                    </entry>
+                    <models>
+                        <model ac="PF08323" desc="Starch synthase catalytic domain" name="Glyco_transf_5"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="1418" env-start="1227" score="154.6" evalue="3.2E-45" hmm-start="1" hmm-end="230" hmm-length="0" start="1227" end="1414"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="2.1E-50" score="169.1">
+                <signature ac="PF16760" desc="Starch/carbohydrate-binding module (family 53)" name="CBM53">
+                    <entry ac="IPR005085" desc="Carbohydrate binding module family 25" name="CBM25" type="DOMAIN">
+                        <go-xref category="MOLECULAR_FUNCTION" db="GO" id="GO:2001070" name="starch binding"/>
+                    </entry>
+                    <models>
+                        <model ac="PF16760" desc="Starch/carbohydrate-binding module (family 53)" name="CBM53"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="875" env-start="794" score="57.9" evalue="1.1E-15" hmm-start="2" hmm-end="81" hmm-length="0" start="795" end="875"/>
+                    <hmmer3-location env-end="1056" env-start="969" score="59.9" evalue="2.5E-16" hmm-start="1" hmm-end="80" hmm-length="0" start="969" end="1055"/>
+                    <hmmer3-location env-end="1216" env-start="1131" score="60.5" evalue="1.6E-16" hmm-start="2" hmm-end="81" hmm-length="0" start="1132" end="1216"/>
+                </locations>
+            </hmmer3-match>
+            <hmmer3-match evalue="2.8E-8" score="33.5">
+                <signature ac="PF00534" desc="Glycosyl transferases group 1" name="Glycos_transf_1">
+                    <entry ac="IPR001296" desc="Glycosyl transferase, family 1" name="Glyco_trans_1" type="DOMAIN"/>
+                    <models>
+                        <model ac="PF00534" desc="Glycosyl transferases group 1" name="Glycos_transf_1"/>
+                    </models>
+                    <signature-library-release library="PFAM" version="31.0"/>
+                </signature>
+                <locations>
+                    <hmmer3-location env-end="1619" env-start="1466" score="32.1" evalue="7.0E-8" hmm-start="15" hmm-end="131" hmm-length="0" start="1477" end="1595"/>
+                </locations>
+            </hmmer3-match>
             <hmmer3-match evalue="1.9E-7" score="30.2">
                 <signature ac="G3DSA:3.40.50.2000">
                     <models>
@@ -1579,21 +1595,6 @@
                 </signature>
                 <locations>
                     <hmmer3-location env-end="1439" env-start="1224" score="26.2" evalue="3.2E-6" hmm-start="17" hmm-end="182" hmm-length="0" start="1224" end="1439"/>
-                </locations>
-            </hmmer3-match>
-            <hmmer3-match evalue="2.6E-47" score="161.5">
-                <signature ac="PF08323" desc="Starch synthase catalytic domain" name="Glyco_transf_5">
-                    <entry ac="IPR013534" desc="Starch synthase, catalytic domain" name="Starch_synth_cat_dom" type="DOMAIN">
-                        <pathway-xref db="MetaCyc" id="PWY-622" name="Starch biosynthesis"/>
-                        <pathway-xref db="KEGG" id="00500+2.4.1.21" name="Starch and sucrose metabolism"/>
-                    </entry>
-                    <models>
-                        <model ac="PF08323" desc="Starch synthase catalytic domain" name="Glyco_transf_5"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="1418" env-start="1227" score="154.6" evalue="3.2E-45" hmm-start="1" hmm-end="230" hmm-length="0" start="1227" end="1414"/>
                 </locations>
             </hmmer3-match>
             <hmmer3-match evalue="2.0E-37" score="127.2">
@@ -2313,24 +2314,12 @@
                     <hmmer3-location env-end="1072" env-start="959" score="36.7" evalue="2.9E-9" hmm-start="6" hmm-end="95" hmm-length="0" start="959" end="1072"/>
                 </locations>
             </hmmer3-match>
-            <hmmer3-match evalue="2.8E-8" score="33.5">
-                <signature ac="PF00534" desc="Glycosyl transferases group 1" name="Glycos_transf_1">
-                    <entry ac="IPR001296" desc="Glycosyl transferase, family 1" name="Glyco_trans_1" type="DOMAIN"/>
-                    <models>
-                        <model ac="PF00534" desc="Glycosyl transferases group 1" name="Glycos_transf_1"/>
-                    </models>
-                    <signature-library-release library="PFAM" version="31.0"/>
-                </signature>
-                <locations>
-                    <hmmer3-location env-end="1619" env-start="1466" score="32.1" evalue="7.0E-8" hmm-start="15" hmm-end="131" hmm-length="0" start="1477" end="1595"/>
-                </locations>
-            </hmmer3-match>
             <mobidblite-match>
                 <signature ac="mobidb-lite" desc="consensus disorder prediction" name="disorder_prediction">
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="898" end="926"/>
+                    <mobidblite-location start="375" end="399"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
@@ -2338,7 +2327,7 @@
                     <signature-library-release library="MOBIDB_LITE" version="1.0"/>
                 </signature>
                 <locations>
-                    <mobidblite-location start="375" end="399"/>
+                    <mobidblite-location start="898" end="926"/>
                 </locations>
             </mobidblite-match>
             <mobidblite-match>
