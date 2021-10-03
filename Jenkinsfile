@@ -183,6 +183,7 @@ pipeline {
 
                 echo 'Syncing to Cyverse and logging in'
                 sh '''#!/bin/bash
+                    rsync -r /gomap/.irods ~/
                     set +x 
                     echo ${IPLANT_CREDS_PSW} | iinit
                     set -x
