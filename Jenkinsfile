@@ -37,7 +37,7 @@ pipeline {
 
                 sh '''
                     du -chs *
-                    git clone --branch=dev https://github.com/bioinformapping/GOMAP.git
+                    git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
                     mkdir -p GOMAP/data/data/ && 
                     #rsync -ruP /gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/ && 
                     azcopy sync https://gokoolstorage.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/  --recursive=true && 
@@ -150,11 +150,13 @@ pipeline {
             steps {
                 echo 'Image Successfully tested'
                 sh '''
-                    #mkdir -p /${CONTAINER}/${IMAGE}/${VERSION}/ && \
+                    if [ ! -d /${CONTAINER}/${IMAGE}/${VERSION}/ ]
+                    then
+                        mkdir /${CONTAINER}/${IMAGE}/${VERSION}/
+                    fi
                     rsync -v ${IMAGE}.sif /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif 
                     #azcopy cp ${IMAGE}.sif "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}"
                 '''
-                // rsync -uP ${IMAGE}.sif /mnt/${CONTAINER}/${IMAGE}/${VERSION}/
                 echo 'Image Successfully uploaded'
             }
         }
