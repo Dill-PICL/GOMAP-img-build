@@ -38,10 +38,10 @@ pipeline {
                     du -chs *
                     git clone --branch=dev https://github.com/bioinformapping/GOMAP.git
                     mkdir -p GOMAP/data/data/ && 
-                    rsync -ruP gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/ && 
+                    rsync -ruP /gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/ && 
                     mkdir -p GOMAP/data/software/ && 
                     rsync -ruP /gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ && 
-                    chmod -R a+rwx GOMAP/data/software/ 
+                    chmod -R a+rwx GOMAP/data/software/
                     
                     #azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/  --recursive=true
                     #azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ --recursive=true &&
