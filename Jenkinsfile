@@ -181,9 +181,9 @@ pipeline {
                 '''
                 
 
-                echo 'Syncing to Cyverse'
+                echo 'Syncing to Cyverse and logging in'
                 sh '''#!/bin/bash
-                    set +x
+                    set +x 
                     echo ${IPLANT_CREDS_PSW} | iinit
                     set -x
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
