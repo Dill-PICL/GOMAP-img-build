@@ -37,6 +37,8 @@ GOMAP_VERSION v1.3.7
 %startscript
 	chmod 777 /tmp
 
+
+
 %runscript
 	cd /opt/GOMAP/ 
 	./gomap.py "$@"

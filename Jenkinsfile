@@ -3,10 +3,12 @@ pipeline {
     environment {
         CONTAINER = 'gomap'
         IMAGE = 'GOMAP'
-        VERSION = 'v1.3.5'
+        VERSION = 'v1.3.7'   
         IPLANT_CREDS = credentials('iplant-credentials')
-        FILESHARE_SAS = credentials('fileshareSAS')
+        FILESHARE_SAS = credentials('fileshareSAS') 
+        BLOBSHARE_SAS = credentials('blobstorageSAS') 
     }
+    
     stages { 
         stage('Setup Test Env') {
             when {
@@ -19,7 +21,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                         sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
+                         sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
                 }
             }
@@ -29,17 +31,20 @@ pipeline {
                     echo $FILEPATH
                     git lfs pull
                     # singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
-                    azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
+                    #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
+                    rsync -P /gomap/GOMAP-base_latest.sif GOMAP-base.sif
                 '''
 
                 sh '''
                     du -chs *
                     git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
                     mkdir -p GOMAP/data/data/ && 
-                    azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/  --recursive=true
-                    mkdir -p GOMAP/data/software/ &&
-                    azcopy sync https://gomap.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ --recursive=true &&
-                    chmod -R a+rwx GOMAP/data/software/  
+                    #rsync -ruP /gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/ && 
+                    azcopy sync https://gokoolstorage.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/  --recursive=true && 
+                    mkdir -p GOMAP/data/software/ && 
+                    azcopy sync https://gokoolstorage.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ --recursive=true &&
+                    #rsync -ruP /gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ && 
+                    chmod -R a+rwx GOMAP/data/software/
                 ''' 
             }
         }
@@ -54,7 +59,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                        sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
+                        sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
                 }
             }
@@ -106,14 +111,16 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                        sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
+                        sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
                 }
             }
             steps {
                 sh '''
-                    azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
-                    azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" singularity/GOMAP-base.sif
+                    rsync -P /gomap/GOMAP-base_latest.sif GOMAP-base.sif 
+                    rsync -P /gomap/GOMAP-base_latest.sif singularity/GOMAP-base.sif 
+                    #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
+                    #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" singularity/GOMAP-base.sif
                     if [ -d tmp ]
                     then
                         sudo rm -r tmp
@@ -136,15 +143,16 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                        sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
+                        sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
                 }
             }
             steps {
                 echo 'Image Successfully tested'
                 sh '''
-                    mkdir -p /mnt/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    azcopy cp ${IMAGE}.sif "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}"
+                    mkdir -p /${CONTAINER}/${IMAGE}/${VERSION}/
+                    rsync -v ${IMAGE}.sif /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif 
+                    #azcopy cp ${IMAGE}.sif "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}"
                 '''
                 echo 'Image Successfully uploaded'
             }
@@ -160,7 +168,7 @@ pipeline {
                 }
                 anyOf {
                      expression { 
-                        sh(returnStdout: true, script: '[ -f "/mnt/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'true' 
+                        sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'true' 
                     }
                 }
             }
@@ -169,7 +177,8 @@ pipeline {
                 echo 'Copying from File Share to local Disk'
                 
                 sh '''
-                    azcopy cp "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}" ${IMAGE}.sif
+                    rsync ${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif 
+                    #azcopy cp "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}" ${IMAGE}.sif
                 '''
                 
 
@@ -184,9 +193,8 @@ pipeline {
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
                     ichmod -r read public /iplant/home/shared/dillpicl/${CONTAINER}
                 '''  
-                echo 'Image Successfully uploaded  '
+                echo 'Image Successfully uploaded'
             }
         }
     }
 }
-
