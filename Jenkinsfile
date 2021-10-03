@@ -150,10 +150,7 @@ pipeline {
             steps {
                 echo 'Image Successfully tested'
                 sh '''
-                    if [ ! -d /${CONTAINER}/${IMAGE}/${VERSION}/ ]
-                    then
-                        mkdir /${CONTAINER}/${IMAGE}/${VERSION}/
-                    fi
+                    mkdir /${CONTAINER}/${IMAGE}/${VERSION}/
                     rsync -v ${IMAGE}.sif /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif 
                     #azcopy cp ${IMAGE}.sif "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}"
                 '''
