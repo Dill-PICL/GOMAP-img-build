@@ -3,7 +3,7 @@ pipeline {
     environment {
         CONTAINER = 'gomap'
         IMAGE = 'GOMAP'
-        VERSION = 'v1.3.6'   
+        VERSION = 'v1.3.7'   
         IPLANT_CREDS = credentials('iplant-credentials')
         FILESHARE_SAS = credentials('fileshareSAS') 
         BLOBSHARE_SAS = credentials('blobstorageSAS') 
