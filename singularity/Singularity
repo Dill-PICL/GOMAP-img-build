@@ -22,7 +22,7 @@ GOMAP_VERSION v1.3.7
 	chmod -R 777 /opt/GOMAP/
 	
     #Downloading backed in GOMAP code 
-	cd /opt/GOMAP/data && \
+	cd /data && \
 	chmod -R 755 software && chmod -R 755 data
 	
     #Making necessary directories
