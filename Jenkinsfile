@@ -17,6 +17,7 @@ pipeline {
                 anyOf {
                     changeset 'singularity/*'
                     changeset 'Jenkinsfile'
+                    changeset 'test.sh'
                 }
                 anyOf {
                     branch 'dev'     
@@ -39,7 +40,8 @@ pipeline {
             when {
                 anyOf {
                     changeset 'singularity/*'
-                    changeset 'Jenkinsfile'  
+                    changeset 'Jenkinsfile'
+                    changeset 'test.sh'  
                 }
                 anyOf {
                     branch 'dev'
@@ -92,6 +94,7 @@ pipeline {
                 anyOf {
                     changeset 'singularity/*'
                     changeset 'Jenkinsfile'
+                    changeset 'test.sh'
                 }
                 anyOf {
                     branch 'dev'
@@ -119,7 +122,8 @@ pipeline {
             when {
                 anyOf {
                     changeset 'singularity/*'
-                    changeset 'Jenkinsfile'  
+                    changeset 'Jenkinsfile'
+                    changeset 'test.sh'  
                 }
                 anyOf {
                     branch 'dev'
@@ -144,6 +148,7 @@ pipeline {
                 anyOf {
                     changeset 'singularity/*'
                     changeset 'Jenkinsfile'
+                    changeset 'test.sh'
                 }
                 anyOf {
                     branch 'master'
