@@ -35,7 +35,7 @@ pipeline {
                     git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
                 '''
             }
-        }
+        } 
         stage('Test') {
             when {
                 anyOf {
