@@ -205,7 +205,7 @@ pipeline {
                 echo 'Copying from File Share to local Disk'
                 
                 sh '''
-                    rsync -vP ${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif 
+                    rsync -vP /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif 
                 '''
                 
 
