@@ -90,7 +90,40 @@ pipeline {
 
                 echo 'Testing aggregate..'
                 sh '''
-                    ./test.sh aggregate
+                    ./test-mpi.sh domain
+                '''
+                
+                echo 'Testing MPI Blast'
+                sh '''
+                    ./test.sh domain
+                '''
+            }
+        }
+        stage('Test MPI') {
+            when {
+                anyOf {
+                    changeset 'singularity/*'
+                    changeset 'Jenkinsfile' 
+                    changeset 'test.sh'  
+                }
+                anyOf {
+                    branch 'dev'
+                }
+                anyOf {
+                     expression { 
+                        sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
+                    }
+                }
+            }
+            steps 
+                echo 'Testing MPI IPRS..'
+                sh '''
+                    ./test-mpi.sh domain
+                '''
+                
+                echo 'Testing MPI Blast'
+                sh '''
+                    ./test.sh domain
                 '''
             }
         }
