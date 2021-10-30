@@ -21,7 +21,7 @@ export SINGULARITY_BINDPATH="$PWD:/workdir,$PWD/tmp:/tmpdir"
 
 echo "$@"
 
-nodes=2
+nodes=2 
    
 if [[ $# -eq 1 ]] 
 then
