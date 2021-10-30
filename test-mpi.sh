@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-instance_name="GOMAP"
+instance_name="GOMAP-Base"
 img_loc="$PWD/$instance_name.sif"
 mkdir -p $PWD/tmp
 unset SINGULARITY_TMPDIR
@@ -17,7 +17,7 @@ then
     tmpdir=${TMPDIR:-$PWD/tmp}
 fi
 
-export SINGULARITY_BINDPATH="$PWD:/workdir,$PWD/tmp:/tmpdir"
+export SINGULARITY_BINDPATH="$PWD:/workdir,$PWD/tmp:/tmpdir,GOMAP:/opt/GOMAP"
 
 echo "$@"
 
