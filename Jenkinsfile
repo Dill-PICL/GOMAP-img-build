@@ -126,7 +126,7 @@ pipeline {
                 
                 echo 'Testing MPI Blast'
                 sh '''
-                    ./test.sh domain
+                    ./test-mpi.sh domain
                 '''
             }
         }

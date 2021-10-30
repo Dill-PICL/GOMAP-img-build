@@ -25,8 +25,8 @@ nodes=2
 
 if [[ $# -eq 1 ]] 
 then
-	mpiexec -np $nodes singularity run -W $PWD/tmp $img_loc --step=$1 --config=test/config.yml
+	mpiexec -np $nodes singularity run -W $PWD/tmp $img_loc --step=$1 --config=test-mpi/config.yml
 else
-	mpiexec -np $nodes singularity run -W $PWD/tmp $img_loc --step=domain --config=test/config.yml \
-	mpiexec -np $nodes singularity run -W $PWD/tmp $img_loc --step=mixmeth-blast --config=test/config.yml
+	mpiexec -np $nodes singularity run -W $PWD/tmp $img_loc --step=domain --config=test-mpi/config.yml \
+	mpiexec -np $nodes singularity run -W $PWD/tmp $img_loc --step=mixmeth-blast --config=test-mpi/config.yml
 fi
