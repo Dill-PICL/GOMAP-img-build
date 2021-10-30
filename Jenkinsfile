@@ -43,7 +43,6 @@ pipeline {
                     changeset 'singularity/*'
                     changeset 'Jenkinsfile' 
                     changeset 'test.sh'  
-                    changeset 'test-mpi.sh'
                 }
                 anyOf {
                     branch 'dev'
