@@ -33,7 +33,7 @@ pipeline {
                 sh '''
                     azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif ${BASE_IMAGE}.sif 
                     git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
-                '''
+                ''' 
             }
         } 
         stage('Test') {
