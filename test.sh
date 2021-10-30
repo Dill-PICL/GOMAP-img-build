@@ -4,7 +4,7 @@ instance_name="GOMAP-Base"
 img_loc="$PWD/$instance_name.sif"
 mkdir -p $PWD/tmp
 unset SINGULARITY_TMPDIR
-export TMPDIR="/dev/shm"
+# export TMPDIR="/dev/shm"
 
 if [ ! -f "$img_loc" ]
 then
