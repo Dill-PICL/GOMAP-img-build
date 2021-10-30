@@ -8,7 +8,7 @@ pipeline {
         VERSION = 'v1.3.8'   
         IPLANT_CREDS = credentials('iplant-credentials')
         BLOBSHARE_SAS = credentials('blobstorageSAS') 
-        BLOBSHARE_URL = "https://gokoolstorage.blob.core.windows.net/"
+        BLOBSHARE_URL = "https://gokoolstorage.blob.core.windows.net"
     }
     
     stages { 
