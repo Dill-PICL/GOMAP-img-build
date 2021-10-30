@@ -22,7 +22,7 @@ export SINGULARITY_BINDPATH="$PWD:/workdir,$PWD/tmp:/tmpdir"
 echo "$@"
 
 nodes=2
- 
+   
 if [[ $# -eq 1 ]] 
 then
 	mpiexec -np $nodes singularity run -W $PWD/tmp $img_loc --step=$1 --config=test-mpi/config.yml
