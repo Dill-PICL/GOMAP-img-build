@@ -40,7 +40,7 @@ pipeline {
             when {
                 anyOf {
                     changeset 'singularity/*'
-                    changeset 'Jenkinsfile'
+                    changeset 'Jenkinsfile' 
                     changeset 'test.sh'  
                 }
                 anyOf {
