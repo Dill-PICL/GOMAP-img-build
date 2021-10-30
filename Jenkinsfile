@@ -83,6 +83,11 @@ pipeline {
                     ./test.sh mixmeth
                 '''
 
+                echo 'Waiting for Argot2 Results..'
+                sh '''
+                    sleep 240
+                '''
+
                 echo 'Testing aggregate..'
                 sh '''
                     ./test.sh aggregate
