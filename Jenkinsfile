@@ -118,7 +118,7 @@ pipeline {
                     }
                 }
             }
-            steps 
+            steps {
                 echo 'Testing MPI IPRS..'
                 sh '''
                     ./test-mpi.sh domain
