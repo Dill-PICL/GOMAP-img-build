@@ -5,7 +5,7 @@ pipeline {
         BASE_IMAGE = 'GOMAP-Base'
         BASE_VERSION = 'v1.1.2'  
         IMAGE = 'GOMAP'
-        VERSION = 'v1.3.8'   
+        VERSION = 'v1.3.8'
         IPLANT_CREDS = credentials('iplant-credentials')
         BLOBSHARE_SAS = credentials('blobstorageSAS')   
         BLOBSHARE_URL = "https://gokoolstorage.blob.core.windows.net"
@@ -85,7 +85,7 @@ pipeline {
 
                 echo 'Waiting for Argot2 Results..'
                 sh '''
-                    sleep 240
+                    sleep 120
                 '''
 
                 echo 'Testing aggregate..'
@@ -115,10 +115,10 @@ pipeline {
                     azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif singularity/${BASE_IMAGE}.sif
                     if [ -d tmp ]
                     then
-                        sudo rm -r tmp
+                        sudo rm -r tmp2
                     fi
-                    mkdir tmp && \
-                    sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity
+                    mkdir tmp2 && \
+                    sudo singularity build --tmpdir $PWD/tmp2  ${IMAGE}.sif singularity/Singularity
                     singularity run ${IMAGE}.sif -h
                 '''
             }

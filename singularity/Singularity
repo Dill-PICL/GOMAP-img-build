@@ -1,10 +1,10 @@
 Bootstrap: localimage
-From: GOMAP-base.sif
+From: GOMAP-Base.sif
 
 %labels
 GOMAP_OWNER Wimalanathan Kokulapalan
 GOMAP_MAINTAINER Wimalanathan Kokulapalan 
-GOMAP_VERSION v1.3.7
+GOMAP_VERSION v1.3.8
 
 %files
 	GOMAP /opt/
