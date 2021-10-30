@@ -1,0 +1,80 @@
+data:
+  domain:
+    split_path: tmp/domain/iprs/split
+    tmpdir: tmp/domain/iprs
+    tool: {name: Interproscan5, version: 5.25-64.0}
+  gaf: {agg_dir: gaf/e.agg_data, mixed_method_dir: gaf/a.mm_gaf, non_red_dir: gaf/d.non_red_gaf,
+    raw_dir: gaf/b.raw_gaf, uniq_dir: gaf/c.uniq_gaf}
+  go:
+    evidence_codes:
+      omitted: [IEA, ND, NAS]
+    gaf_col_data: {db: GOMAP, db_object_type: gene, db_reference: 'GOMAP:0000', evidence_code: IEA}
+    gaf_cols: /data/data/cols/gaf_cols.txt
+    obo: /data/data/go/go.obo
+  mixed-method:
+    argot2:
+      baseurl: http:/www.medcomp.medicina.unipd.it/Argot2-5/
+      batch_url: http:/www.medcomp.medicina.unipd.it/Argot2-5/insert_batch.php
+      payload: {blast_file: None, descr: None, email: None, filtra: checked, hmmer_file: None,
+        inf_content: '0', int_confidence: '0', measure: simgic, rule_system: both,
+        tax_id: None, totalScore: '0', w_hypoth: open_world}
+      preprocess: {blast: tmp/mixed-meth/argot2.5/blast, hmmer: tmp/mixed-meth/argot2.5/hmmer,
+        html: tmp/mixed-meth/argot2.5/html}
+      result_dir: tmp/mixed-meth/argot2.5/results
+      score_th: {C: 0.05, F: 0.15, P: 0.15}
+    fanngo:
+      out_dir: tmp/mixed-meth/fanngo
+      score_th: {F: 0.65, P: 0.3}
+    pannzer:
+      conf_dir: tmp/mixed-meth/pannzer/conf
+      preprocess: {blast: tmp/mixed-meth/pannzer/blast}
+      result_dir: tmp/mixed-meth/pannzer/results
+      score_th: {C: 0.2, F: 0.55, P: 0.4}
+    preprocess:
+      blast_opts: [-evalue, 10e-10]
+      blast_out: tmp/mixed-meth/preprocess/blast
+      fa_path: tmp/mixed-meth/preprocess/fa
+      hmmerdb: /data/data/mixed-meth/pfamdb/Pfam-A.hmm
+      num_seqs: '5000'
+      small_seqs: '100'
+      uniprot_db: /data/data/mixed-meth/uniprot/uniprot_2017_07.sel
+  seq-sim:
+    TAIR:
+      basedir: /data/data/seq-sim/tair
+      basename: At.TAIR10
+      metadata: {date: '', species: arabidopsis, version: TAIR10}
+      tmpdir: tmp/seq-sim/tair
+    uniprot:
+      basedir: /data/data/seq-sim/uniprot
+      basename: Plant.UniProt.hc
+      cleaning:
+        omit_tax: ['4577']
+        sel_tax: ['15368', '29760', '3055', '3218', '3694', '3702', '3847', '39947',
+          '4081', '4558']
+      metadata: {species: uniprot, version: '2017-07-26'}
+      tmpdir: tmp/seq-sim/uniprot
+input: {basename: 0.3_GOMAP-input, big_split_path: input/big_split, config_file: /workdir/test/GOMAP-0.3_GOMAP-input/0.3_GOMAP-input.all.yml,
+  cpus: 120, email: kokul@bioinformapping.com, fasta: 0.3_GOMAP-input.fa, gomap_dir: /workdir/test/GOMAP-0.3_GOMAP-input,
+  mpi: false, num_seqs: 30, openmpi: false, small_seqs: 10, species: Zea mays, split_path: input/split,
+  taxon: '4577', tmpdir: /tmpdir, workdir: /workdir/test}
+logging: {format: '%(levelname)s [%(asctime)s] %(message)s', formatTime: '%Y-%m-%d
+    %H:%M', level: DEBUG}
+pipeline: {config_file: pipeline.json, dir_struct: config/dirs.yml, name: GOMAP, pipeline_loc: /opt/GOMAP,
+  version: v1.3.7}
+software:
+  blast:
+    bin: /data/software/blast-2.6.0+/bin
+    cols: /data/data/cols/blast_cols.txt
+    evalue: 10e-10
+    opt_params: []
+  fanngo: {path: /data/software/FANNGO_linux_x64, template: code/fanngo_template.m}
+  hmmer: {path: /data/software/hmmer-3.1b2-linux-intel-x86_64/binaries}
+  iprs:
+    cols: /data/data/cols/iprs_cols.txt
+    options: []
+    path: /data/software/interproscan-5.25-64.0
+  pannzer:
+    conf_template: template.conf
+    database: {SQL_DB: pannzer, SQL_DB_HOST: localhost, SQL_DB_PASSWORD: '', SQL_DB_PORT: '',
+      SQL_DB_SOCKET: /run/mysqld/mysqld.sock, SQL_DB_USER: pannzer}
+    path: /data/software/PANNZER

@@ -2,11 +2,13 @@ pipeline {
     agent { label 'ubuntu' }
     environment {
         CONTAINER = 'gomap'
+        BASE_IMAGE = 'GOMAP-Base'
+        BASE_VERSION = 'v1.1.2'  
         IMAGE = 'GOMAP'
-        VERSION = 'v1.3.7'
+        VERSION = 'v1.3.8'
         IPLANT_CREDS = credentials('iplant-credentials')
-        FILESHARE_SAS = credentials('fileshareSAS') 
-        BLOBSHARE_SAS = credentials('blobstorageSAS') 
+        BLOBSHARE_SAS = credentials('blobstorageSAS')   
+        BLOBSHARE_URL = "https://gokoolstorage.blob.core.windows.net"
     }
     stages { 
         stage('Setup Test Env') {
@@ -14,6 +16,8 @@ pipeline {
                 anyOf {
                     changeset 'singularity/*'
                     changeset 'Jenkinsfile'
+                    changeset 'test.sh'
+                    changeset 'test-mpi.sh'
                 }
                 anyOf {
                     branch 'dev'     
@@ -27,31 +31,17 @@ pipeline {
             steps {
                 echo 'Setting up test env' 
                 sh '''
-                    echo $FILEPATH
-                    git lfs pull
-                    # singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
-                    #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
-                    rsync -P /gomap/GOMAP-base_latest.sif GOMAP-base.sif
-                '''
-
-                sh '''
-                    du -chs *
+                    azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif ${BASE_IMAGE}.sif 
                     git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
-                    mkdir -p GOMAP/data/data/ && 
-                    #rsync -ruP /gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/ && 
-                    azcopy sync https://gokoolstorage.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/  --recursive=true && 
-                    mkdir -p GOMAP/data/software/ && 
-                    azcopy sync https://gokoolstorage.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ --recursive=true &&
-                    #rsync -ruP /gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ && 
-                    chmod -R a+rwx GOMAP/data/software/
                 ''' 
-            }
-        }
+            }  
+        } 
         stage('Test') {
             when {
                 anyOf {
                     changeset 'singularity/*'
-                    changeset 'Jenkinsfile'  
+                    changeset 'Jenkinsfile' 
+                    changeset 'test.sh'  
                 }
                 anyOf {
                     branch 'dev'
@@ -93,9 +83,47 @@ pipeline {
                     ./test.sh mixmeth
                 '''
 
+                echo 'Waiting for Argot2 Results..'
+                sh '''
+                    sleep 120
+                '''
+
                 echo 'Testing aggregate..'
                 sh '''
-                    ./test.sh aggregate
+                    ./test-mpi.sh domain
+                '''
+                
+                echo 'Testing MPI Blast'
+                sh '''
+                    ./test.sh domain
+                '''
+            }
+        }
+        stage('Test MPI') {
+            when {
+                anyOf {
+                    changeset 'singularity/*'
+                    changeset 'Jenkinsfile'
+                    changeset 'test-mpi.sh'
+                }
+                anyOf {
+                    branch 'dev'
+                }
+                anyOf {
+                     expression { 
+                        sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
+                    }
+                }
+            }
+            steps {
+                echo 'Testing MPI IPRS..'
+                sh '''
+                    ./test-mpi.sh domain
+                '''
+                
+                echo 'Testing MPI Blast'
+                sh '''
+                    ./test-mpi.sh mixmeth-blast
                 '''
             }
         }
@@ -104,6 +132,8 @@ pipeline {
                 anyOf {
                     changeset 'singularity/*'
                     changeset 'Jenkinsfile'
+                    changeset 'test.sh'
+                    changeset 'test-mpi.sh'
                 }
                 anyOf {
                     branch 'dev'
@@ -116,17 +146,13 @@ pipeline {
             }
             steps {
                 sh '''
-                    rsync -P /gomap/GOMAP-base_latest.sif GOMAP-base.sif 
-                    rsync -P /gomap/GOMAP-base_latest.sif singularity/GOMAP-base.sif 
-                    #azcopy cp "https://gokoolstorage.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
-                    #azcopy cp "https://gokoolstorage.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" singularity/GOMAP-base.sif
-                    if [ -d tmp ]
+                    azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif singularity/${BASE_IMAGE}.sif
+                    if [ -d tmp2 ]
                     then
-                        sudo rm -r tmp
+                        sudo rm -r tmp2
                     fi
-                    mkdir tmp && \
-                    sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity
-                    sudo rm -r $PWD/tmp
+                    mkdir tmp2 && \
+                    sudo singularity build --tmpdir $PWD/tmp2  ${IMAGE}.sif singularity/Singularity
                     singularity run ${IMAGE}.sif -h
                 '''
             }
@@ -135,7 +161,9 @@ pipeline {
             when {
                 anyOf {
                     changeset 'singularity/*'
-                    changeset 'Jenkinsfile'  
+                    changeset 'Jenkinsfile'
+                    changeset 'test.sh'  
+                    changeset 'test-mpi.sh' 
                 }
                 anyOf {
                     branch 'dev'
@@ -150,8 +178,7 @@ pipeline {
                 echo 'Image Successfully tested'
                 sh '''
                     mkdir -p /${CONTAINER}/${IMAGE}/${VERSION}/
-                    rsync -v ${IMAGE}.sif /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif 
-                    #azcopy cp ${IMAGE}.sif "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}"
+                    rsync -vP ${IMAGE}.sif /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif 
                 '''
                 echo 'Image Successfully uploaded'
             }
@@ -161,6 +188,8 @@ pipeline {
                 anyOf {
                     changeset 'singularity/*'
                     changeset 'Jenkinsfile'
+                    changeset 'test.sh'
+                    changeset 'test-mpi.sh'
                 }
                 anyOf {
                     branch 'master'
@@ -176,8 +205,7 @@ pipeline {
                 echo 'Copying from File Share to local Disk'
                 
                 sh '''
-                    #rsync /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif
-                    azcopy cp "https://gokoolstorage.blob.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ${IMAGE}.sif
+                    rsync -vP ${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif 
                 '''
                 
 
