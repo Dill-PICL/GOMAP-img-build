@@ -7,8 +7,8 @@ pipeline {
         IMAGE = 'GOMAP'
         VERSION = 'v1.3.8'   
         IPLANT_CREDS = credentials('iplant-credentials')
-        FILESHARE_SAS = credentials('fileshareSAS') 
         BLOBSHARE_SAS = credentials('blobstorageSAS') 
+        BLOBSHARE_URL = "https://gokoolstorage.blob.core.windows.net/"
     }
     
     stages { 
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 echo 'Setting up test env' 
                 sh '''
-                    rsync -v /${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif ${BASE_IMAGE}.sif 
+                    azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif ${BASE_IMAGE}.sif 
                     git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
                 '''
             }
@@ -104,7 +104,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    rsync -v /${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif singularity/${BASE_IMAGE}.sif 
+                    azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif singularity/${BASE_IMAGE}.sif
                     if [ -d tmp ]
                     then
                         sudo rm -r tmp
@@ -134,7 +134,7 @@ pipeline {
                 echo 'Image Successfully tested'
                 sh '''
                     mkdir -p /${CONTAINER}/${IMAGE}/${VERSION}/
-                    rsync -v ${IMAGE}.sif /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif 
+                    rsync -vP ${IMAGE}.sif /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif 
                 '''
                 echo 'Image Successfully uploaded'
             }
@@ -159,7 +159,7 @@ pipeline {
                 echo 'Copying from File Share to local Disk'
                 
                 sh '''
-                    rsync ${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif 
+                    rsync -vP ${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif 
                 '''
                 
 
