@@ -113,7 +113,7 @@ pipeline {
             steps {
                 sh '''
                     azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif singularity/${BASE_IMAGE}.sif
-                    if [ -d tmp ]
+                    if [ -d tmp2 ]
                     then
                         sudo rm -r tmp2
                     fi
