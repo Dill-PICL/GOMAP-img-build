@@ -2,8 +2,10 @@ pipeline {
     agent { label 'ubuntu' }
     environment {
         CONTAINER = 'gomap'
+        BASE_IMAGE = 'GOMAP-Base'
+        BASE_VERSION = 'v1.1.2'  
         IMAGE = 'GOMAP'
-        VERSION = 'v1.3.7'   
+        VERSION = 'v1.3.8'   
         IPLANT_CREDS = credentials('iplant-credentials')
         FILESHARE_SAS = credentials('fileshareSAS') 
         BLOBSHARE_SAS = credentials('blobstorageSAS') 
@@ -28,24 +30,9 @@ pipeline {
             steps {
                 echo 'Setting up test env' 
                 sh '''
-                    echo $FILEPATH
-                    git lfs pull
-                    # singularity pull GOMAP-base.sif shub://Dill-PICL/GOMAP-base > /dev/null
-                    #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
-                    rsync -P /gomap/GOMAP-base_latest.sif GOMAP-base.sif
-                '''
-
-                sh '''
-                    du -chs *
+                    rsync -v /${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif ${BASE_IMAGE}.sif 
                     git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
-                    mkdir -p GOMAP/data/data/ && 
-                    #rsync -ruP /gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/ && 
-                    azcopy sync https://gokoolstorage.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/data/ GOMAP/data/data/  --recursive=true && 
-                    mkdir -p GOMAP/data/software/ && 
-                    azcopy sync https://gokoolstorage.blob.core.windows.net/gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ --recursive=true &&
-                    #rsync -ruP /gomap/GOMAP-1.3/pipelineData/software/ GOMAP/data/software/ && 
-                    chmod -R a+rwx GOMAP/data/software/
-                ''' 
+                '''
             }
         }
         stage('Test') {
@@ -117,17 +104,13 @@ pipeline {
             }
             steps {
                 sh '''
-                    rsync -P /gomap/GOMAP-base_latest.sif GOMAP-base.sif 
-                    rsync -P /gomap/GOMAP-base_latest.sif singularity/GOMAP-base.sif 
-                    #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" GOMAP-base.sif
-                    #azcopy cp "https://gomap.file.core.windows.net/gomap/GOMAP/base/GOMAP-base.sif${FILESHARE_SAS}" singularity/GOMAP-base.sif
+                    rsync -v /${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif singularity/${BASE_IMAGE}.sif 
                     if [ -d tmp ]
                     then
                         sudo rm -r tmp
                     fi
                     mkdir tmp && \
                     sudo singularity build --tmpdir $PWD/tmp  ${IMAGE}.sif singularity/Singularity
-                    sudo rm -r $PWD/tmp
                     singularity run ${IMAGE}.sif -h
                 '''
             }
@@ -152,7 +135,6 @@ pipeline {
                 sh '''
                     mkdir -p /${CONTAINER}/${IMAGE}/${VERSION}/
                     rsync -v ${IMAGE}.sif /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif 
-                    #azcopy cp ${IMAGE}.sif "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}"
                 '''
                 echo 'Image Successfully uploaded'
             }
@@ -178,7 +160,6 @@ pipeline {
                 
                 sh '''
                     rsync ${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif 
-                    #azcopy cp "https://gomap.file.core.windows.net/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${FILESHARE_SAS}" ${IMAGE}.sif
                 '''
                 
 
