@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-instance_name="GOMAP-base"
+instance_name="GOMAP-Base"
 img_loc="$PWD/$instance_name.sif"
 mkdir -p $PWD/tmp
 unset SINGULARITY_TMPDIR
