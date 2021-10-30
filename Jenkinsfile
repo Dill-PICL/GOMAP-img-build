@@ -105,8 +105,7 @@ pipeline {
             when {
                 anyOf {
                     changeset 'singularity/*'
-                    changeset 'Jenkinsfile' 
-                    changeset 'test.sh'  
+                    changeset 'Jenkinsfile'
                     changeset 'test-mpi.sh'
                 }
                 anyOf {
