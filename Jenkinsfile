@@ -1,5 +1,11 @@
+def agentLabel
+if(BRANCH_NAME=="master"){
+    agentLabel = "master"
+} else {
+    agentLabel = "ubuntu"
+}
 pipeline {
-    agent { label 'ubuntu' }
+    agent { label 'master' }
     environment {
         CONTAINER = 'gomap'
         BASE_IMAGE = 'GOMAP-Base'
