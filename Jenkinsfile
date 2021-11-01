@@ -210,9 +210,9 @@ pipeline {
                 echo 'Image Successfully tested'
                 echo 'Copying from File Share to local Disk'
                 
-                sh '''
-                    azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif  
-                '''
+                // sh '''
+                //     azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif  
+                // '''
 
                 echo 'Syncing to Cyverse and logging in'
                 sh '''#!/bin/bash
@@ -222,7 +222,7 @@ pipeline {
                     set -x
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    irsync -sV -N 32 ${IMAGE}.sif  i:${IMAGE}.sif &&  \
+                    irsync -sV -N 2 /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif  i:${IMAGE}.sif &&  \
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
                     ichmod -r read public /iplant/home/shared/dillpicl/${CONTAINER}
                 '''  
