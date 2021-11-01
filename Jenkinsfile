@@ -4,7 +4,7 @@ if(BRANCH_NAME=="master"){
 } else {
     agentLabel = "ubuntu"
 }
-pipeline {
+pipeline {  
     agent { label 'master' }
     environment {
         CONTAINER = 'gomap'
