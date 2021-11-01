@@ -5,7 +5,7 @@ if(BRANCH_NAME=="master"){
     agentLabel = "ubuntu"
 }
 pipeline {  
-    agent { label 'master' }
+    agent { label agentLabel }
     environment {
         CONTAINER = 'gomap'
         BASE_IMAGE = 'GOMAP-Base'
