@@ -32,9 +32,9 @@ pipeline {
                 echo 'Setting up test env' 
                 sh '''
                     azcopy cp "${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif${BLOBSHARE_SAS}"   ${BASE_IMAGE}.sif
-                    git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
+                    git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git      
                 ''' 
-            }  
+            }     
         } 
         stage('Test') {
             when {
