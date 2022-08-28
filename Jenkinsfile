@@ -2,7 +2,7 @@ pipeline {
     agent { label 'ubuntu' }
     environment {
         CONTAINER = 'gomap'
-        BASE_IMAGE = '`Base'
+        BASE_IMAGE = 'GOMAP-Base'
         BASE_VERSION = 'v1.1.2'  
         IMAGE = 'GOMAP'
         VERSION = 'v1.3.9'
