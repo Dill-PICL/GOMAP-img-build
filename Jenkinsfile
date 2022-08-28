@@ -12,7 +12,7 @@ pipeline {
     }
     stages { 
         stage('Setup Test Env') {
-            when {
+            when { 
                 anyOf {
                     changeset 'singularity/*'
                     changeset 'Jenkinsfile'
