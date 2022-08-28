@@ -2,10 +2,10 @@ pipeline {
     agent { label 'ubuntu' }
     environment {
         CONTAINER = 'gomap'
-        BASE_IMAGE = 'GOMAP-Base'
+        BASE_IMAGE = '`Base'
         BASE_VERSION = 'v1.1.2'  
         IMAGE = 'GOMAP'
-        VERSION = 'v1.3.8'
+        VERSION = 'v1.3.9'
         IPLANT_CREDS = credentials('iplant-credentials')
         BLOBSHARE_SAS = credentials('blobstorageSAS')   
         BLOBSHARE_URL = "https://gokoolstorage.blob.core.windows.net"
