@@ -36,6 +36,7 @@ pipeline {
                     then
                         rm -rf GOMAP
                     fi
+                    rm -rf tmp
                     git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git      
                 ''' 
             }     
