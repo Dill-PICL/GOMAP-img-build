@@ -3,7 +3,7 @@ pipeline {
     environment {
         CONTAINER = 'gomap'
         BASE_IMAGE = 'GOMAP-Base'
-        BASE_VERSION = 'v1.1.2'
+        BASE_VERSION = 'v1.1.3'
         IMAGE = 'GOMAP'
         VERSION = 'v1.3.9'
         IPLANT_CREDS = credentials('iplant-credentials')
