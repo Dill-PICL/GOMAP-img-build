@@ -26,7 +26,7 @@ pipeline {
                      expression { 
                          sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
-                }
+                }   
             }
             steps {
                 echo 'Setting up test env' 
