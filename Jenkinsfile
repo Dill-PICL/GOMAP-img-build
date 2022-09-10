@@ -257,6 +257,7 @@ pipeline {
                     set -x
                     ils
                 '''
+                
                 echo 'Copying the image to Cyverse'
                 sh '''#!/bin/bash
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
