@@ -246,11 +246,9 @@ pipeline {
             steps {
                 echo 'Image Successfully tested'
                 echo 'Copying from File Share to local Disk'
-                
                 sh '''
                     azcopy cp "${BLOBSHARE_URL}/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${BLOBSHARE_SAS}" ${IMAGE}.sif  
                 '''
-
                 echo 'Syncing to Cyverse and logging in'
                 sh '''#!/bin/bash
                     rsync -r /gomap/.irods ~/
