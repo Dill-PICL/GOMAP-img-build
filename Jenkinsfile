@@ -249,15 +249,19 @@ pipeline {
                 sh '''
                     azcopy cp "${BLOBSHARE_URL}/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${BLOBSHARE_SAS}" ${IMAGE}.sif  
                 '''
-                echo 'Syncing to Cyverse and logging in'
+                echo 'Logging in to Cyverse'
                 sh '''#!/bin/bash
-                    rsync -r /gomap/.irods ~/
+                    rsync -ruP /gomap/.irods ~/
                     set +x 
                     echo ${IPLANT_CREDS_PSW} | iinit
                     set -x
+                    ils
+                '''
+                echo 'Copying the image to Cyverse'
+                sh '''#!/bin/bash
                     imkdir -p /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
                     icd /iplant/home/shared/dillpicl/${CONTAINER}/${IMAGE}/${VERSION}/ && \
-                    irsync -sV -N 32 /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif  i:${IMAGE}.sif &&  \
+                    irsync -sV -N 32 ${IMAGE}.sif  i:${IMAGE}.sif &&  \
                     ichmod -r read anonymous /iplant/home/shared/dillpicl/${CONTAINER} && \
                     ichmod -r read public /iplant/home/shared/dillpicl/${CONTAINER}
                 '''  
