@@ -210,7 +210,7 @@ pipeline {
             steps {
                 echo 'Image Successfully tested'
                 sh '''                    
-                    azcopy cp singularity/${IMAGE}.sif "${BLOBSHARE_URL}/${CONTAINER}/${VERSION}/${IMAGE}.sif${BLOBSHARE_SAS}"
+                    azcopy cp ${IMAGE}.sif "${BLOBSHARE_URL}/${CONTAINER}/${VERSION}/${IMAGE}.sif${BLOBSHARE_SAS}"
                 '''
                 echo 'Image Successfully uploaded'
             }
