@@ -242,7 +242,7 @@ pipeline {
                         sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
                 }
-            }
+            }  
             steps {
                 echo 'Image Successfully tested'
                 echo 'Copying from File Share to local Disk'
