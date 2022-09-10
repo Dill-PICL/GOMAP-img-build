@@ -13,11 +13,16 @@ pipeline {
     stages { 
         stage('Setup Test Env') {
             when { 
-                anyOf {
-                    changeset 'singularity/*'
-                    changeset 'Jenkinsfile'
-                    changeset 'test.sh'
-                    changeset 'test-mpi.sh'
+                anyOf{
+                    anyOf {
+                        changeset 'singularity/*'
+                        changeset 'Jenkinsfile'
+                        changeset 'test.sh'
+                        changeset 'test-mpi.sh'
+                    }
+                    expression {
+                       currentBuild.buildCauses.toString().contains('UserIdCause')
+                    }
                 }
                 anyOf {
                     branch 'dev'     
@@ -47,10 +52,16 @@ pipeline {
         } 
         stage('Test') {
             when {
-                anyOf {
-                    changeset 'singularity/*'
-                    changeset 'Jenkinsfile' 
-                    changeset 'test.sh'
+                anyOf{
+                    anyOf {
+                        changeset 'singularity/*'
+                        changeset 'Jenkinsfile'
+                        changeset 'test.sh'
+                        changeset 'test-mpi.sh'
+                    }
+                    expression {
+                       currentBuild.buildCauses.toString().contains('UserIdCause')
+                    }
                 }
                 anyOf {
                     branch 'dev'
@@ -107,10 +118,16 @@ pipeline {
         }
         stage('Test MPI') {
             when {
-                anyOf {
-                    changeset 'singularity/*'
-                    changeset 'Jenkinsfile'
-                    changeset 'test-mpi.sh'
+                anyOf{
+                    anyOf {
+                        changeset 'singularity/*'
+                        changeset 'Jenkinsfile'
+                        changeset 'test.sh'
+                        changeset 'test-mpi.sh'
+                    }
+                    expression {
+                       currentBuild.buildCauses.toString().contains('UserIdCause')
+                    }
                 }
                 anyOf {
                     branch 'dev'
@@ -135,11 +152,16 @@ pipeline {
         }
         stage('Build') {
             when {
-                anyOf {
-                    changeset 'singularity/*'
-                    changeset 'Jenkinsfile'
-                    changeset 'test.sh'
-                    changeset 'test-mpi.sh'
+                anyOf{
+                    anyOf {
+                        changeset 'singularity/*'
+                        changeset 'Jenkinsfile'
+                        changeset 'test.sh'
+                        changeset 'test-mpi.sh'
+                    }
+                    expression {
+                       currentBuild.buildCauses.toString().contains('UserIdCause')
+                    }
                 }
                 anyOf {
                     branch 'dev'
@@ -165,11 +187,16 @@ pipeline {
         }
         stage('Copy Tmp Image') {
             when {
-                anyOf {
-                    changeset 'singularity/*'
-                    changeset 'Jenkinsfile'
-                    changeset 'test.sh'  
-                    changeset 'test-mpi.sh' 
+                anyOf{
+                    anyOf {
+                        changeset 'singularity/*'
+                        changeset 'Jenkinsfile'
+                        changeset 'test.sh'
+                        changeset 'test-mpi.sh'
+                    }
+                    expression {
+                       currentBuild.buildCauses.toString().contains('UserIdCause')
+                    }
                 }
                 anyOf {
                     branch 'dev'
@@ -190,11 +217,16 @@ pipeline {
         }
         stage('Push Artifacts') {
             when {
-                anyOf {
-                    changeset 'singularity/*'
-                    changeset 'Jenkinsfile'
-                    changeset 'test.sh'
-                    changeset 'test-mpi.sh'
+                anyOf{
+                    anyOf {
+                        changeset 'singularity/*'
+                        changeset 'Jenkinsfile'
+                        changeset 'test.sh'
+                        changeset 'test-mpi.sh'
+                    }
+                    expression {
+                       currentBuild.buildCauses.toString().contains('UserIdCause')
+                    }
                 }
                 anyOf {
                     branch 'master'
