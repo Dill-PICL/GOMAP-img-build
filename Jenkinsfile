@@ -99,13 +99,10 @@ pipeline {
 
                 echo 'Testing aggregate..'
                 sh '''
-                    ./test-mpi.sh domain
+                    ./test.sh aggregate
                 '''
                 
-                echo 'Testing MPI Blast'
-                sh '''
-                    ./test.sh domain
-                '''
+                
             }
         }
         stage('Test MPI') {
