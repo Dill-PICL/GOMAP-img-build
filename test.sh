@@ -4,7 +4,7 @@ instance_name="GOMAP-Base"
 img_loc="$PWD/$instance_name.sif"
 mkdir -p $PWD/tmp
 unset SINGULARITY_TMPDIR
-export TMPDIR="/dev/shm"
+# export TMPDIR="$PWD/tmpdir"
 
 if [ ! -f "$img_loc" ]
 then
@@ -17,7 +17,10 @@ then
     tmpdir=${TMPDIR:-$PWD/tmp}
 fi
 
+
 export SINGULARITY_BINDPATH="$PWD:/workdir,$tmpdir:/tmpdir,GOMAP:/opt/GOMAP"
+
+echo "$SINGULARITY_BINDPATH"
 
 echo "$@"
 
@@ -34,7 +37,7 @@ else
 	singularity run -c $img_loc --step=mixmeth-blast --config=test/config.yml && \
 	singularity run -c $img_loc --step=mixmeth-preproc --config=test/config.yml && \
 	singularity run -c $img_loc --step=mixmeth --config=test/config.yml && \
-	sleep 180 && \
+	sleep 60 && \
 	singularity run -c $img_loc --step=aggregate --config=test/config.yml && \
 	test/check_results.sh
 fi

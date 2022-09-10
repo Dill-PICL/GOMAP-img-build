@@ -9,21 +9,26 @@ pipeline {
     environment {
         CONTAINER = 'gomap'
         BASE_IMAGE = 'GOMAP-Base'
-        BASE_VERSION = 'v1.1.2'  
+        BASE_VERSION = 'v1.1.3' 
         IMAGE = 'GOMAP'
-        VERSION = 'v1.3.8'
+        VERSION = 'v1.3.9'
         IPLANT_CREDS = credentials('iplant-credentials')
-        BLOBSHARE_SAS = credentials('blobstorageSAS')   
+        BLOBSHARE_SAS = credentials('blobstorageSAS')    
         BLOBSHARE_URL = "https://gokoolstorage.blob.core.windows.net"
     }
     stages { 
         stage('Setup Test Env') {
-            when {
-                anyOf {
-                    changeset 'singularity/*'
-                    changeset 'Jenkinsfile'
-                    changeset 'test.sh'
-                    changeset 'test-mpi.sh'
+            when { 
+                anyOf{
+                    anyOf {
+                        changeset 'singularity/*'
+                        changeset 'Jenkinsfile'
+                        changeset 'test.sh'
+                        changeset 'test-mpi.sh'
+                    }
+                    expression {
+                       currentBuild.buildCauses.toString().contains('UserIdCause')
+                    }
                 }
                 anyOf {
                     branch 'dev'     
@@ -32,22 +37,37 @@ pipeline {
                      expression { 
                          sh(returnStdout: true, script: '[ -f "/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif" ] && echo "true" || echo "false"').trim()  == 'false' 
                     }
-                }
+                }   
             }
             steps {
                 echo 'Setting up test env' 
                 sh '''
-                    azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif ${BASE_IMAGE}.sif 
-                    git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git
+                    azcopy cp "${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif${BLOBSHARE_SAS}"   ${BASE_IMAGE}.sif
+                    if [ -d "GOMAP" ]
+                    then
+                        rm -rf GOMAP
+                    fi
+                    if [ -d "tmp" ]
+                    then
+                        rm -rf tmp
+                    fi
+                    mkdir -p tmp
+                    git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git      
                 ''' 
-            }  
+            }     
         } 
         stage('Test') {
             when {
-                anyOf {
-                    changeset 'singularity/*'
-                    changeset 'Jenkinsfile' 
-                    changeset 'test.sh'  
+                anyOf{
+                    anyOf {
+                        changeset 'singularity/*'
+                        changeset 'Jenkinsfile'
+                        changeset 'test.sh'
+                        changeset 'test-mpi.sh'
+                    }
+                    expression {
+                       currentBuild.buildCauses.toString().contains('UserIdCause')
+                    }
                 }
                 anyOf {
                     branch 'dev'
@@ -96,21 +116,24 @@ pipeline {
 
                 echo 'Testing aggregate..'
                 sh '''
-                    ./test-mpi.sh domain
+                    ./test.sh aggregate
                 '''
                 
-                echo 'Testing MPI Blast'
-                sh '''
-                    ./test.sh domain
-                '''
+                
             }
         }
         stage('Test MPI') {
             when {
-                anyOf {
-                    changeset 'singularity/*'
-                    changeset 'Jenkinsfile'
-                    changeset 'test-mpi.sh'
+                anyOf{
+                    anyOf {
+                        changeset 'singularity/*'
+                        changeset 'Jenkinsfile'
+                        changeset 'test.sh'
+                        changeset 'test-mpi.sh'
+                    }
+                    expression {
+                       currentBuild.buildCauses.toString().contains('UserIdCause')
+                    }
                 }
                 anyOf {
                     branch 'dev'
@@ -135,11 +158,16 @@ pipeline {
         }
         stage('Build') {
             when {
-                anyOf {
-                    changeset 'singularity/*'
-                    changeset 'Jenkinsfile'
-                    changeset 'test.sh'
-                    changeset 'test-mpi.sh'
+                anyOf{
+                    anyOf {
+                        changeset 'singularity/*'
+                        changeset 'Jenkinsfile'
+                        changeset 'test.sh'
+                        changeset 'test-mpi.sh'
+                    }
+                    expression {
+                       currentBuild.buildCauses.toString().contains('UserIdCause')
+                    }
                 }
                 anyOf {
                     branch 'dev'
@@ -152,7 +180,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif singularity/${BASE_IMAGE}.sif
+                    azcopy cp "${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif${BLOBSHARE_SAS}" singularity/${BASE_IMAGE}.sif
                     if [ -d tmp2 ]
                     then
                         sudo rm -r tmp2
@@ -165,11 +193,16 @@ pipeline {
         }
         stage('Copy Tmp Image') {
             when {
-                anyOf {
-                    changeset 'singularity/*'
-                    changeset 'Jenkinsfile'
-                    changeset 'test.sh'  
-                    changeset 'test-mpi.sh' 
+                anyOf{
+                    anyOf {
+                        changeset 'singularity/*'
+                        changeset 'Jenkinsfile'
+                        changeset 'test.sh'
+                        changeset 'test-mpi.sh'
+                    }
+                    expression {
+                       currentBuild.buildCauses.toString().contains('UserIdCause')
+                    }
                 }
                 anyOf {
                     branch 'dev'
@@ -182,20 +215,24 @@ pipeline {
             }
             steps {
                 echo 'Image Successfully tested'
-                sh '''
-                    mkdir -p /${CONTAINER}/${IMAGE}/${VERSION}/
-                    rsync -vP ${IMAGE}.sif /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif 
+                sh '''                    
+                    azcopy cp ${IMAGE}.sif "${BLOBSHARE_URL}/${CONTAINER}/${VERSION}/${IMAGE}.sif${BLOBSHARE_SAS}"
                 '''
                 echo 'Image Successfully uploaded'
             }
         }
         stage('Push Artifacts') {
             when {
-                anyOf {
-                    changeset 'singularity/*'
-                    changeset 'Jenkinsfile'
-                    changeset 'test.sh'
-                    changeset 'test-mpi.sh'
+                anyOf{
+                    anyOf {
+                        changeset 'singularity/*'
+                        changeset 'Jenkinsfile'
+                        changeset 'test.sh'
+                        changeset 'test-mpi.sh'
+                    }
+                    expression {
+                       currentBuild.buildCauses.toString().contains('UserIdCause')
+                    }
                 }
                 anyOf {
                     branch 'master'
@@ -210,9 +247,9 @@ pipeline {
                 echo 'Image Successfully tested'
                 echo 'Copying from File Share to local Disk'
                 
-                // sh '''
-                //     azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif  
-                // '''
+                sh '''
+                    azcopy cp "${BLOBSHARE_URL}/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${BLOBSHARE_SAS}" ${IMAGE}.sif  
+                '''
 
                 echo 'Syncing to Cyverse and logging in'
                 sh '''#!/bin/bash
@@ -231,3 +268,4 @@ pipeline {
         }
     }
 }
+
