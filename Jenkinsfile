@@ -152,7 +152,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif singularity/${BASE_IMAGE}.sif
+                    azcopy cp "${BLOBSHARE_URL}/${CONTAINER}/${BASE_IMAGE}/${BASE_VERSION}/${BASE_IMAGE}.sif${BLOBSHARE_SAS}" singularity/${BASE_IMAGE}.sif
                     if [ -d tmp2 ]
                     then
                         sudo rm -r tmp2
@@ -182,9 +182,8 @@ pipeline {
             }
             steps {
                 echo 'Image Successfully tested'
-                sh '''
-                    mkdir -p /${CONTAINER}/${IMAGE}/${VERSION}/
-                    rsync -vP ${IMAGE}.sif /${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif 
+                sh '''                    
+                    azcopy cp singularity/${IMAGE}.sif "${BLOBSHARE_URL}/${CONTAINER}/${VERSION}/${IMAGE}.sif${BLOBSHARE_SAS}"
                 '''
                 echo 'Image Successfully uploaded'
             }
@@ -211,7 +210,7 @@ pipeline {
                 echo 'Copying from File Share to local Disk'
                 
                 sh '''
-                    azcopy cp ${BLOBSHARE_URL}/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif ${IMAGE}.sif  
+                    azcopy cp "${BLOBSHARE_URL}/${CONTAINER}/${IMAGE}/${VERSION}/${IMAGE}.sif${BLOBSHARE_SAS}" ${IMAGE}.sif  
                 '''
 
                 echo 'Syncing to Cyverse and logging in'
