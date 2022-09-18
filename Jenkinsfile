@@ -52,7 +52,7 @@ pipeline {
                         rm -rf tmp
                     fi
                     mkdir -p tmp
-                    git clone --branch=dev https://github.com/Dill-PICL/GOMAP.git      
+                    git clone --branch=master https://github.com/Dill-PICL/GOMAP.git
                 ''' 
             }     
         } 
