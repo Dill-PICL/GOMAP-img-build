@@ -5,7 +5,7 @@ pipeline {
         BASE_IMAGE = 'GOMAP-Base'
         BASE_VERSION = 'v1.1.3' 
         IMAGE = 'GOMAP'
-        VERSION = 'v1.4.0'  
+        VERSION = 'v1.4.0'     
         IPLANT_CREDS = credentials('iplant-credentials')
         BLOBSHARE_SAS = credentials('blobstorageSAS')    
         BLOBSHARE_URL = "https://gokoolstorage.blob.core.windows.net"
